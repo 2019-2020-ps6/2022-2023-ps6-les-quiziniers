@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'app-quiz-list',
-  templateUrl: './quiz-list.component.html',
-  styleUrls: ['./quiz-list.component.scss']
+  selector:"app-gamepage",
+  templateUrl:'GamePageComponent.component.html',
+  styleUrls: ['./GamePageComponent.component.scss']
 })
 export class GamePageComponent implements OnInit {
-    constructor() {}
+  constructor() {}
     ngOnInit(): void {}
   }
