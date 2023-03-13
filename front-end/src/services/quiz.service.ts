@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import { QUIZ_LIST } from '../mocks/quiz-list.mocks';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
 
