@@ -3,8 +3,6 @@ import { QUIZ_LIST } from '../mocks/quiz-list.mocks';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
 
-...
-
 @Injectable({
   providedIn: 'root'
 })
