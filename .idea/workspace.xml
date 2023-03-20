@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7aa7e050-1ba7-453b-ab16-ef134f48009f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/1.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/index.pack.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/07cb948674e0648ab46b8295a6b0d984c1d659b2451eaa8d751ea28759346523.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/0a5d4e355ac341d451b73c213b70e87f0fd709314e585ce05f9ba5fdccb7617f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/a4908fd9c528d775d79f403e114aea1841b339980f7ade66aae9117afff0ef81.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/dae08e532f2c65b36765d201d0e6d1e3cb956f3dd0e9b30dddb840c7d5da81b6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/fd5de867f2f5781becd6efd861a6916da043c6ecaaa4d6eed5b458465f7c8bb6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/8dae24320fe6c8f5ebc7b94c4ec88be8ae2a71e8/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz/quiz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz/quiz.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/users/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/users/user/user.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

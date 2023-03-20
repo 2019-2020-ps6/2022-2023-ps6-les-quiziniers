@@ -10,7 +10,7 @@ import { User } from '../../../models/user.model';
 export class UserComponent implements OnInit {
 
   @Input()
-  user: User;
+  user?: User;
 
   @Output()
   deleteUser: EventEmitter<User> = new EventEmitter<User>();

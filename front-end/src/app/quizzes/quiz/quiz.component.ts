@@ -9,7 +9,7 @@ import { Quiz } from '../../../models/quiz.model';
 export class QuizComponent implements OnInit {
 
   @Input()
-  quiz: Quiz;
+  quiz?: Quiz;
 
   @Output()
   quizSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
