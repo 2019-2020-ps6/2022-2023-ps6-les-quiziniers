@@ -16,6 +16,7 @@ import { QuestionComponent } from './questions/question/question.component';
 import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,10 @@ import { UserListComponent } from './users/user-list/user-list.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'users' },
+      { path: 'users', component: UserListComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
