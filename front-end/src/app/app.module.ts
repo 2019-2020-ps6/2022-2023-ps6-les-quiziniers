@@ -17,6 +17,7 @@ import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {RouterModule} from "@angular/router";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {RouterModule} from "@angular/router";
     UserComponent,
     UserFormComponent,
     UserListComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
