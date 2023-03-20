@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7aa7e050-1ba7-453b-ab16-ef134f48009f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/services/quiz.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/services/quiz.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/tsconfig.spec.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +61,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\amirb\Desktop\2022-2023-ps6-les-quiziniers\front-end\src\assets" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
@@ -81,6 +93,7 @@
       <workItem from="1678703285831" duration="2405000" />
       <workItem from="1678714171985" duration="601000" />
       <workItem from="1678714792306" duration="524000" />
+      <workItem from="1679296136883" duration="1129000" />
     </task>
     <servers />
   </component>
