@@ -1,0 +1,15 @@
+Index: front-end/src/app/GamePageComponent/GamePageComponent.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><GamePageComponent></GamePageComponent>\r\n
+===================================================================
+diff --git a/front-end/src/app/GamePageComponent/GamePageComponent.component.html b/front-end/src/app/GamePageComponent/GamePageComponent.component.html
+--- a/front-end/src/app/GamePageComponent/GamePageComponent.component.html	
++++ b/front-end/src/app/GamePageComponent/GamePageComponent.component.html	
+@@ -1,1 +1,5 @@
+-<GamePageComponent></GamePageComponent>
++<GamePageComponent>
++  <html>
++
++  </html>
++</GamePageComponent>
