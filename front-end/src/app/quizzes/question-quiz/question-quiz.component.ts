@@ -11,15 +11,15 @@ import {Question} from "../../../models/question.model";
 })
 export class QuestionQuizComponent implements OnInit {
 
-  public questions:Question[]
+  public quiz:Quiz
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
-    this.quizService.quizSelected$.subscribe((quiz) => this.questions = quiz.questions);
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id);
+    this.quizService.setSelectedQuiz(id)
   }
 
 }

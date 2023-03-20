@@ -55,7 +55,8 @@ export class QuizService {
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     });*/
-    //this.quizSelected$.next(this.quizzes.find(x=>x.id===quizId));
+    console.log(this.quizzes.find(x=>x.id===quizId))
+    this.quizSelected$.next(this.quizzes.find(x=>x.id===quizId));
 
   }
 
