@@ -16,6 +16,7 @@ import { QuestionComponent } from './questions/question/question.component';
 import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import {RouterModule} from "@angular/router";
 import {HomePageComponent} from "./home-page/home-page.component";
 
 @NgModule({
@@ -39,6 +40,10 @@ import {HomePageComponent} from "./home-page/home-page.component";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'users' },
+      { path: 'users', component: UserListComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
