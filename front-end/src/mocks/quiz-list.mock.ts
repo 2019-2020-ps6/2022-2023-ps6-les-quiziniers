@@ -21,11 +21,13 @@ export const QUIZ_LIST: Quiz[] = [
         id: '1',
         name: 'Les Acteurs', // What's happening if I change this value..?
         theme: 'Actor',
-        questions: [],
+        questions: [QUESTION_ACTOR],
+        image:"https://imgs.search.brave.com/o1vtEBBa7JkMdc69cFWAfAn9NRc_6_15zOHpJaOs9KE/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5j/ZG40VHF0LVFqd3ZD/Sk1OaDFhX0dnSGFF/SyZwaWQ9QXBp"
     },
     {
         id: '2',
         name: 'Les technos WEB',
         questions: [],
+        image:"https://imgs.search.brave.com/OqNuZDYb8Sg1V5IaMlmynXYabtMCoCsF7lA6Nqq6VVY/rs:fit:845:346:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhlLzQw/L2E5LzhlNDBhOTQy/MjMxOTY0ZjAzY2Mz/MzMwNzc2NGM4OTFj/LmpwZw"
     }
 ];
