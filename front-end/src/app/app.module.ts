@@ -17,8 +17,8 @@ import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {RouterModule} from "@angular/router";
-import {HomePageComponent} from "./home-page/home-page.component";
-
+import {HomePageComponent} from "./home-pages/home-page/home-page.component";
+import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
     UserFormComponent,
     UserListComponent,
     HomePageComponent,
+    HomePageUserComponent,
   ],
   imports: [
     BrowserModule,
