@@ -19,6 +19,9 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import {RouterModule} from "@angular/router";
 import {HomePageComponent} from "./home-pages/home-page/home-page.component";
 import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.component";
+import {Stade1Component} from "./vision/stade1/stade1.component";
+import {Stade2Component} from "./vision/stade2/stade2.component";
+import {Stade3Component} from "./vision/stade3/stade3.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,9 @@ import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.
     UserListComponent,
     HomePageComponent,
     HomePageUserComponent,
+    Stade1Component,
+    Stade2Component,
+    Stade3Component,
   ],
   imports: [
     BrowserModule,
