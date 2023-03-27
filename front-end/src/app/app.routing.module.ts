@@ -6,10 +6,9 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import {HomePageComponent} from "./home-pages/home-page/home-page.component";
 import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.component";
 import {HomePageUserTypeComponent} from "./home-pages/home-page-usertype/home-page-usertype.component";
-import {QuizComponent} from "./quizzes/quiz/quiz.component";
-import {QuestionListComponent} from "./questions/question-list/question-list.component";
-import {QuestionFormComponent} from "./questions/question-form/question-form.component";
+import {QuestionQuizComponent} from "./quizzes/question-quiz/question-quiz.component";
 import {QuestionComponent} from "./questions/question/question.component";
+import {QuestionFormComponent} from "./questions/question-form/question-form.component";
 import {UserComponent} from "./users/user/user.component";
 import {UserFormComponent} from "./users/user-form/user-form.component";
 import {Stade1Component} from "./vision/stade1/stade1.component";
@@ -20,25 +19,22 @@ import {GeneralStatisticComponent} from "./statistics/general-statistic/general-
 
 
 const routes: Routes = [
+
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
-    {path: 'home-page', component: HomePageComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'home-page-user', component: HomePageUserComponent},
     {path: 'home-page-usertype', component: HomePageUserTypeComponent},
-    {path: 'quiz/:id', component: QuizComponent},
-    {path: 'question-list/:id', component: QuestionListComponent},
-    {path: 'question-form/:id', component: QuestionFormComponent},
+    {path: 'question-quiz/:id', component: QuestionQuizComponent},
     {path: 'question/:id', component: QuestionComponent},
-    {path: 'user/:id', component: UserComponent},
-    {path: 'user-form/:id', component: UserFormComponent},
+    {path: 'question-form', component: QuestionFormComponent},
     {path: 'stade1', component: Stade1Component},
     {path: 'stade2', component: Stade2Component},
     {path: 'stade3', component: Stade3Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
+  { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
 
-    {path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
 ];
 
 @NgModule({
