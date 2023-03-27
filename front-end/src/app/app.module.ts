@@ -17,6 +17,15 @@ import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {QuestionQuizComponent} from "./quizzes/question-quiz/question-quiz.component";
+import {RouterModule} from "@angular/router";
+import {HomePageComponent} from "./home-pages/home-page/home-page.component";
+import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.component";
+import {Stade1Component} from "./vision/stade1/stade1.component";
+import {Stade2Component} from "./vision/stade2/stade2.component";
+import {Stade3Component} from "./vision/stade3/stade3.component";
+import {HomePageUserTypeComponent} from "./home-pages/home-page-usertype/home-page-usertype.component";
+import {StatisticListComponent} from "./statistics/statistic-list/statistic-list.component";
+import {GeneralStatisticComponent} from "./statistics/general-statistic/general-statistic.component";
 
 @NgModule({
   declarations: [
@@ -32,13 +41,25 @@ import {QuestionQuizComponent} from "./quizzes/question-quiz/question-quiz.compo
     UserComponent,
     UserFormComponent,
     UserListComponent,
-    QuestionQuizComponent
+    QuestionQuizComponent,
+    HomePageComponent,
+    HomePageUserComponent,
+    HomePageUserTypeComponent,
+    Stade1Component,
+    Stade2Component,
+    Stade3Component,
+    StatisticListComponent,
+    GeneralStatisticComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'users' },
+      { path: 'users', component: UserListComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
