@@ -36,7 +36,7 @@ const routes: Routes = [
     {path: 'user/:id', component: UserComponent},
     {path: 'user-form', component: UserFormComponent},
     {path: 'home-page', component: HomePageComponent},
-  { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
 
 ];
 
