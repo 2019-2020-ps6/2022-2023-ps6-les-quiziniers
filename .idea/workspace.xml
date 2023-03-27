@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="46dfd686-7cd6-4155-beda-a0178bd68595" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/b1b9c1359ce1d52d80e04e72867621dedc0f7409/16.pack" afterDir="false" />
@@ -71,10 +68,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2MxBuPHxxjeqfQBHkAZvFgOCUnx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -104,47 +97,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\elias\OneDrive\Bureau\2022-2023-ps6-les-quiziniers\front-end\src\app\quizzes\question-quiz" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amirb\Desktop\2022-2023-ps6-les-quiziniers\front-end\src\assets" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
-    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
-      <method v="2" />
-    </configuration>
-    <configuration name="Angular CLI Server" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/front-end/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="7aa7e050-1ba7-453b-ab16-ef134f48009f" name="Changes" comment="" />
-      <created>1678699574269</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1678699574269</updated>
-      <workItem from="1678699575386" duration="3641000" />
-      <workItem from="1678703285831" duration="2405000" />
-      <workItem from="1678714171985" duration="601000" />
-      <workItem from="1678714792306" duration="524000" />
-      <workItem from="1679296136883" duration="1129000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -156,15 +110,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
