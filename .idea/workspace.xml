@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2be8a1c9-a92f-4c9d-8c56-20f53a28a3b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_03_2023_11_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_03_2023_11_12__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade1/stade1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade1/stade1.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade2/stade2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade2/stade2.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade3/stade3.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade3/stade3.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/statistics/general-statistic/general-statistic.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/statistics/general-statistic/general-statistic.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
