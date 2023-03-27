@@ -19,11 +19,11 @@ import {GeneralStatisticComponent} from "./statistics/general-statistic/general-
 
 
 const routes: Routes = [
-
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'home-page-user', component: HomePageUserComponent},
+
     {path: 'home-page-usertype', component: HomePageUserTypeComponent},
     {path: 'question-quiz/:id', component: QuestionQuizComponent},
     {path: 'question/:id', component: QuestionComponent},
@@ -33,8 +33,7 @@ const routes: Routes = [
     {path: 'stade3', component: Stade3Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
-  { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
-
+    { path: '', redirectTo: '/quiz-list', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -42,5 +41,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule {
-
 }
