@@ -5,60 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2be8a1c9-a92f-4c9d-8c56-20f53a28a3b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/18.pack" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/19.pack" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/20.pack" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/21.pack" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/0eb0fc2b3f152907f0ddbc856ffd31cddc8e5fa7932326fa601c8115314b460f.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/0f599374517364bc89997a120f9bd244cc4060cd4043db6e506dc37bcd188afe.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/12f3cf172421d730f0a32c9a6e9ac394af2e273770feff1ff6a122e2cafb69da.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/1e74cdae22839b0c89d4ddfd3ff3ac06c8172f21b9c0f67f61e41946659a135f.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/1eaea3a516a44dfc103b53f7f4e3d2291d9573715095faa99c8715d39f6274f7.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/276c4039beb0a7b606eb62e67fef9f72eb94a715b413e3ec90b923c276aef5cc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/37306963b2ccd1257152c5bc4a94d7a1d5a523813fdb32cb2714002d5385e24e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/5164fd0e77c27d32a3f97ed4931300ae7753ccb230122d7c888c71ac171f1019.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/6723e9608f6b3282b2e504722435e330973e317ebbe6dd8a6379d55fdab5d91d.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/6a81faeef55c8efa394e36e228ce6ca94f2560ad1f4433ccf07501a2295fd426.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/70b858e11ef1480edf8734551f139c72bccd587aec9ff2e21c5ca53b72da6da4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/7370aab0928f289220f661549b172b0e2148f7a0c719f0dc38db4e4903cedb61.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/782e37d963f8d2a4e706caf05a17052f9fd9d07e1e81ed015ac2adf71a0b30c5.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/a07152c8b5c6f9d98d0deb8d53f93bf7cd31f65bc0a19babaef326cc25d64af9.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/af8f9e86c4ed298e8421019f4e0e085edd2693ed782b4d2f92076894e45f79cd.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/afd1dc6d27d796652ff2439f5489c940d9a3b751d2c11354877fafb97c3fbe21.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/beccdd41c7d28eee585f088e0856cf30bd8082451b838b7d428080a50952e504.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/cea75a9784e60320f4c866a74557d893bf70348812ff42ebe97bbee5ff821650.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/e1cf23b418ad3bdcb775cce7ee6250365d61c85364138c8334a9d8c2c44253a2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/babel-webpack/ef074e1a1736d07883a01e1224248d37172b66367f6d586d7aa908c249e209cd.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page-usertype/home-page-usertype.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page-usertype/home-page-usertype.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page-usertype/home-page-usertype.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/general-statistic/general-statistic.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/general-statistic/general-statistic.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/general-statistic/general-statistic.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/statistic-list/statistic-list.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/statistic-list/statistic-list.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/statistics/statistic-list/statistic-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_03_2023_11_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_03_2023_11_12__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/13.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/14.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/15.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/16.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/16.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/17.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/17.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/5.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/.angular/cache/15.2.1/angular-webpack/3f29a5481e889129224fddcb28d9abcca76802bc/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/app.routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page-user/home-page-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page-user/home-page-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page/home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/home-pages/home-page/home-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade1/stade1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade1/stade1.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade2/stade2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade2/stade2.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/vision/stade3/stade3.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/vision/stade3/stade3.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,28 +44,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/amirb/Desktop/2022-2023-ps6-les-quiziniers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\zizou\\OneDrive\\Documents\\GitHub\\2022-2023-ps6-les-quiziniers\\front-end\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/amirb/Desktop/2022-2023-ps6-les-quiziniers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\zizou\\OneDrive\\Documents\\GitHub\\2022-2023-ps6-les-quiziniers\\front-end\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zizou\OneDrive\Documents\GitHub\2022-2023-ps6-les-quiziniers\front-end\src\app\home-pages\home-page-user-type" />
