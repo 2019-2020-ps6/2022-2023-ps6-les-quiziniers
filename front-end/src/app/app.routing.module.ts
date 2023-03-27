@@ -33,6 +33,9 @@ const routes: Routes = [
     {path: 'stade3', component: Stade3Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
+    {path: 'user/:id', component: UserComponent},
+    {path: 'user-form', component: UserFormComponent},
+    {path: 'home-page', component: HomePageComponent},
   { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
 
 ];
