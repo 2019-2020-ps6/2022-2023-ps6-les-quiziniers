@@ -51,10 +51,13 @@ export class QuizService {
   }
 
   setSelectedQuiz(quizId: string): void {
-    const urlWithId = this.quizUrl + '/' + quizId;
+    /*const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
-    });
+    });*/
+    console.log(this.quizzes.find(x=>x.id===quizId))
+    this.quizSelected$.next(this.quizzes.find(x=>x.id===quizId));
+
   }
 
   deleteQuiz(quiz: Quiz): void {

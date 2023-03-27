@@ -3,3 +3,10 @@
 .edit {
     margin-left: 0.3em;
 }
+
+.image{
+  width:100px;
+  max-width: 100%;
+  height:100px;
+  object-fit: cover;
+}
