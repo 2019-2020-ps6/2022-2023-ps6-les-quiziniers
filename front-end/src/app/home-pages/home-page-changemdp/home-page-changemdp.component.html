@@ -1,0 +1,19 @@
+<div class="card">
+  <form class="quiz-form" [formGroup]="mdp" >
+    <label for="label">
+      Mot de passe <br>
+      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+    </label>
+    <br>
+
+    <label for="label">
+      Confirmez le mot de passe<br>
+      <input class="input-custom" type="text" id="confirm" [formControlName]="'confirm'">
+    </label>
+    <br>
+
+    <div class="answer" >
+      <button (click)="confirmMdp()" class="button-card" >Confirmez le mot de passe</button>
+    </div>
+  </form>
+</div>

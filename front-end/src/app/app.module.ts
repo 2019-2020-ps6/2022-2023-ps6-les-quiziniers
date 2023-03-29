@@ -26,6 +26,10 @@ import {Stade3Component} from "./vision/stade3/stade3.component";
 import {HomePageUserTypeComponent} from "./home-pages/home-page-usertype/home-page-usertype.component";
 import {StatisticListComponent} from "./statistics/statistic-list/statistic-list.component";
 import {GeneralStatisticComponent} from "./statistics/general-statistic/general-statistic.component";
+import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-page-admin-mdp.component";
+import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-admin.component";
+import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
+
 
 @NgModule({
   declarations: [
@@ -49,7 +53,10 @@ import {GeneralStatisticComponent} from "./statistics/general-statistic/general-
     Stade2Component,
     Stade3Component,
     StatisticListComponent,
-    GeneralStatisticComponent
+    GeneralStatisticComponent,
+    HomePageAdminComponent,
+    HomePageAdminMDPComponent,
+    HomePageChangemdpComponent,
   ],
   imports: [
     BrowserModule,
