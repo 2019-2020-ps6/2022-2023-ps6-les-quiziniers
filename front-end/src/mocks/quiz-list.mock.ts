@@ -13,6 +13,12 @@ export const QUESTION_ACTOR: Question = {
             value: 'La grande illusion',
             isCorrect: true,
         }
+        ,{
+        value: 'Tranformers',
+        isCorrect: false,
+      },
+
+
     ],
   image:"https://imgs.search.brave.com/GinmnByb5ELNdDARTDuxj5kxyPunFt-10JNYBiuz9zc/rs:fit:900:900:1/g:ce/aHR0cHM6Ly95dDMu/Z2dwaHQuY29tL25D/Sk9JS3VrbV9LbjNk/aVFJYjRTU2VNNVVO/aDNXWUhKWWlJNzVq/M3lJdnFTdGVFUTU0/SHBVZjY4cE0yX0Js/bV9iYXNuOVBObzZO/MlliVzJhPXM5MDAt/bW8tYy1jMHhmZmZm/ZmZmZi1yai1rLW5v"
 };
