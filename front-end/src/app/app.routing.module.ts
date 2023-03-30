@@ -22,6 +22,7 @@ const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
+    {path: 'home-page', component: HomePageComponent},
     {path: 'home-page-user', component: HomePageUserComponent},
     {path: 'home-page-usertype', component: HomePageUserTypeComponent},
     {path: 'question-quiz/:id', component: QuestionQuizComponent},
@@ -34,8 +35,8 @@ const routes: Routes = [
     {path: 'general-statistic', component: GeneralStatisticComponent},
     {path: 'user/:id', component: UserComponent},
     {path: 'user-form', component: UserFormComponent},
-    {path: 'home-page', component: HomePageComponent},
-  { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
+
+    {path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
 
 ];
 

@@ -56,11 +56,8 @@ import {GeneralStatisticComponent} from "./statistics/general-statistic/general-
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'users' },
-      { path: 'users', component: UserListComponent },
-    ])
-  ],
+],
+
   providers: [],
   bootstrap: [AppComponent]
 })
