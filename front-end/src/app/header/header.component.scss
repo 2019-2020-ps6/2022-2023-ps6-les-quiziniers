@@ -19,3 +19,18 @@
   padding-left: 0.5em;
   color: white;
 }
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: $white;
+  text-decoration: underline;
+}
+#ff{
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}

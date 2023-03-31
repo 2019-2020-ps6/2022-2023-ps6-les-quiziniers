@@ -2,17 +2,16 @@
   <h2>Créer un nouveau quizz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="title">
-      Titre <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+      Title <br>
+      <input class="input-custom" type="text" id="title" [formControlName]="'title'">
     </label>
     <br>
     <label for="theme">
-      Thème <br>
+      Theme <br>
       <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
     </label>
     <br>
-    <button type="submit" class="button-card" (click)="addQuiz()">Créer</button>
+    <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
   </form>
 </div>
-<!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->
+
