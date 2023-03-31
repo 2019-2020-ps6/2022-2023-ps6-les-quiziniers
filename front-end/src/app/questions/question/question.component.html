@@ -1,11 +1,20 @@
+<div class="question">
   <div class="card">
-    <h2>
-        <i class="fab fa-leanpub"></i>
-         {{question.label}}
-        <img [src]="question.image"/>
-    </h2>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"><i class="far fa-check-square"></i></ng-container> <br>
+    <h1 class="question-question">
+      <i class="fab fa-leanpub"></i>
+      <p id="yo" >
+      {{question.label}}
+       </p>
+    </h1>
+    <img class="jeanGabin" [src]="question.image"/>
+    <div class="answer" *ngFor="let answer of question.answers;  let i=index"  >
+      <table><td >
+        {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
+      </td>
+        <i id='check' class="far fa-check-square" (click)="answerLayout(answer)" ></i>
+      </table>
     </div>
-    <button class="button-card" (click)="delete()">Delete</button>
+
+    <button class="button-card" (click)="delete()">Suivant</button>
+  </div>
 </div>
