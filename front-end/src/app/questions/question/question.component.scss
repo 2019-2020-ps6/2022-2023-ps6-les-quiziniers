@@ -1,16 +1,27 @@
 @import "../../../styles/variables";
 
+.question{
+  height: 100%;
+  padding: 0 1em 0 1em;
+  text-align: center;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 70%;
+  border-bottom-left-radius: 70%;
+  border-bottom-right-radius:70%;
+  border:solid #ADD8E6;
+  background-color: $white;
+}
 .card {
-  background: $white;
   border-radius: 2px;
   display: inline-block;
   margin: 1rem;
-  position: relative;
+  position: center;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   padding: 0 1em 1em 1em;
   justify-content: center;
   text-align: center;
-
+  transform: perspective(200px);
+  z-index:5;
 }
 
 .button-card {
@@ -37,7 +48,30 @@
   height: 150px;
   text-align: center;
   margin:auto;
+  z-index:5;
 }
 h2{
   vertical-align: text-top;
 }
+
+
+
+.question-question{
+  width: 100%;
+  perspective:200px;
+  position: relative;
+  z-index:1;
+}
+.question-question:hover{
+  zoom:200%;
+  perspective:2000px;
+  text-align: center;
+  border:3px solid black;
+  z-index:10;
+  position:relative;
+  top: 40px;
+  background-color: white;
+  margin:3px;
+}
+
+

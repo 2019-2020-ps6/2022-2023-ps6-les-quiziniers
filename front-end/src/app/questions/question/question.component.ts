@@ -39,6 +39,7 @@ export class QuestionComponent implements OnInit {
     this.deleteQuestion.emit(this.question);
   }
 
+
   answerLayout(answer: Answer): void {
     console.log(answer);
     if (answer.isCorrect) {
