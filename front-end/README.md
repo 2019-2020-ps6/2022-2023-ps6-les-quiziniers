@@ -44,7 +44,7 @@ You can also use the command `ng serve` to start the app and also `ng serve --op
 ## Run the linter
 
 ```
-npm run lint
+pnpm run lint
 ```
 
 Note: The linter will be executed before each commit. If the linter fails then the commit will be canceled.

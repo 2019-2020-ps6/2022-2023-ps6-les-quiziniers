@@ -63,11 +63,8 @@ import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'users' },
-      { path: 'users', component: UserListComponent },
-    ])
-  ],
+],
+
   providers: [],
   bootstrap: [AppComponent]
 })

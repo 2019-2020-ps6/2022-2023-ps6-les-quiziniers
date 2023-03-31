@@ -28,6 +28,7 @@ const routes: Routes = [
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
+    {path: 'home-page', component: HomePageComponent},
     {path: 'home-page-user', component: HomePageUserComponent},
     {path: 'home-page-usertype', component: HomePageUserTypeComponent},
     {path: 'home-page-adminmdp', component: HomePageAdminMDPComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
     {path: 'home-page', component: HomePageComponent},
     {path: 'change-mdp',component:HomePageChangemdpComponent},
   { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
+
 
 ];
 
