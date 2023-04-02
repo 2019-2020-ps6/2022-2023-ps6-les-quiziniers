@@ -1,7 +1,21 @@
 <div class="card">
   <h2>Espace Administrateur</h2>
-  <a class="button-card" [routerLink]="['/change-mdp']">Modifier le mot de passe</a>
-  <a class="button-card" [routerLink]="['/quiz-form']">Créer un Quiz</a>
-  <a class="button-card" [routerLink]="['/quiz-list']">Gestion des Quiz</a>
-  <a class="button-card" [routerLink]="['/user-form']">Ajouter un patient</a>
+  <div class="button-group">
+    <div class="button-item">
+      <img class="img" src="../../assets/images/oeil.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/change-mdp']">Modifier le mot de passe</Button>
+    </div>
+    <div class="button-item">
+      <img class="img" src="../../assets/images/choisir.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/quiz-form']">Créer un Quiz</Button>
+    </div>
+    <div class="button-item">
+      <img class="img" src="../../assets/images/statistiques.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/quiz-list']">Gestion des Quiz</Button>
+    </div>
+    <div class="button-item">
+      <img class="img" src="../../assets/images/statistiques.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/user-form']">Ajouter un patient</Button>
+    </div>
 </div>
+

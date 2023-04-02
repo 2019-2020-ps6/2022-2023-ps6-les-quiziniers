@@ -33,4 +33,31 @@
   position: absolute;
   right: 0;
   margin-right: 10px;
+  background-color: lightblue;
+  border-radius: 10%;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+#home{
+  vertical-align: bottom;
+  margin-right: 5px;
+}
+
+#polyquiz{
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.logo{
+  display: inline;
+  background-color: darkblue;
+  color: lightblue;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 7px;
+  padding-right: 1px;
+  border-radius: 10px;
 }

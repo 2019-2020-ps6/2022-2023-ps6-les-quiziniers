@@ -1,6 +1,23 @@
 <div class="card">
   <h2>Bienvenue, Michel</h2>
-  <a id="configV" class="button-card" [routerLink]="['/stade1']">Configuration de la vision</a>
-  <a id="AccQuiz" class="button-card" [routerLink]="['/quiz-list']">Accéder aux quizz</a>
-  <a id="stat" class="button-card" [routerLink]="['/statistic-list']">Statistiques</a>
+  <div class="button-group">
+    <div class="button-item">
+      <img class="img" src="../../assets/images/oeil.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/stade1']">
+        Configuration de la vision
+      </Button>
+    </div>
+    <div class="button-item">
+      <img class="img" src="../../assets/images/choisir.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/quiz-list']">
+        Accéder aux quizz
+      </Button>
+    </div>
+    <div class="button-item">
+      <img class="img" src="../../assets/images/statistiques.png" height="80" width="80">
+      <Button class="button-card" [routerLink]="['/statistic-list']">
+        Statistiques
+      </Button>
+    </div>
+  </div>
 </div>
