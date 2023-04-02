@@ -1,20 +1,50 @@
 @import '../../../styles/card.scss';
 
-.button-card{
-  text-align: center;
-  margin-right: 5em;
-}
-
-.h2{
-  margin-bottom: 50em;
-}
-
 .card{
+  border-radius: 20px;
   width: 80%;
   margin: 0 auto;
   margin-top: 2em;
 }
 
+h2{
+  text-align: center;
+  font-size: 30px;
+  color: $blue;
+}
+
 *{
   text-decoration: none;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+
+}
+
+.img {
+  margin-bottom: 5px;
+}
+
+.button-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  position: relative;
+}
+
