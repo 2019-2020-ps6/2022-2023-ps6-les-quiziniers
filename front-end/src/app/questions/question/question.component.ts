@@ -3,13 +3,14 @@ import {Answer, Question} from '../../../models/question.model';
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
+
 
   @Input()
   quizOG: Quiz;
@@ -20,7 +21,7 @@ export class QuestionComponent implements OnInit {
   @Output()
   deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
   }
 
@@ -46,5 +47,48 @@ export class QuestionComponent implements OnInit {
       answer.type += " C'est la bonne réponse";
     }
     answer.type += " C'est pas bon";
+  }
+
+  selectAnswer(answer: any) {
+    this.question.answers.forEach(a => a.isSelected = false);
+    answer.isSelected = true;
+  }
+
+  isAnswerSelected(): boolean {
+    return this.question.answers.some(a => a.isSelected);
+  }
+
+  isCorrectSelected(): boolean {
+    const selectedAnswer = this.question.answers.find(a => a.isSelected);
+    return selectedAnswer && selectedAnswer.isCorrect;
+  }
+
+  nextClicked = false;
+
+  checkAnswer(): void {
+    this.nextClicked = true;
+    if (this.isCorrectSelected()) {
+      this.quizOG.points += 1;
+    }
+  }
+
+  getNext() {
+    this.nextClicked = false;
+    const index = this.quizOG.questions.indexOf(this.question);
+    if (index < this.quizOG.questions.length - 1) {
+      this.question = this.quizOG.questions[index + 1];
+    } else {
+      this.router.navigate(['/quiz-list']);
+    }
+    this.question.answers.forEach(a => a.isSelected = false);
+  }
+
+  getPrevious() {
+    this.nextClicked = false;
+    const index = this.quizOG.questions.indexOf(this.question);
+    if (index < this.quizOG.questions.length) {
+      this.question = this.quizOG.questions[index - 1];
+    }
+    this.question.answers.forEach(a => a.isSelected = false);
   }
 }

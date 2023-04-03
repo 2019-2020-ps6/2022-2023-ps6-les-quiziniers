@@ -1,5 +1,5 @@
 @import "../../../styles/variables";
-
+@import "../../../styles/card";
 .question{
   height: 100%;
   padding: 0 1em 0 1em;
@@ -24,13 +24,15 @@
   z-index:5;
 }
 
-.button-card {
-  background-color: $white;
+#confirmbutton{
+  background-color: $blue;
   border: solid 1px $blue;
-  color: $blue;
+  color: $white;
   font-weight: bold;
   padding: 0.5em 1em;
+  margin-top: 10px;
 }
+
 .answer{
   background-color: $white;
   border: solid 1px $blue;
@@ -43,7 +45,16 @@
 .button-card:hover {
   cursor: pointer;
 }
-.jeanGabin {
+
+#correct{
+  color: forestgreen;
+  font-weight: bold;
+}
+#incorrect{
+  color: red;
+  font-weight: bold;
+}
+.questionImage {
   width: 150px;
   height: 150px;
   text-align: center;
@@ -53,8 +64,6 @@
 h2{
   vertical-align: text-top;
 }
-
-
 
 .question-question{
   width: 100%;
