@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../../models/theme.model';
+import {Quiz} from "../../../models/quiz.model";
+import {ThemeService} from "../../../services/theme.service";
 
 
 @Component({
@@ -11,10 +13,14 @@ export class QuizThemeComponent implements OnInit {
 
   public themeList: Theme[] = [];
 
-  constructor(){
+  constructor(private themeService : ThemeService){
+    this.themeService.themes$.subscribe((themes: Theme[]) => {
+      this.themeList = themes;
+    });
   }
 
   ngOnInit(): void {
+
   }
 
   themeSelected(selected: boolean): void {
