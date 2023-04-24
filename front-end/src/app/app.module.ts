@@ -30,6 +30,7 @@ import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-pa
 import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-admin.component";
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
 import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
+import {ThemeComponent} from "./quizzes/theme/theme.component";
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
     HomePageAdminMDPComponent,
     HomePageChangemdpComponent,
     QuizThemeComponent,
+    ThemeComponent,
   ],
   imports: [
     BrowserModule,

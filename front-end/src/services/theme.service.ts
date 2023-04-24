@@ -17,7 +17,7 @@ export class ThemeService {
    Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public themes$: BehaviorSubject<Theme[]>
-    = new BehaviorSubject(this.themes);
+    = new BehaviorSubject([]);
 
   private httpOptions = httpOptionsBase;
 

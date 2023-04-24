@@ -4,6 +4,7 @@ import {Quiz} from "../../../models/quiz.model";
 import {ThemeService} from "../../../services/theme.service";
 
 
+
 @Component({
   selector: 'app-quiz-theme',
   templateUrl: './quiz-theme.component.html',
@@ -17,6 +18,7 @@ export class QuizThemeComponent implements OnInit {
     this.themeService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
     });
+    console.log(this.themeList);
   }
 
   ngOnInit(): void {

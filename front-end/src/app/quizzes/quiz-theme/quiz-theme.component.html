@@ -1,8 +1,6 @@
-<app-quiz-theme></app-quiz-theme>
 <div class="quiz-theme">
   <div *ngFor="let theme of themeList">
-      {{!!theme}}
-    <!--Inputs & Output allow communication between parent & child components.-->
+    <app-theme [theme]="theme"></app-theme>
     <!--More information: https://angular.io/guide/component-interaction-->
   </div>
 </div>
