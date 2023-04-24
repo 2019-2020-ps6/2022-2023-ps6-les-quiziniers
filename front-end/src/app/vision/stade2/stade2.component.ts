@@ -9,4 +9,7 @@ export class Stade2Component implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+  stadeUpdate() {
+    sessionStorage.setItem('stade',"2");
+  }
 }

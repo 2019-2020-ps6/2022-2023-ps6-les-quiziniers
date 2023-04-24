@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   ngOnInit(): void {
+    console.log(sessionStorage.getItem("stade"))
     throw new Error('Method not implemented.');
   }
 }

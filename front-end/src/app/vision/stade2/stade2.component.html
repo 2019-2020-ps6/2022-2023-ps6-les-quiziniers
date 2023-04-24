@@ -4,7 +4,7 @@
   <h2>Configuration Vision</h2>
   <h3>Stade 2</h3>
   <a class="return" [routerLink]="['/stade1']"><--</a>
-  <a class="button-card" [routerLink]="['/home-page']">VALIDER</a>
+  <a class="button-card" (click)=stadeUpdate() [routerLink]="['/home-page']">VALIDER</a>
   <a class="go-to" [routerLink]="['/stade3']">--></a>
 </div>
 </div>
