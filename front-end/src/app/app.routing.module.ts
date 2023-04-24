@@ -20,6 +20,7 @@ import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-pa
 import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-admin.component";
 import {QuizFormComponent} from "./quizzes/quiz-form/quiz-form.component";
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
+import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
 
 
 
@@ -46,7 +47,7 @@ const routes: Routes = [
     {path: 'home-page', component: HomePageComponent},
     {path: 'change-mdp',component:HomePageChangemdpComponent},
   { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
-
+  {path: 'quiz-theme', component: QuizThemeComponent},
 
 ];
 

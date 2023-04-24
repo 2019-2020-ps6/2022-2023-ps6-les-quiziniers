@@ -29,6 +29,7 @@ import {GeneralStatisticComponent} from "./statistics/general-statistic/general-
 import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-page-admin-mdp.component";
 import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-admin.component";
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
+import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-
     HomePageAdminComponent,
     HomePageAdminMDPComponent,
     HomePageChangemdpComponent,
+    QuizThemeComponent,
   ],
   imports: [
     BrowserModule,

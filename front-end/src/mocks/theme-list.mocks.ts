@@ -1,0 +1,32 @@
+
+import {Theme} from "../models/theme.model";
+
+
+export const THEME_LIST: Theme[] = [
+  {
+    id: '1',
+    name: 'Histoire',
+    image:'https://static.lpnt.fr/images/2012/07/03/la-liberte-guidant-le-peuple-delacroix_423221_660x287.jpg',
+  },
+  {
+    id: '2',
+    name: 'Géographie',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/World_map_2004_CIA_large_1.7m_whitespace_removed.jpg/260px-World_map_2004_CIA_large_1.7m_whitespace_removed.jpg'
+  },
+  {
+    id: '3',
+    name: 'Les technos WEB',
+    image:"https://imgs.search.brave.com/OqNuZDYb8Sg1V5IaMlmynXYabtMCoCsF7lA6Nqq6VVY/rs:fit:845:346:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhlLzQw/L2E5LzhlNDBhOTQy/MjMxOTY0ZjAzY2Mz/MzMwNzc2NGM4OTFj/LmpwZw"
+  },
+  {
+    id: '4',
+    name: 'Sport',
+    image:'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg'
+  },
+  {
+    id: '5',
+    name: 'Musique',
+    image:"https://www.shutterstock.com/image-vector/music-notes-curves-swirls-vector-260nw-1705493965.jpg"
+  }
+
+];
