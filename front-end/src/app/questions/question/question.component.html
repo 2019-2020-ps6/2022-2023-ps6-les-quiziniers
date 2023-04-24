@@ -7,31 +7,32 @@
        </p>
     </h1>
     <img class="questionImage" [src]="question.image" alt=""/>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index" (click)="selectAnswer(answer)">
-      <table>
-        <td>
+    <table class="tableanswer">
+      <td>
+    <div class="answer" *ngFor="let answer of question.answers; let i=index"
+         (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
+
           {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
-        </td>
-        <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>
-      </table>
-    </div>
-    <button class="button-card" id="confirmbutton" (click)="checkAnswer()">
-      Valider
-    </button>
-    <p *ngIf="nextClicked && isAnswerSelected()">
-      <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
-      <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
-    </p>
-    <p>
-      <button class="button-card" (click)="getPrevious()">
-        Précédent
-      </button>
-    <button class="button-card" (click)="getNext()">
-      Suivant
-    </button>
-    </p>
-    <p>
-      Vous avez {{this.quizOG.points}} points
-    </p>
+      <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->
   </div>
+    </td>
+  </table>
+  <button class="button-card" id="confirmbutton" (click)="checkAnswer()">
+    Valider
+  </button>
+  <p *ngIf="nextClicked && isAnswerSelected()">
+    <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
+    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
+  </p>
+  <p>
+    <button class="button-card" (click)="getPrevious()">
+      Précédent
+    </button>
+  <button class="button-card" (click)="getNext()">
+    Suivant
+  </button>
+  <p>
+    Vous avez {{this.quizOG.points}} points
+  </p>
+</div>
 </div>
