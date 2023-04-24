@@ -8,10 +8,29 @@ import {User} from "../../../models/user.model";
 })
 
 export class Stade1Component implements OnInit {
+  public width:String="";
+  public margin:String= "";
+
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
   stadeUpdate() {
+    this.width="100%"
+    this.margin="0%";
+    console.log(this.width);
     sessionStorage.setItem('stade',"1");
+  }
+  stadeUpdate2() {
+    this.width="70%"
+    this.margin="15.5%"
+    console.log(this.width);
+    console.log(this.margin)
+    sessionStorage.setItem('stade',"2");
+  }
+  stadeUpdate3() {
+    this.width="50%"
+    this.margin="25%"
+    sessionStorage.setItem('stade',"3");
   }
 }

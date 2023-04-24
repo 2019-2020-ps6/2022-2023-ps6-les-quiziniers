@@ -21,8 +21,6 @@ import {RouterModule} from "@angular/router";
 import {HomePageComponent} from "./home-pages/home-page/home-page.component";
 import {HomePageUserComponent} from "./home-pages/home-page-user/home-page-user.component";
 import {Stade1Component} from "./vision/stade1/stade1.component";
-import {Stade2Component} from "./vision/stade2/stade2.component";
-import {Stade3Component} from "./vision/stade3/stade3.component";
 import {HomePageUserTypeComponent} from "./home-pages/home-page-usertype/home-page-usertype.component";
 import {StatisticListComponent} from "./statistics/statistic-list/statistic-list.component";
 import {GeneralStatisticComponent} from "./statistics/general-statistic/general-statistic.component";
@@ -50,8 +48,6 @@ import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-
     HomePageUserComponent,
     HomePageUserTypeComponent,
     Stade1Component,
-    Stade2Component,
-    Stade3Component,
     StatisticListComponent,
     GeneralStatisticComponent,
     HomePageAdminComponent,

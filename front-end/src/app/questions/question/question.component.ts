@@ -4,6 +4,7 @@ import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
+import {Stade1Component} from "../../vision/stade1/stade1.component";
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class QuestionComponent implements OnInit {
 
-
+  public width:String="";
+  public margin:String= "";
   @Input()
   quizOG: Quiz;
 
@@ -23,6 +25,12 @@ export class QuestionComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
+    switch (sessionStorage.getItem("stade")){
+      case "1": break;
+      case "2": this.width="70%";this.margin="15.5%";break;
+      case "3": this.width="50%";this.margin="25%";break;
+      default: this.router.navigate(['/stade1'])
+    }
   }
 
   ngOnInit(): void {
