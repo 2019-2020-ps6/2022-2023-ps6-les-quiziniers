@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../models/user.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {USER_LIST} from "../mocks/user-list.mock";
+import {USER_LIST} from "../mocks/user.mock";
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +27,11 @@ export class UserService {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    this.retrieveUsers();
+      this.users$.next(this.users)
   }
 
   retrieveUsers(): void {
-    this.http.get<User[]>(this.userUrl).subscribe((userList) => {
-      this.users = userList;
-      this.users$.next(this.users);
-    });
+
   }
 
   addUser(user: User): void {

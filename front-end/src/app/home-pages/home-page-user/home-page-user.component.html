@@ -1,4 +1,8 @@
 <div class="card">
   <h2>Qui êtes-vous ?</h2>
-  <a class="button-card" [routerLink]="['/home-page']">Michel</a>
+  <div *ngFor="let user of userList">
+    <!--Inputs & Output allow communication between parent & child components.-->
+    <!--More information: https://angular.io/guide/component-interaction-->
+    <app-user [user]="user" ></app-user>
+  </div>
 </div>
