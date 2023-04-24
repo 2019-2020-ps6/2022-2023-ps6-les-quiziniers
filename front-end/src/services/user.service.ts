@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../models/user.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {USER_LIST} from "../mocks/user-list.mock";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserService {
   /*
    The list of user.
    */
-  private users: User[] = [];
+  private users: User[] = USER_LIST;
 
   /*
    Observable which contains the list of the user.

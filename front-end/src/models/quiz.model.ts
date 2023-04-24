@@ -6,4 +6,5 @@ export interface Quiz {
     theme?: string;
     questions: Question[];
     image:string;
+    points: number;
 }

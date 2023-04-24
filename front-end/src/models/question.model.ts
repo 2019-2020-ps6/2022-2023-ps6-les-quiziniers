@@ -1,4 +1,5 @@
 export interface Answer {
+  isSelected: boolean;
     type?: string;
     value: string;
     isCorrect: boolean;
