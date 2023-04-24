@@ -1,6 +1,6 @@
 <div class="card">
   <h2>Qui êtes-vous ?</h2>
-  <div *ngFor="let user of userList">
+  <div class="user-list" *ngFor="let user of userList">
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
     <app-user [user]="user" ></app-user>
