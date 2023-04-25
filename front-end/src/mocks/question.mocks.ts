@@ -68,3 +68,47 @@ export const QUESTION_CAPITALES: Question = {
   ],
   image:"https://i0.wp.com/www.vivafrik.com/wp-content/uploads/2018/11/Ouagadougou-Burkina-Faso-la-capitale-africaine-de-le-SEERA-.jpg?fit=800%2C500&ssl=1"
 }
+export const QUESTION_HISTOIRE1: Question = {
+  id: '4',
+  label: "Quand s'est dérouler la battaille de Waterloo ?",
+  answers: [
+    {
+      value: '1815',
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: '1805',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: '1795',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ],
+  image:"https://www.larousse.fr/encyclopedie/data/images/1315849-Napol%C3%A9on_Ier.jpg"
+}
+export const QUESTION_HISTOIRE2: Question = {
+  id: '5',
+  label: "En quelle année a été élue la première femme présidente de la république ?",
+  answers: [
+    {
+      value: '2016',
+      isCorrect: false,
+      isSelected: false,
+    },
+    {
+      value: '2001',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: '1985',
+      isCorrect: true,
+      isSelected: false,
+    }
+  ],
+  image:"https://media.sudouest.fr/3528892/1200x-1/so-58bda09f66a4bdfe0c7e46b7-ph0.jpg?v=1488953306"
+}

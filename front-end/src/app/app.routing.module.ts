@@ -27,7 +27,8 @@ import {ThemeComponent} from "./quizzes/theme/theme.component";
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list', component: QuizListComponent},
+
+  {path: 'quiz-list/:id', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'home-page', component: HomePageComponent},
@@ -49,8 +50,8 @@ const routes: Routes = [
     {path: 'change-mdp',component:HomePageChangemdpComponent},
   { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
   {path: 'app-quiz-theme', component: QuizThemeComponent},
-  {path: 'app-theme', component: ThemeComponent}
-
+  {path: 'app-theme', component: ThemeComponent},
+  { path: '**', redirectTo: 'app-quiz-theme' },
 ];
 
 @NgModule({
