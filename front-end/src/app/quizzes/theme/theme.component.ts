@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Theme } from '../../../models/theme.model';
 import {Quiz} from "../../../models/quiz.model";
 import {ThemeService} from "../../../services/theme.service";
@@ -13,6 +13,9 @@ export class ThemeComponent implements OnInit {
   @Input()
   public theme:Theme;
 
+  @Output()
+  themeSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(){}
 
 
@@ -20,8 +23,8 @@ export class ThemeComponent implements OnInit {
 
   }
 
-  themeSelected(selected: boolean): void {
-    console.log('event received from child:', selected);
+  selectTheme(): void {
+    this.themeSelected.emit(true);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Theme } from '../../../models/theme.model';
 import {Quiz} from "../../../models/quiz.model";
 import {ThemeService} from "../../../services/theme.service";
@@ -24,9 +24,13 @@ export class QuizThemeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  @Input()
+  theme?: Quiz;
 
-  themeSelected(selected: boolean): void {
-    console.log('event received from child:', selected);
+  @Output()
+  themeSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
+  selectTheme(): void {
+    this.themeSelected.emit(true);
   }
 
 }

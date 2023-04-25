@@ -4,7 +4,7 @@ import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 
 @Component({
-  selector: 'app-quiz-list',
+  selector: 'quiz-list',
   templateUrl: './quiz-list.component.html',
   styleUrls: ['./quiz-list.component.scss']
 })
@@ -23,7 +23,7 @@ export class QuizListComponent implements OnInit {
   }
 
   quizSelected(selected: boolean): void {
-    console.log('event received from child:', selected);
+
   }
 
   editQuiz(quiz: Quiz): void {

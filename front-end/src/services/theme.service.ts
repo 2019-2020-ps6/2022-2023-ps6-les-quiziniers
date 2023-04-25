@@ -4,6 +4,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {THEME_LIST} from "../mocks/theme-list.mocks";
 import {Theme} from "../models/theme.model";
+import {Quiz} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,6 @@ export class ThemeService {
   constructor(private http: HttpClient) {
     this.themes$.next(this.themes);
   }
+  public themeSelected$: Subject<Quiz> = new Subject();
 
 }

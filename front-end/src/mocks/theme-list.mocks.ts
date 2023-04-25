@@ -33,6 +33,12 @@ export const THEME_LIST: Theme[] = [
     name: 'Musique',
     image:"https://www.shutterstock.com/image-vector/music-notes-curves-swirls-vector-260nw-1705493965.jpg",
     quizList:QUIZ_LIST
+  },
+  {
+    id: '6',
+    name: 'Cinéma',
+    image:"https://www.shutterstock.com/image-vector/cinema-background-vector-illustration-260nw-1021027778.jpg",
+    quizList:QUIZ_LIST
   }
 
 ];

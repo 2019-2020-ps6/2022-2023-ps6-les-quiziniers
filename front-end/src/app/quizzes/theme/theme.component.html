@@ -1,6 +1,7 @@
-<div class="card">
+<div class="theme_card">
   <h2>
     <img class="image" [src]="theme.image"/>
-    {{theme.name}}
   </h2>
+  <button class="button-card" [routerLink]="['/quiz-list']"> Cliquez pour séléctionner : {{theme.name}}
+</button>
 </div>
