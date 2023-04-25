@@ -11,9 +11,11 @@ import {Stade1Component} from "../../vision/stade1/stade1.component";
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-
   public width:String="";
   public margin:String= "";
+  public isAnswered = false;
+  public hasAnswered = false;
+  public isAnswerChecked = false;
   @Input()
   quizOG: Quiz;
 
@@ -57,31 +59,42 @@ export class QuestionComponent implements OnInit {
     answer.type += " C'est pas bon";
   }
 
-  selectAnswer(answer: any) {
+  selectAnswer(answer) {
     this.question.answers.forEach(a => a.isSelected = false);
     answer.isSelected = true;
   }
 
+
   isAnswerSelected(): boolean {
-    return this.question.answers.some(a => a.isSelected);
+    return this.question.answers.some(answer => answer.isSelected);
   }
 
   isCorrectSelected(): boolean {
-    const selectedAnswer = this.question.answers.find(a => a.isSelected);
-    return selectedAnswer && selectedAnswer.isCorrect;
+    return this.question.answers.some(answer => answer.isSelected && answer.isCorrect);
   }
+
 
   nextClicked = false;
 
   checkAnswer(): void {
+    this.hasAnswered = true;
     this.nextClicked = true;
+    this.isAnswerChecked = true;
+    this.isAnswered = true;
+    this.isCorrectSelected();
     if (this.isCorrectSelected()) {
       this.quizOG.points += 1;
     }
   }
 
+  isQuestionAnswered(): boolean {
+    return this.isAnswered;
+  }
+
   getNext() {
     this.nextClicked = false;
+    this.hasAnswered = false;
+    this.isAnswerChecked = false;
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length - 1) {
       this.question = this.quizOG.questions[index + 1];
@@ -93,10 +106,12 @@ export class QuestionComponent implements OnInit {
 
   getPrevious() {
     this.nextClicked = false;
+    this.hasAnswered = false;
+    this.isAnswerChecked = false;
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length) {
       this.question = this.quizOG.questions[index - 1];
     }
     this.question.answers.forEach(a => a.isSelected = false);
-  }
+  }z
 }
