@@ -12,8 +12,6 @@ import {QuestionFormComponent} from "./questions/question-form/question-form.com
 import {UserComponent} from "./users/user/user.component";
 import {UserFormComponent} from "./users/user-form/user-form.component";
 import {Stade1Component} from "./vision/stade1/stade1.component";
-import {Stade2Component} from "./vision/stade2/stade2.component";
-import {Stade3Component} from "./vision/stade3/stade3.component";
 import {StatisticListComponent} from "./statistics/statistic-list/statistic-list.component";
 import {GeneralStatisticComponent} from "./statistics/general-statistic/general-statistic.component";
 import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-page-admin-mdp.component";
@@ -40,8 +38,6 @@ const routes: Routes = [
     {path: 'question/:id', component: QuestionComponent},
     {path: 'question-form', component: QuestionFormComponent},
     {path: 'stade1', component: Stade1Component},
-    {path: 'stade2', component: Stade2Component},
-    {path: 'stade3', component: Stade3Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
     {path: 'user/:id', component: UserComponent},
