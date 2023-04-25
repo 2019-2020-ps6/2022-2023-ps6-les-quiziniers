@@ -1,5 +1,13 @@
-@import '../../../styles/card.scss';
-
+.theme_card{
+  background: white;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  padding: 0 1em 1em 1em;
+  border-radius: 20px;
+  margin-top: 2em;
+}
 .image{
   width: 400px;
   height: 300px;

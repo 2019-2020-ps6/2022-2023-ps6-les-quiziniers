@@ -20,12 +20,15 @@ import {HomePageAdminMDPComponent} from "./home-pages/home-page-adminMDP/home-pa
 import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-admin.component";
 import {QuizFormComponent} from "./quizzes/quiz-form/quiz-form.component";
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
+import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
+import {ThemeComponent} from "./quizzes/theme/theme.component";
 
 
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list', component: QuizListComponent},
+
+  {path: 'quiz-list/:id', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'home-page', component: HomePageComponent},
@@ -46,8 +49,9 @@ const routes: Routes = [
     {path: 'home-page', component: HomePageComponent},
     {path: 'change-mdp',component:HomePageChangemdpComponent},
   { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
-
-
+  {path: 'app-quiz-theme', component: QuizThemeComponent},
+  {path: 'app-theme', component: ThemeComponent},
+  { path: '**', redirectTo: 'app-quiz-theme' },
 ];
 
 @NgModule({

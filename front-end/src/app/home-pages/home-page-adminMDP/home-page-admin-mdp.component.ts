@@ -31,6 +31,7 @@ export class HomePageAdminMDPComponent implements OnInit {
     if (this.mdp.valid) {
       const motdepasse = this.mdp.getRawValue().label as string;
       if(motdepasse===truemdp){
+        sessionStorage.setItem('admin?',"true");
         this.Router.navigate(['/home-page-admin']);
       }
     }

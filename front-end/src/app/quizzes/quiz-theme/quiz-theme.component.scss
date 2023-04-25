@@ -1,10 +1,5 @@
-@import '../../../styles/card.scss';
 
-.image{
-  width: 400px;
-  height: 300px;
-  border-radius: 20px;
-}
+
 .button-card {
   background-color: #EA4C89;
   border-radius: 8px;
@@ -14,7 +9,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   height: 40px;
   line-height: 20px;
@@ -32,7 +27,16 @@
   touch-action: manipulation;
 }
 
-.button-card:hover,
-.button-card:focus {
-  background-color: #F082AC;
+  .button-card:hover,
+  .button-card:focus {
+    background-color: #F082AC;
+  }
+.theme_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
+

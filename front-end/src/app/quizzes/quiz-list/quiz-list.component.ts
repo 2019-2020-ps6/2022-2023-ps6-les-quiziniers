@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 
 @Component({
-  selector: 'app-quiz-list',
+  selector: 'quiz-list',
   templateUrl: './quiz-list.component.html',
   styleUrls: ['./quiz-list.component.scss']
 })
@@ -12,17 +12,22 @@ export class QuizListComponent implements OnInit {
 
   public quizList: Quiz[] = [];
 
-  constructor(private router: Router, public quizService: QuizService) {
+
+  constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute) {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      this.quizList = quizzes;
-    });
+      this.quizList = quizzes;})
+    //recuperer les quiz avec le id du theme;
+    const id = this.route.snapshot.paramMap.get('id');
+    this.quizList=this.quizList.filter(quiz => quiz.theme == id);
   }
 
   ngOnInit(): void {
+
+
   }
 
   quizSelected(selected: boolean): void {
-    console.log('event received from child:', selected);
+
   }
 
   editQuiz(quiz: Quiz): void {
