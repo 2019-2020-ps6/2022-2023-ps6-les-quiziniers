@@ -1,5 +1,5 @@
 <div class="question" [ngStyle]="{'width': width,'margin-left':margin}" >
-  <div class="card">
+  <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question">
       <i class="fab fa-leanpub"></i>
       <p id="yo" >
@@ -9,7 +9,7 @@
     <img class="questionImage" [src]="question.image" alt=""/>
     <table class="tableanswer">
       <td>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index"
+    <div class="answer" *ngFor="let answer of question.answers; let i=index "
          (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
 
           {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
