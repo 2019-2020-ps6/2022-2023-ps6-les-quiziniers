@@ -8,7 +8,11 @@
     <br>
     <label for="theme">
       Theme <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
+      <select name="themeSelect" id="theme" >
+        <option class="theme-list" *ngFor="let theme of themeList">
+          {{theme.name}}
+        </option>
+      </select>
     </label>
     <br>
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>

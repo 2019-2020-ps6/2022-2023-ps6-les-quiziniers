@@ -1,12 +1,22 @@
-<div class="question" [ngStyle]="{'width': width,'margin-left':margin}" >
+
   <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question">
-      <i class="fab fa-leanpub"></i>
+
       <p id="yo" >
       {{question.label}}
        </p>
     </h1>
+    <button class="button-card" id="prec" (click)="getPrevious()">
+      Précédent
+    </button>
     <img class="questionImage" [src]="question.image" alt=""/>
+    <button class="button-card" id="suiv" (click)="getNext()">
+      Suivant
+    </button>
+    <p id="points">
+      Vous avez {{this.quizOG.points}} points
+    </p>
+
     <table class="tableanswer">
       <td>
     <div class="answer" *ngFor="let answer of question.answers; let i=index "
@@ -24,15 +34,5 @@
     <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
     <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
-  <p>
-    <button class="button-card" (click)="getPrevious()">
-      Précédent
-    </button>
-  <button class="button-card" (click)="getNext()">
-    Suivant
-  </button>
-  <p>
-    Vous avez {{this.quizOG.points}} points
-  </p>
 </div>
-</div>
+

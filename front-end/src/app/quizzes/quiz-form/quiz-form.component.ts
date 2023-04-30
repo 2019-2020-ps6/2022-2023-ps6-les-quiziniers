@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { Theme} from "../../../models/theme.model";
+import { ThemeService } from '../../../services/theme.service';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import {User} from "../../../models/user.model";
+import {Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-quiz-form',
@@ -18,18 +22,8 @@ export class QuizFormComponent implements OnInit {
    * QuizForm: Object which manages the form in our component.
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
+  public themeList: Theme[]= []
   public quizForm: FormGroup;
-
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
-    this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: ['']
-    });
-    // You can also add validators to your inputs such as required, maxlength or even create your own validator!
-    // More information: https://angular.io/guide/reactive-forms#simple-form-validation
-    // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
-  }
-
   ngOnInit(): void {
   }
 
@@ -39,5 +33,16 @@ export class QuizFormComponent implements OnInit {
 
     this.quizService.addQuiz(quizToCreate);
   }
-
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService) {
+    this.quizForm = this.formBuilder.group({
+      name: [''],
+      theme: [''],
+    });
+    this.themeService.themes$.subscribe((themes: Theme[]) =>{
+      this.themeList = themes;
+    });
+    // You can also add validators to your inputs such as required, maxlength or even create your own validator!
+    // More information: https://angular.io/guide/reactive-forms#simple-form-validation
+    // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
+  }
 }

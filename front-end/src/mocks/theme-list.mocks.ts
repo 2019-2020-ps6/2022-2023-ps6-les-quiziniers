@@ -38,7 +38,8 @@ export const THEME_LIST: Theme[] = [
   {
     id: '6',
     name: 'Cinéma',
-    image:"https://www.shutterstock.com/image-vector/cinema-background-vector-illustration-260nw-1021027778.jpg",
+    image:"https://www.shutterstock.com/image-vector/abstract-cinema-background-vector-illustration-600w-220341433.jpg",
+
     quizList:QUIZ_LIST
   }
 

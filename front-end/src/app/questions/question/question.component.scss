@@ -1,16 +1,5 @@
 @import "../../../styles/variables";
 @import "../../../styles/card";
-.question{
-  height: 100%;
-  padding: 0 1em 0 1em;
-  text-align: center;
-  border-top-left-radius: 70%;
-  border-top-right-radius: 70%;
-  border-bottom-left-radius: 70%;
-  border-bottom-right-radius:70%;
-  border:solid #ADD8E6;
-  background-color: $white;
-}
 .card {
   border-top-left-radius: 70%;
   border-top-right-radius: 70%;
@@ -75,11 +64,6 @@
   padding: 0.5em 1em;
   margin-top: 10px;}
 
-.answer:hover {
-  background: #F6F9FE;
-  color: #174ea6;
-}
-
 .answer:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
@@ -114,6 +98,16 @@
   cursor: pointer;
 }
 
+.answer:hover{
+  background: #F6F9FE;
+  color: black;
+  transform: scale(2);
+  perspective:2000px;
+  text-align: center;
+  z-index:10;
+  position:relative;
+}
+
 #correct{
   color: forestgreen;
   font-weight: bold;
@@ -126,8 +120,8 @@
   width: 150px;
   height: 150px;
   text-align: center;
-  margin:auto;
   z-index:5;
+  position:relative;
 }
 
 .questionImage:hover{
@@ -137,7 +131,7 @@
   border:3px solid black;
   z-index:10;
   position:relative;
-  top: 0px;
+
   background-color: white;
   margin:3px;
 }
@@ -146,21 +140,27 @@ h2{
 }
 
 .question-question{
-  width: 50%;
-  margin-left: 25%;
-  perspective:200px;
+  width: 70%;
+  margin-top: 1.5em;
+  margin-left: 15%;
   position: relative;
   z-index:1;
+  font-size: 30px;
 }
 .question-question:hover{
   transform: scale(2);
-  perspective:1000px;
+  width: 40%;
+  margin-left: 30%;
+
+  margin-top: 10%;
+
   text-align: center;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
   z-index:10;
   position:relative;
-  top: 40px;
   background-color: white;
 }
 
@@ -186,4 +186,18 @@ h2{
 .selected-answer {
   background-color: #0042ab;
   color: #ffffff;
+}
+
+#prec{
+  margin-right: 100px;
+}
+
+#suiv{
+  margin-left: 100px;
+}
+
+#points{
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 70%;
 }
