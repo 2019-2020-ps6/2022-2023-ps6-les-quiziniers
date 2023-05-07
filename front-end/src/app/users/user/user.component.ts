@@ -8,7 +8,7 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
+  public visibility:String="hidden";
   @Input()
   user?: User;
 
@@ -18,6 +18,12 @@ export class UserComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const admin= sessionStorage.getItem("admin?")
+    if(sessionStorage.getItem("admin?")=="true"){
+      this.visibility = "visible";
+    }else{
+      this.visibility="hidden";
+    }
   }
 
   delete() {
