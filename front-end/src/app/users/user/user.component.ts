@@ -29,5 +29,8 @@ export class UserComponent implements OnInit {
   delete() {
     this.deleteUser.emit(this.user);
   }
+  edit(){
+
+  }
 
 }
