@@ -4,6 +4,7 @@ import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
 import {Quiz} from "../../../models/quiz.model";
 import {QuizService} from "../../../services/quiz.service";
+import {Session} from "protractor";
 
 @Component({
   selector: 'app-home-page-user',

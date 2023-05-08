@@ -6,6 +6,7 @@
     </h2>
   </button>
   <div>
-    <button class="button-card" (click)="delete()">Delete</button>
+    <button class="button-card" id="bs" [ngStyle]="{'visibility':visibility}"(click)="edit()">Modifier</button>
+    <button class="button-card" id="bt" [ngStyle]="{'visibility':visibility}"(click)="delete()">Supprimer</button>
   </div>
 </div>

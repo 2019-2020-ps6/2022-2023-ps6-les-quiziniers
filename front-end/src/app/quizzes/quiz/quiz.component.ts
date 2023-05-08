@@ -10,7 +10,7 @@ import {Question} from "../../../models/question.model";
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-
+  public visibility : String ="hidden"
   @Input()
   quiz?: Quiz;
 
@@ -23,6 +23,14 @@ export class QuizComponent implements OnInit {
   @Output()
   deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
+  ngOnInit(): void {
+    const admin= sessionStorage.getItem("admin?")
+    if(sessionStorage.getItem("admin?")=="true"){
+      this.visibility = "visible";
+    }else {
+      this.visibility = "hidden";
+    }
+  }
 
 
   selectQuiz(): void {
