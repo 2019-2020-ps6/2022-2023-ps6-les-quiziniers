@@ -46,6 +46,7 @@ export class QuestionComponent implements OnInit {
   public marginleftPoint:String = "";
   public margintopPoint:String = "";
   public margintopConfirmButton:String = "";
+  public widthQuestImage:String = "";
 
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
@@ -68,30 +69,33 @@ export class QuestionComponent implements OnInit {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
     switch (sessionStorage.getItem("stade")){
       case "1":
-        this.margintopContent="8.5%";
+        this.margintopContent="8%";
         this.marginleftZoom="8%";
         this.marginleftPoint="78%";
         this.margintopPoint="5%";
         this.margintopConfirmButton="36.25%";
+        this.widthQuestImage="17%";
         break;
 
       case "2":
         this.width="70%";
         this.margin="15.5%";
+        this.widthQuestImage="24%";
         break;
 
       case "3":
         this.width="50%";
         this.margin="25%";
         this.marginleftContent="9%";
-        this.margintopContent="19%";
+        this.margintopContent="19.5%";
         this.marginleftZoom="4%";
         this.marginleftPoint="68%";
         this.margintopPoint="5%";
-        this.margintopConfirmButton="36%";
+        this.margintopConfirmButton="36.5%";
         this.marginleftQuestImageStade3="-13%";
         this.marginrifhtPrecStade3="1%";
         this.marginleftSuivStade3="3%";
+        this.widthQuestImage="30%";
         break;
 
       default: this.router.navigate(['/stade1'])
@@ -300,3 +304,6 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['/app-quiz-theme'])
   }
 }
+//
+// Compare this snippet from front-end\src\app\quizzes\quiz-list\quiz-list.component.ts:
+// import { Quiz } from '../quiz.model';
