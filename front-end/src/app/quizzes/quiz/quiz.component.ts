@@ -23,11 +23,7 @@ export class QuizComponent implements OnInit {
   @Output()
   deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
-  constructor() {
-  }
 
-  ngOnInit(): void {
-  }
 
   selectQuiz(): void {
     this.quizSelected.emit(true);
@@ -39,5 +35,43 @@ export class QuizComponent implements OnInit {
 
   delete(): void {
     this.deleteQuiz.emit(this.quiz);
+  }
+  quizTitle: string;
+  tracks: any[];
+  currentTrackIndex: number;
+  currentTrackSrc: string;
+  currentOptions: string[];
+  numTracks: number;
+  score: number;
+  quizComplete: boolean;
+
+  constructor(private quizService: QuizService) { }
+
+  private ctx: AudioContext;
+  ngOnInit(): void {
+
+  AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;
+  this.ctx = new AudioContext();
+
+  }
+  playSound() {
+
+  }
+
+  playNextTrack(): void {
+    this.currentTrackIndex++;
+    if (this.currentTrackIndex === this.numTracks) {
+      this.quizComplete = true;
+      return;
+    }
+    this.currentTrackSrc = this.tracks[this.currentTrackIndex].src;
+    this.currentOptions = this.tracks[this.currentTrackIndex].options;
+  }
+
+  checkAnswer(option: string): void {
+    if (option === this.tracks[this.currentTrackIndex].answer) {
+      this.score++;
+    }
+    this.playNextTrack();
   }
 }
