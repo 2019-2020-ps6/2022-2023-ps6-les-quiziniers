@@ -16,14 +16,12 @@
     <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
       Suivant
     </button>
-    <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-
     <div class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
       <audio controls>
         <source [src]="question.trackSources" type="audio/mp3">
       </audio>
     </div>
-    <p>
+      <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
       Vous avez {{this.quizOG.points}} points
     </p>
     <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
