@@ -15,6 +15,7 @@ export class QuestionComponent implements OnInit {
   public width:String="";
   public margin:String= "";
   public isAnswered = false;
+  public quizEnded = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
   public track: string;
@@ -103,10 +104,10 @@ export class QuestionComponent implements OnInit {
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length - 1) {
       this.question = this.quizOG.questions[index + 1];
+      this.question.answers.forEach(a => a.isSelected = false);
     } else {
-      this.router.navigate(['/quiz-list']);
+      this.quizEnded = true;
     }
-    this.question.answers.forEach(a => a.isSelected = false);
   }
 
   getPrevious() {
@@ -121,4 +122,45 @@ export class QuestionComponent implements OnInit {
   }
 
   public QuestionType = QuestionType;
+
+  public getAnswerValue(question: any): string {
+    const selectedAnswer = question.answers.find(answer => answer.isSelected);
+    if (selectedAnswer) {
+      return selectedAnswer.value;
+    }
+    return 'Aucune réponse sélectionnée';
+  }
+
+  public getCorrectAnswerValue(question: any): string {
+    const correctAnswer = question.answers.find(answer => answer.isCorrect);
+    if (correctAnswer) {
+      return correctAnswer.value;
+    }
+    return 'Aucune réponse correcte';
+  }
+
+  public getCorrectAnswersCount(): number {
+    let count = 0;
+    for (const question of this.quizOG.questions) {
+      if (question.answers.some(answer => answer.isSelected && answer.isCorrect)) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  public restartQuiz(): void {
+    for (const question of this.quizOG.questions) {
+      for (const answer of question.answers) {
+        answer.isSelected = false;
+      }
+    }
+    this.question = this.quizOG.questions[0];
+    this.quizEnded = false;
+    this.quizOG.points = 0;
+  }
+
+  public goHome(): void {
+    this.router.navigate(['/app-quiz-theme'])
+  }
 }
