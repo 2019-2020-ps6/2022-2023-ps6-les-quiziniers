@@ -19,3 +19,15 @@ N
 front-end/src/styles/card.scss,2\d\2df5795089d754bc83f4b987ced99c38df2fa9fe
 y
 Ifront-end/src/app/home-pages/home-page-user/home-page-user.component.scss,3\7\3779801a82f5442c316553814dc42bfd58ec7bd5
+R
+"front-end/src/models/quiz.model.ts,7\2\72e46fd8b5c0a7c103370d369b3e1ff87a7a50ea
+U
+%front-end/src/mocks/quiz-list.mock.ts,0\a\0ab06b02351196ca9d0d17fb04ffcb8e33ad7c3c
+j
+:front-end/src/app/quizzes/quiz-list/quiz-list.component.ts,f\3\f3cfb0df9860e7c4e4604e0f30d5cf5425cf398d
+l
+<front-end/src/app/quizzes/quiz-theme/quiz-theme.component.ts,c\b\cba00e87b8f66db18135f9429398a7b3cee0c753
+n
+>front-end/src/app/quizzes/quiz-theme/quiz-theme.component.html,e\b\eb0e25eafc6a008905509dcf558f84e38bf990ff
+{
+Kfront-end/src/app/home-pages/home-page-admin/home-page-admin.component.html,9\e\9e451d5a53c6655b85f0903fe04ddf30abff9389

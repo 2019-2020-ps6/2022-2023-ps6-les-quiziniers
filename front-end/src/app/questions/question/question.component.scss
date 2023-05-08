@@ -29,40 +29,45 @@
   color: $white;
   font-weight: bold;
   padding: 0.5em 1em;
-  margin-top: 10px;
+  margin: 0 auto;
+  margin-top: 51%;
 }
 .answer {
-   align-items: center;
-   appearance: none;
-   background-color: #fff;
-   border-radius: 24px;
-   border-style: none;
-   box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-   box-sizing: border-box;
-   cursor: pointer;
-   fill: currentcolor;
-   font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-   font-style: normal;
-   font-size: 100%;
-   font-weight: 600;
-   height: 48px;
-   justify-content: center;
-   letter-spacing: .25px;
-   line-height: normal;
-   max-width: 100%;
-   overflow: visible;
-   margin-left: 35%;
-   text-transform: none;
-   transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
-   width: 30%;
-   color: #0042ab;
-   will-change: transform,opacity;
-   z-index: 0;
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  fill: currentcolor;
+  font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+  font-style: normal;
+  font-size: 100%;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  margin-left: 35%;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+  color: #0042ab;
+  will-change: transform,opacity;
+  z-index: 20;
   padding: 0.5em 1em;
-  margin-top: 10px;}
+  margin-top: 5px;
+  margin-bottom: 0%;
+  position: unset;
+
+}
 
 .answer:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
@@ -98,15 +103,7 @@
   cursor: pointer;
 }
 
-.answer:hover{
-  background: #F6F9FE;
-  color: black;
-  transform: scale(2);
-  perspective:2000px;
-  text-align: center;
-  z-index:10;
-  position:relative;
-}
+
 
 #correct{
   color: forestgreen;
@@ -117,52 +114,30 @@
   font-weight: bold;
 }
 .questionImage {
+  transform: scale(1);
   width: 150px;
   height: 150px;
-  text-align: center;
-  z-index:5;
-  position:relative;
-}
-
-.questionImage:hover{
-  transform: scale(2);
-  perspective:2000px;
-  text-align: center;
-  border:3px solid black;
+  margin: 0 auto;
   z-index:10;
-  position:relative;
-
-  background-color: white;
-  margin:3px;
+  position: relative;
 }
+
 h2{
   vertical-align: text-top;
 }
 
 .question-question{
-  width: 70%;
-  margin-top: 1.5em;
-  margin-left: 15%;
-  position: relative;
-  z-index:1;
+  transform: scale(1);
+  width: 64%;
+  margin-left: 18%;
+  margin-top: 2%;
+  position: absolute;
   font-size: 30px;
+  border-radius: 100%;
+  z-index:11;
+  background-color: unset;
 }
-.question-question:hover{
-  transform: scale(2);
-  width: 40%;
-  margin-left: 30%;
 
-  margin-top: 10%;
-
-  text-align: center;
-  border-top-left-radius: 100%;
-  border-top-right-radius: 100%;
-  border-bottom-left-radius: 100%;
-  border-bottom-right-radius: 100%;
-  z-index:10;
-  position:relative;
-  background-color: white;
-}
 
 .correct-answer {
   background-color: #00f500;
@@ -199,5 +174,59 @@ h2{
 #points{
   position: absolute;
   margin-top: 7%;
-  margin-left: 70%;
+  margin-left: 75%;
 }
+
+#zoom{
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 2.5%;
+}
+
+.toggle-switch {
+
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.2s;
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.toggle-switch:before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  transition: transform 0.2s;
+}
+
+.toggle-switch.active {
+  background-color: #4CAF50;
+}
+
+.toggle-switch.active:before {
+  transform: translateX(26px);
+}
+
+.content{
+  position: absolute;
+  margin-top: 13.5%;
+  margin-left: 14%;
+}
+
+td{
+  z-index: 20;
+}
+
+
+
+
+

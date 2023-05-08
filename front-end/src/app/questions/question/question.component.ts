@@ -16,6 +16,40 @@ export class QuestionComponent implements OnInit {
   public isAnswered = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
+  public switchState = false;
+  public transform2:String = "";
+  public transform:String = "scale(1)";
+  public zindex2:String = "";
+  public zindex3:String = "10";
+  public transform3:String = "scale(1)";
+  public transform4:String = "scale(1)";
+  public position2:String = "";
+  public position3:String = "unset";
+  public margintop4:String = "";
+  public margintop5:String = "5px";
+  public marginbottom2:String = "";
+  public marginbottom3:String = "0px";
+  public width2:String = "";
+  public width3:String = "64%";
+  public marginleft2:String = "";
+  public marginleft3:String = "18%";
+  public margintop2:String = "";
+  public margintop3:String = "2%";
+  public background2:String = "";
+  public background3:String = "unset";
+
+  public marginleftContent:String = "";
+  public margintopContent:String = "";
+  public marginleftZoom:String = "";
+  public marginleftPoint:String = "";
+  public margintopPoint:String = "";
+  public margintopConfirmButton:String = "";
+
+  public marginleftQuestImageStade3:String = "";
+  public marginrifhtPrecStade3:String = "";
+  public marginleftSuivStade3:String = "";
+
+
   @Input()
   quizOG: Quiz;
 
@@ -28,9 +62,34 @@ export class QuestionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
     switch (sessionStorage.getItem("stade")){
-      case "1": break;
-      case "2": this.width="70%";this.margin="15.5%";break;
-      case "3": this.width="50%";this.margin="25%";break;
+      case "1":
+        this.marginleftContent="25%";
+        this.margintopContent="10%";
+        this.marginleftZoom="2.5%";
+        this.marginleftPoint="78%";
+        this.margintopPoint="5%";
+        this.margintopConfirmButton="36.25%";
+        break;
+
+      case "2":
+        this.width="70%";
+        this.margin="15.5%";
+        break;
+
+      case "3":
+        this.width="50%";
+        this.margin="25%";
+        this.marginleftContent="9%";
+        this.margintopContent="19%";
+        this.marginleftZoom="-6%";
+        this.marginleftPoint="75%";
+        this.margintopPoint="5%";
+        this.margintopConfirmButton="72%";
+        this.marginleftQuestImageStade3="-16.5%";
+        this.marginrifhtPrecStade3="1%";
+        this.marginleftSuivStade3="3%";
+        break;
+
       default: this.router.navigate(['/stade1'])
     }
   }
@@ -50,6 +109,85 @@ export class QuestionComponent implements OnInit {
     this.deleteQuestion.emit(this.question);
   }
 
+
+
+
+  toggleSwitch() {
+    this.switchState = !this.switchState;
+    if (this.switchState) {
+      switch (sessionStorage.getItem("stade")) {
+        case "1":
+          this.transform2 = "scale(2)";
+          this.zindex2 = "12";
+          this.width2 = "35%";
+          this.marginleft2 = "35%";
+          this.margintop2 = "7%";
+          this.background2 = "white";
+          this.position2 = "relative";
+          this.margintop4 = "-13%";
+          this.marginbottom2 = "21%";
+          break;
+        case "2":
+          this.transform2 = "scale(2)";
+          this.zindex2 = "12";
+          this.width2 = "35%";
+          this.marginleft2 = "35%";
+          this.margintop2 = "10%";
+          this.background2 = "white";
+          this.position2 = "relative";
+          this.margintop4 = "-13%";
+          this.marginbottom2 = "21%";
+          break;
+        case "3":
+          this.transform2 = "scale(2)";
+          this.zindex2 = "12";
+          this.width2 = "45%";
+          this.marginleft2 = "27.5%";
+          this.margintop2 = "15%";
+          this.background2 = "white";
+          this.position2 = "relative";
+          this.margintop4 = "-14%";
+          this.marginbottom2 = "24%";
+          break;
+      }
+    } else {
+      switch (sessionStorage.getItem("stade")) {
+        case "1":
+          this.transform2 = "scale(1)";
+          this.zindex2 = "10";
+          this.width2 = "64%";
+          this.marginleft2 = "18%";
+          this.margintop2 = "2%";
+          this.background2 = "unset";
+          this.position2 = "unset";
+          this.margintop4 = "5px";
+          this.marginbottom2 = "0%";
+          break;
+        case "2":
+          this.transform2 = "scale(1)";
+          this.zindex2 = "10";
+          this.width2 = "64%";
+          this.marginleft2 = "18%";
+          this.margintop2 = "2%";
+          this.background2 = "unset";
+          this.position2 = "unset";
+          this.margintop4 = "5px";
+          this.marginbottom2 = "0%";
+          break;
+        case "3":
+          this.transform2 = "scale(1)";
+          this.zindex2 = "10";
+          this.width2 = "64%";
+          this.marginleft2 = "18%";
+          this.margintop2 = "2%";
+          this.background2 = "unset";
+          this.position2 = "unset";
+          this.margintop4 = "5px";
+          this.marginbottom2 = "0%";
+          break;
+      }
+    }
+  }
 
   answerLayout(answer: Answer): void {
     console.log(answer);

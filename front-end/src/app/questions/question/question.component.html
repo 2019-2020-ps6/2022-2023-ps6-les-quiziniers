@@ -1,25 +1,30 @@
 
   <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question">
+    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}" (mouseenter)="transform3=transform2; width3=width2; marginleft3=marginleft2; margintop3=margintop2; background3=background2" (mouseleave)="transform3='scale(1)'; width3='64%'; marginleft3='18%'; margintop3='2%'; background3='unset'">
 
       <p id="yo" >
       {{question.label}}
        </p>
     </h1>
-    <button class="button-card" id="prec" (click)="getPrevious()">
+    <div class="content" [ngStyle]="{'margin-left': marginleftContent,'margin-top':margintopContent}">
+    <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
       Précédent
     </button>
-    <img class="questionImage" [src]="question.image" alt=""/>
-    <button class="button-card" id="suiv" (click)="getNext()">
+    <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindex3, 'margin-left':marginleftQuestImageStade3}" (mouseenter)="transform=transform2; zindex3=zindex2" (mouseleave)="transform='scale(1)'; zindex3='10'" [src]="question.image" alt=""/>
+    <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
       Suivant
     </button>
-    <p id="points">
+    <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
       Vous avez {{this.quizOG.points}} points
+    </p>
+    <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
+      Zoom
+    <button class="toggle-switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
     </p>
 
     <table class="tableanswer">
       <td>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index "
+    <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transform2; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='unset'; margintop5='5px'; marginbottom3='0%'"
          (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
 
           {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
@@ -27,12 +32,13 @@
   </div>
     </td>
   </table>
-  <button class="button-card" id="confirmbutton" (click)="checkAnswer()">
-    Valider
-  </button>
   <p *ngIf="nextClicked && isAnswerSelected()">
     <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
     <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
 </div>
+    <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
+      Valider
+    </button>
+  </div>
 
