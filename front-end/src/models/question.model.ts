@@ -10,4 +10,11 @@ export interface Question {
     label: string;
     answers: Answer[];
     image : string;
+    type : QuestionType;
+    trackSources : string;
+}
+
+export enum QuestionType {
+  Blindtest  ,
+  QCM ,
 }

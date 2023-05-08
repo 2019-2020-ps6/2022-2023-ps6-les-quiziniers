@@ -10,9 +10,15 @@
       Précédent
     </button>
     <img class="questionImage" [src]="question.image" alt=""/>
+    <div class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
+      <audio controls>
+        <source [src]="question.trackSources" type="audio/mp3">
+      </audio>
+    </div>
     <button class="button-card" id="suiv" (click)="getNext()">
       Suivant
     </button>
+
     <p id="points">
       Vous avez {{this.quizOG.points}} points
     </p>

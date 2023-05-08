@@ -3,6 +3,7 @@
         <img class="image" [src]="quiz.image"/>
       <button class="button-card" (click)="selectQuiz()" routerLink="/question/{{quiz.id}}"> Cliquez pour séléctionner : {{quiz.name}}
       </button>
+
     </h2>
     <button class="button-card" (click)="selectQuiz()" routerLink="/question-quiz/{{quiz.id}}">Selectionner</button>
     <button class="button-card" (click)="delete()">Supprimer</button>

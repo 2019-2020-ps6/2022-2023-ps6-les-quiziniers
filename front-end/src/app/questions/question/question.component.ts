@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Answer, Question} from '../../../models/question.model';
+import {Answer, Question, QuestionType} from '../../../models/question.model';
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
+
 import {Stade1Component} from "../../vision/stade1/stade1.component";
 @Component({
   selector: 'app-question',
@@ -17,8 +18,12 @@ export class QuestionComponent implements OnInit {
   public quizEnded = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
+  public track: string;
   @Input()
   quizOG: Quiz;
+
+  @Input()
+  questionType: QuestionType;
 
   @Input()
   question: Question;
@@ -38,15 +43,15 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id)
-
+    this.quizService.setSelectedQuiz(id);
     console.log(this.quizOG);
     if (this.quizOG.questions.length != 0) {
       this.question = this.quizOG.questions[0];
+      this.questionType = this.question.type;
+
     }
     return null;
   }
-
   delete(): void {
     this.deleteQuestion.emit(this.question);
   }
@@ -115,6 +120,8 @@ export class QuestionComponent implements OnInit {
     }
     this.question.answers.forEach(a => a.isSelected = false);
   }
+
+  public QuestionType = QuestionType;
 
   public getAnswerValue(question: any): string {
     const selectedAnswer = question.answers.find(answer => answer.isSelected);

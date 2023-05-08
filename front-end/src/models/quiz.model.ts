@@ -8,3 +8,6 @@ export interface Quiz {
     image:string;
     points: number;
 }
+
+
+
