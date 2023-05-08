@@ -1,8 +1,6 @@
 <ng-container *ngIf="!quizEnded">
 <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}"
-
-
+    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}" (mouseenter)="transform3=transform2; width3=width2; marginleft3=marginleft2; margintop3=margintop2; background3=background2" (mouseleave)="transform3='scale(1)'; width3='64%'; marginleft3='18%'; margintop3='2%'; background3='unset'">
       <p id="yo" >
       {{question.label}}
        </p>
@@ -16,14 +14,12 @@
     <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
       Suivant
     </button>
-    <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-
     <div class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
       <audio controls>
         <source [src]="question.trackSources" type="audio/mp3">
       </audio>
     </div>
-
+      <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
       Vous avez {{this.quizOG.points}} points
     </p>
     <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
