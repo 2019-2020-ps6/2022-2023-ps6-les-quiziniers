@@ -1,4 +1,5 @@
-import { Question } from '../models/question.model';
+import {Question, QuestionType} from '../models/question.model';
+
 export const QUESTION_ACTOR1: Question = {
   id: '1',
   label: 'Jean Gabin a joué dans...',
@@ -21,7 +22,9 @@ export const QUESTION_ACTOR1: Question = {
 
 
   ],
-  image:"https://imgs.search.brave.com/GinmnByb5ELNdDARTDuxj5kxyPunFt-10JNYBiuz9zc/rs:fit:900:900:1/g:ce/aHR0cHM6Ly95dDMu/Z2dwaHQuY29tL25D/Sk9JS3VrbV9LbjNk/aVFJYjRTU2VNNVVO/aDNXWUhKWWlJNzVq/M3lJdnFTdGVFUTU0/SHBVZjY4cE0yX0Js/bV9iYXNuOVBObzZO/MlliVzJhPXM5MDAt/bW8tYy1jMHhmZmZm/ZmZmZi1yai1rLW5v"
+  image:"https://imgs.search.brave.com/GinmnByb5ELNdDARTDuxj5kxyPunFt-10JNYBiuz9zc/rs:fit:900:900:1/g:ce/aHR0cHM6Ly95dDMu/Z2dwaHQuY29tL25D/Sk9JS3VrbV9LbjNk/aVFJYjRTU2VNNVVO/aDNXWUhKWWlJNzVq/M3lJdnFTdGVFUTU0/SHBVZjY4cE0yX0Js/bV9iYXNuOVBObzZO/MlliVzJhPXM5MDAt/bW8tYy1jMHhmZmZm/ZmZmZi1yai1rLW5v",
+  type:QuestionType.QCM,
+  trackSources:'0'
 };
 
 export const QUESTION_ACTOR2: Question = {
@@ -44,7 +47,9 @@ export const QUESTION_ACTOR2: Question = {
       isSelected: false,
     }
     ],
-  image:"https://file1.closermag.fr/var/closermag/storage/images/bio-people/biographie-jean-dujardin-112277/815517-1-fre-FR/Jean-Dujardin.jpg?alias=square500x500&size=x100&format=webp"
+  image:"https://file1.closermag.fr/var/closermag/storage/images/bio-people/biographie-jean-dujardin-112277/815517-1-fre-FR/Jean-Dujardin.jpg?alias=square500x500&size=x100&format=webp",
+  type:QuestionType.QCM,
+  trackSources : "https://www.youtube.com/watch?v=Zx1_6F-nCaw"
 }
 export const QUESTION_CAPITALES: Question = {
   id: '3',
@@ -66,7 +71,9 @@ export const QUESTION_CAPITALES: Question = {
       isSelected: false,
     }
   ],
-  image:"https://i0.wp.com/www.vivafrik.com/wp-content/uploads/2018/11/Ouagadougou-Burkina-Faso-la-capitale-africaine-de-le-SEERA-.jpg?fit=800%2C500&ssl=1"
+  image:"https://i0.wp.com/www.vivafrik.com/wp-content/uploads/2018/11/Ouagadougou-Burkina-Faso-la-capitale-africaine-de-le-SEERA-.jpg?fit=800%2C500&ssl=1",
+  type:QuestionType.QCM,
+  trackSources:'0'
 }
 export const QUESTION_HISTOIRE1: Question = {
   id: '4',
@@ -88,7 +95,9 @@ export const QUESTION_HISTOIRE1: Question = {
       isSelected: false,
     }
   ],
-  image:"https://www.larousse.fr/encyclopedie/data/images/1315849-Napol%C3%A9on_Ier.jpg"
+  image:"https://www.larousse.fr/encyclopedie/data/images/1315849-Napol%C3%A9on_Ier.jpg",
+  type:QuestionType.QCM,
+  trackSources:'0'
 }
 export const QUESTION_HISTOIRE2: Question = {
   id: '5',
@@ -110,5 +119,33 @@ export const QUESTION_HISTOIRE2: Question = {
       isSelected: false,
     }
   ],
-  image:"https://media.sudouest.fr/3528892/1200x-1/so-58bda09f66a4bdfe0c7e46b7-ph0.jpg?v=1488953306"
+  image:"https://media.sudouest.fr/3528892/1200x-1/so-58bda09f66a4bdfe0c7e46b7-ph0.jpg?v=1488953306",
+  type:QuestionType.QCM,
+  trackSources:"0"
+}
+export const QUESTION_BLINDTEST_ANNEE2000: Question = {
+  id: '6',
+  label: "Quelle est cette musique ?",
+  answers: [
+    {
+      value: 'Toutes le femme de ta vie de L5',
+      isCorrect: false,
+      isSelected: false,
+    },
+    {
+      value: 'Crazy in love de Beyoncé',
+      isCorrect: true,
+      isSelected: false,
+    }
+    ,{
+      value: 'In da club de 50 cent',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ]
+  ,image:"https://i.ytimg.com/vi/ViwtNLUqkMY/maxresdefault.jpg",
+  type:QuestionType.Blindtest,
+  trackSources:"https://hiphopdes.com/uploads/2020/02/01%20Crazy%20in%20Love%20(feat_%20Jay-Z).mp3?_=1%22%3E"
+
+
 }

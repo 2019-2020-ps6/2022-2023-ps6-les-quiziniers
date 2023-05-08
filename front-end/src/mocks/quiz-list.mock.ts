@@ -1,6 +1,6 @@
 import { Quiz } from '../models/quiz.model';
 import { Question } from '../models/question.model';
-import {QUESTION_ACTOR2, QUESTION_CAPITALES} from "./question.mocks";
+import {QUESTION_ACTOR2, QUESTION_BLINDTEST_ANNEE2000, QUESTION_CAPITALES} from "./question.mocks";
 import {QUESTION_ACTOR1} from "./question.mocks";
 import {QUESTION_HISTOIRE1} from "./question.mocks";
 import {QUESTION_HISTOIRE2} from "./question.mocks";
@@ -27,6 +27,14 @@ export const QUIZ_LIST: Quiz[] = [ {
     questions: [QUESTION_HISTOIRE1,QUESTION_HISTOIRE2],
     points : 0,
     image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/La_bataille_d%27Austerlitz._2_decembre_1805_%28Fran%C3%A7ois_G%C3%A9rard%29.jpg/300px-La_bataille_d%27Austerlitz._2_decembre_1805_%28Fran%C3%A7ois_G%C3%A9rard%29.jpg"
+  },
+  {
+    id: '4',
+    name: 'Les annees 2000',
+    theme:'5',
+    questions: [QUESTION_BLINDTEST_ANNEE2000],
+    points : 0,
+    image:"https://static.fnac-static.com/multimedia/FR/images_produits/FR/Fnac.com/ZoomPE/7/2/8/5052498350827/tsp20130901100023/Annees-2000.jpg"
   }
 
 ];

@@ -76,28 +76,36 @@ export class QuizService {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
+  getTracks(): any[] {
+    return [
+      {
+        src: 'path/to/track1.mp3',
+        options: ['Option 1'],
+      },]
+  };
 
-  /*
-  Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
-  addQuestion(quiz: Quiz, question: Question) {
-    quiz.questions.push(question);
-    const index = this.quizzes.findIndex((q: Quiz) => q.id === quiz.id);
-    if (index) {
-      this.updateQuizzes(quiz, index);
-    }
-  }
 
-  deleteQuestion(quiz: Quiz, question: Question) {
-    const index = quiz.questions.findIndex((q) => q.label === question.label);
-    if (index !== -1) {
-      quiz.questions.splice(index, 1)
-      this.updateQuizzes(quiz, index);
-    }
-  }
+        /*
+        Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
+        addQuestion(quiz: Quiz, question: Question) {
+          quiz.questions.push(question);
+          const index = this.quizzes.findIndex((q: Quiz) => q.id === quiz.id);
+          if (index) {
+            this.updateQuizzes(quiz, index);
+          }
+        }
 
-  private updateQuizzes(quiz: Quiz, index: number) {
-    this.quizzes[index] = quiz;
-    this.quizzes$.next(this.quizzes);
-  }
-  */
+        deleteQuestion(quiz: Quiz, question: Question) {
+          const index = quiz.questions.findIndex((q) => q.label === question.label);
+          if (index !== -1) {
+            quiz.questions.splice(index, 1)
+            this.updateQuizzes(quiz, index);
+          }
+        }
+
+        private updateQuizzes(quiz: Quiz, index: number) {
+          this.quizzes[index] = quiz;
+          this.quizzes$.next(this.quizzes);
+        }
+        */
 }

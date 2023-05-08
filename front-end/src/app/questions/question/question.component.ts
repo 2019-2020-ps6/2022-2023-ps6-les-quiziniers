@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Answer, Question} from '../../../models/question.model';
+import {Answer, Question, QuestionType} from '../../../models/question.model';
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
+
 import {Stade1Component} from "../../vision/stade1/stade1.component";
 @Component({
   selector: 'app-question',
@@ -14,6 +15,7 @@ export class QuestionComponent implements OnInit {
   public width:String="";
   public margin:String= "";
   public isAnswered = false;
+  public quizEnded = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
   public switchState = false;
@@ -48,10 +50,13 @@ export class QuestionComponent implements OnInit {
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
   public marginleftSuivStade3:String = "";
-
+  public track: string;
 
   @Input()
   quizOG: Quiz;
+
+  @Input()
+  questionType: QuestionType;
 
   @Input()
   question: Question;
@@ -96,15 +101,15 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id)
-
+    this.quizService.setSelectedQuiz(id);
     console.log(this.quizOG);
     if (this.quizOG.questions.length != 0) {
       this.question = this.quizOG.questions[0];
+      this.questionType = this.question.type;
+
     }
     return null;
   }
-
   delete(): void {
     this.deleteQuestion.emit(this.question);
   }
@@ -236,10 +241,10 @@ export class QuestionComponent implements OnInit {
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length - 1) {
       this.question = this.quizOG.questions[index + 1];
+      this.question.answers.forEach(a => a.isSelected = false);
     } else {
-      this.router.navigate(['/quiz-list']);
+      this.quizEnded = true;
     }
-    this.question.answers.forEach(a => a.isSelected = false);
   }
 
   getPrevious() {
@@ -251,5 +256,48 @@ export class QuestionComponent implements OnInit {
       this.question = this.quizOG.questions[index - 1];
     }
     this.question.answers.forEach(a => a.isSelected = false);
-  }z
+  }
+
+  public QuestionType = QuestionType;
+
+  public getAnswerValue(question: any): string {
+    const selectedAnswer = question.answers.find(answer => answer.isSelected);
+    if (selectedAnswer) {
+      return selectedAnswer.value;
+    }
+    return 'Aucune réponse sélectionnée';
+  }
+
+  public getCorrectAnswerValue(question: any): string {
+    const correctAnswer = question.answers.find(answer => answer.isCorrect);
+    if (correctAnswer) {
+      return correctAnswer.value;
+    }
+    return 'Aucune réponse correcte';
+  }
+
+  public getCorrectAnswersCount(): number {
+    let count = 0;
+    for (const question of this.quizOG.questions) {
+      if (question.answers.some(answer => answer.isSelected && answer.isCorrect)) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  public restartQuiz(): void {
+    for (const question of this.quizOG.questions) {
+      for (const answer of question.answers) {
+        answer.isSelected = false;
+      }
+    }
+    this.question = this.quizOG.questions[0];
+    this.quizEnded = false;
+    this.quizOG.points = 0;
+  }
+
+  public goHome(): void {
+    this.router.navigate(['/app-quiz-theme'])
+  }
 }
