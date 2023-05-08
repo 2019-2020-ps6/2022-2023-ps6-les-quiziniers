@@ -1,5 +1,5 @@
-
-  <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
+<ng-container *ngIf="!quizEnded">
+<div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question">
 
       <p id="yo" >
@@ -35,4 +35,30 @@
     <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
 </div>
+</ng-container>
 
+<ng-container *ngIf="quizEnded">
+<div class="card">
+  <h1 class="question-question">
+    Résultats
+  </h1>
+  <table class="tablestats">
+    <tr class="tr2">
+      <th class="th1">Question</th>
+      <th class="th1">Votre réponse</th>
+      <th class="th1">Réponse correcte</th>
+    </tr>
+    <tr *ngFor="let question of quizOG.questions; let i=index" class="tr2">
+      <td class="td1">{{i+1}}. {{question.label}}</td>
+      <td class="td1">{{getAnswerValue(question)}}</td>
+      <td class="td1">{{getCorrectAnswerValue(question)}}</td>
+    </tr>
+  </table>
+  <p>
+    Vous avez répondu correctement à {{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
+  </p>
+  <button class="button-card" id="restartbutton" (click)="restartQuiz()">
+    Recommencer
+  </button>
+</div>
+</ng-container>
