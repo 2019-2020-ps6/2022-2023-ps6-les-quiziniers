@@ -152,4 +152,8 @@ export class QuestionComponent implements OnInit {
     this.quizEnded = false;
     this.quizOG.points = 0;
   }
+
+  public goHome(): void {
+    this.router.navigate(['/app-quiz-theme'])
+  }
 }
