@@ -1,6 +1,7 @@
 <ng-container *ngIf="!quizEnded">
 <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}" (mouseenter)="transform3=transform2; width3=width2; marginleft3=marginleft2; margintop3=margintop2; background3=background2" (mouseleave)="transform3='scale(1)'; width3='64%'; marginleft3='18%'; margintop3='2%'; background3='unset'">
+
       <p id="yo" >
       {{question.label}}
        </p>
