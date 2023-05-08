@@ -80,6 +80,4 @@ export class QuizComponent implements OnInit {
     this.playNextTrack();
   }
 }
-//
-// Compare this snippet from front-end\src\app\quizzes\quiz-list\quiz-list.component.ts:
-// import { Component, OnInit } from '@angular/core';
+//}

@@ -304,6 +304,4 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['/app-quiz-theme'])
   }
 }
-//
-// Compare this snippet from front-end\src\app\quizzes\quiz-list\quiz-list.component.ts:
-// import { Quiz } from '../quiz.model';
+// }
