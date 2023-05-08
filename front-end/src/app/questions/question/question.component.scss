@@ -29,8 +29,8 @@
   color: $white;
   font-weight: bold;
   padding: 0.5em 1em;
-  margin: 0 auto;
-  margin-top: 51%;
+  margin: 36.5% auto 0 -3.75%;
+  position: absolute;
 }
 .answer {
   align-items: center;
@@ -115,9 +115,10 @@
 }
 .questionImage {
   transform: scale(1);
-  width: 150px;
-  height: 150px;
+  width: 30%;
+  height: auto;
   margin: 0 auto;
+  margin-top: 1.5%;
   z-index:10;
   position: relative;
 }
@@ -165,6 +166,7 @@ h2{
 
 #prec{
   margin-right: 100px;
+  margin-top: -15%;
 }
 
 #suiv{
@@ -174,13 +176,13 @@ h2{
 #points{
   position: absolute;
   margin-top: 7%;
-  margin-left: 75%;
+  margin-left: 70%;
 }
 
 #zoom{
   position: absolute;
   margin-top: 5%;
-  margin-left: 2.5%;
+  margin-left: 8%;
 }
 
 .toggle-switch {
@@ -218,9 +220,8 @@ h2{
 }
 
 .content{
-  position: absolute;
-  margin-top: 13.5%;
-  margin-left: 14%;
+  position: relative;
+  margin: 12% auto 0;
 }
 
 td{

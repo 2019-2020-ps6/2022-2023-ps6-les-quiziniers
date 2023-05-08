@@ -1,18 +1,17 @@
 <ng-container *ngIf="!quizEnded">
 <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}">
-
+    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}" (mouseenter)="transform3=transform2; width3=width2; marginleft3=marginleft2; margintop3=margintop2; background3=background2" (mouseleave)="transform3='scale(1)'; width3='64%'; marginleft3='18%'; margintop3='2%'; background3='unset'">
 
       <p id="yo" >
       {{question.label}}
        </p>
     </h1>
-    <div class="content" [ngStyle]="{'margin-left': marginleftContent,'margin-top':margintopContent}">
+    <div class="content" [ngStyle]="{'margin-top':margintopContent}">
     <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
       Précédent
     </button>
 
-    <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindex3, 'margin-left':marginleftQuestImageStade3}" (mouseenter)="transform=transform2; zindex3=zindex2" (mouseleave)="transform='scale(1)'; zindex3='10'" [src]="question.image" alt=""/>
+    <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindex3, 'margin-left':marginleftQuestImageStade3, 'width':widthQuestImage}" (mouseenter)="transform=transform2; zindex3=zindex2" (mouseleave)="transform='scale(1)'; zindex3='10'" [src]="question.image" alt=""/>
     <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
       Suivant
     </button>
@@ -44,10 +43,10 @@
     <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
 </div>
-    <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
-      Valider
-    </button>
   </div>
+  <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
+    Valider
+  </button>
 </ng-container>
 
 <ng-container *ngIf="quizEnded">

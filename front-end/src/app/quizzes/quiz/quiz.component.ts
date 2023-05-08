@@ -80,3 +80,4 @@ export class QuizComponent implements OnInit {
     this.playNextTrack();
   }
 }
+//}

@@ -46,6 +46,7 @@ export class QuestionComponent implements OnInit {
   public marginleftPoint:String = "";
   public margintopPoint:String = "";
   public margintopConfirmButton:String = "";
+  public widthQuestImage:String = "";
 
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
@@ -68,31 +69,33 @@ export class QuestionComponent implements OnInit {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
     switch (sessionStorage.getItem("stade")){
       case "1":
-        this.marginleftContent="25%";
-        this.margintopContent="10%";
-        this.marginleftZoom="2.5%";
+        this.margintopContent="8%";
+        this.marginleftZoom="8%";
         this.marginleftPoint="78%";
         this.margintopPoint="5%";
         this.margintopConfirmButton="36.25%";
+        this.widthQuestImage="17%";
         break;
 
       case "2":
         this.width="70%";
         this.margin="15.5%";
+        this.widthQuestImage="24%";
         break;
 
       case "3":
         this.width="50%";
         this.margin="25%";
         this.marginleftContent="9%";
-        this.margintopContent="19%";
-        this.marginleftZoom="-6%";
-        this.marginleftPoint="75%";
+        this.margintopContent="19.5%";
+        this.marginleftZoom="4%";
+        this.marginleftPoint="68%";
         this.margintopPoint="5%";
-        this.margintopConfirmButton="72%";
-        this.marginleftQuestImageStade3="-16.5%";
+        this.margintopConfirmButton="36.5%";
+        this.marginleftQuestImageStade3="-13%";
         this.marginrifhtPrecStade3="1%";
         this.marginleftSuivStade3="3%";
+        this.widthQuestImage="30%";
         break;
 
       default: this.router.navigate(['/stade1'])
@@ -129,8 +132,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "7%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-13%";
-          this.marginbottom2 = "21%";
+          this.margintop4 = "-8%";
+          this.marginbottom2 = "12%";
           break;
         case "2":
           this.transform2 = "scale(2)";
@@ -140,8 +143,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "10%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-13%";
-          this.marginbottom2 = "21%";
+          this.margintop4 = "-12%";
+          this.marginbottom2 = "18%";
           break;
         case "3":
           this.transform2 = "scale(2)";
@@ -151,8 +154,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "15%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-14%";
-          this.marginbottom2 = "24%";
+          this.margintop4 = "-16.75%";
+          this.marginbottom2 = "24.5%";
           break;
       }
     } else {
@@ -301,3 +304,4 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['/app-quiz-theme'])
   }
 }
+// }
