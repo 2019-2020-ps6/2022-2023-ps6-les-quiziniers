@@ -6,7 +6,7 @@
       {{question.label}}
        </p>
     </h1>
-    <div class="content" [ngStyle]="{'margin-left': marginleftContent,'margin-top':margintopContent}">
+    <div class="content" [ngStyle]="{'margin-top':margintopContent}">
     <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
       Précédent
     </button>
@@ -37,8 +37,8 @@
     <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
 </div>
-    <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
-      Valider
-    </button>
   </div>
+  <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
+    Valider
+  </button>
 

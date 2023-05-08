@@ -29,8 +29,8 @@
   color: $white;
   font-weight: bold;
   padding: 0.5em 1em;
-  margin: 0 auto;
-  margin-top: 51%;
+  margin: 36.5% auto 0 -4%;
+  position: absolute;
 }
 .answer {
   align-items: center;
@@ -217,9 +217,8 @@ h2{
 }
 
 .content{
-  position: absolute;
-  margin-top: 13.5%;
-  margin-left: 14%;
+  position: relative;
+  margin: 13.5% auto 0;
 }
 
 td{
