@@ -25,6 +25,8 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
     const admin= sessionStorage.getItem("admin?")
+    AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;
+    this.ctx = new AudioContext();
     if(sessionStorage.getItem("admin?")=="true"){
       this.visibility = "visible";
     }else {
@@ -56,12 +58,7 @@ export class QuizComponent implements OnInit {
   constructor(private quizService: QuizService) { }
 
   private ctx: AudioContext;
-  ngOnInit(): void {
 
-  AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;
-  this.ctx = new AudioContext();
-
-  }
   playSound() {
 
   }

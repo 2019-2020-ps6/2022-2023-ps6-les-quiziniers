@@ -1,6 +1,6 @@
 <ng-container *ngIf="!quizEnded">
 <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}"
+    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-left':marginleft3, 'margin-top':margintop3,'background-color':background3}">
 
 
       <p id="yo" >
@@ -23,7 +23,7 @@
         <source [src]="question.trackSources" type="audio/mp3">
       </audio>
     </div>
-
+    <p>
       Vous avez {{this.quizOG.points}} points
     </p>
     <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
