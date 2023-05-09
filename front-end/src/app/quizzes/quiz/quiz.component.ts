@@ -35,6 +35,7 @@ export class QuizComponent implements OnInit {
   }
 
 
+
   selectQuiz(): void {
     this.quizSelected.emit(true);
   }

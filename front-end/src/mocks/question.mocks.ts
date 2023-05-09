@@ -77,7 +77,7 @@ export const QUESTION_CAPITALES: Question = {
 }
 export const QUESTION_HISTOIRE1: Question = {
   id: '4',
-  label: "Quand s'est dérouler la battaille de Waterloo ?",
+  label: "Quand s'est dérouler la bataille de Waterloo ?",
   answers: [
     {
       value: '1815',
