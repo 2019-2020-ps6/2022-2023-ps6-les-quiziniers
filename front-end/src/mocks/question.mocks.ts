@@ -246,5 +246,53 @@ export const QUESTION_HISTOIRE6: Question = {
   type:QuestionType.QCM,
   trackSources:"0"
 }
+export const QUESTION_BLINDTEST_ANNEE20002: Question = {
+  id: '11',
+  label: "Quel est le nom de l'artiste qui a interprété cette chanson R&B en 2001 ?",
+  answers: [
+    {
+      value: "Destiny's Child",
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: 'Alicia Keys',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: 'Beyoncé',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ]
+  ,image:"https://magazineantidote.com/wp-content/uploads/2019/02/survivor-cover-album-desitnys-child-survival-issue-magazine-antidote-1024x683.jpg",
+  type:QuestionType.Blindtest,
+  trackSources:"https://www.naijagreen.com/wp-content/uploads/music/2021/09/Destinys_Child_-_Survivor_[NaijaGreen.Com]_.mp3"
+}
+export const QUESTION_BLINDTEST_ANNEE20003: Question = {
+  id: '13',
+  label: "Quelle chanson a été un succès international pour Shakira en 2006 ?",
+  answers: [
+    {
+      value: "Hips Don't Lie",
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: 'Whenever, Wherever',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: 'Waka Waka',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ]
+  ,image:"https://i.ytimg.com/vi/DUT5rEU6pqM/maxresdefault.jpg",
+  type:QuestionType.Blindtest,
+  trackSources:"https://files.gospeljingle.com/uploads/music/2023/01/Shakira_-_Hips_Dont_Lie.mp3"
+}
 
 
