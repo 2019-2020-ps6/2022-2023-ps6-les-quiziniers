@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter,ViewChild, } from '@angular/core';
 import {Answer, Question, QuestionType} from '../../../models/question.model';
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model";
@@ -12,6 +12,7 @@ import {Stade1Component} from "../../vision/stade1/stade1.component";
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
+  @ViewChild('audioPlayer') audioPlayer: any;
   public width:String="";
   public margin:String= "";
   public isAnswered = false;
@@ -51,7 +52,7 @@ export class QuestionComponent implements OnInit {
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
   public marginleftSuivStade3:String = "";
-  public track: string;
+  public audiosrc: string;
 
   @Input()
   quizOG: Quiz;
@@ -112,6 +113,7 @@ export class QuestionComponent implements OnInit {
       this.questionType = this.question.type;
 
     }
+    this.audiosrc = this.question.trackSources;
     return null;
   }
   delete(): void {
@@ -242,25 +244,37 @@ export class QuestionComponent implements OnInit {
     this.nextClicked = false;
     this.hasAnswered = false;
     this.isAnswerChecked = false;
+
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length - 1) {
       this.question = this.quizOG.questions[index + 1];
+      this.audiosrc= this.question.trackSources;
+      this.audioPlayer.nativeElement.load();
+      this.audioPlayer.nativeElement.play();
       this.question.answers.forEach(a => a.isSelected = false);
     } else {
       this.quizEnded = true;
     }
+
+
   }
+
 
   getPrevious() {
     this.nextClicked = false;
     this.hasAnswered = false;
     this.isAnswerChecked = false;
+
     const index = this.quizOG.questions.indexOf(this.question);
     if (index < this.quizOG.questions.length) {
       this.question = this.quizOG.questions[index - 1];
+      this.audiosrc= this.question.trackSources;
+      this.audioPlayer.nativeElement.load();
+      this.audioPlayer.nativeElement.play();
     }
     this.question.answers.forEach(a => a.isSelected = false);
   }
+
 
   public QuestionType = QuestionType;
 
