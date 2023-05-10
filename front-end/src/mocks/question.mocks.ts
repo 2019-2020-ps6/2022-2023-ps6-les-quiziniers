@@ -22,7 +22,7 @@ export const QUESTION_ACTOR1: Question = {
 
 
   ],
-  image:"https://imgs.search.brave.com/GinmnByb5ELNdDARTDuxj5kxyPunFt-10JNYBiuz9zc/rs:fit:900:900:1/g:ce/aHR0cHM6Ly95dDMu/Z2dwaHQuY29tL25D/Sk9JS3VrbV9LbjNk/aVFJYjRTU2VNNVVO/aDNXWUhKWWlJNzVq/M3lJdnFTdGVFUTU0/SHBVZjY4cE0yX0Js/bV9iYXNuOVBObzZO/MlliVzJhPXM5MDAt/bW8tYy1jMHhmZmZm/ZmZmZi1yai1rLW5v",
+  image:"https://file1.telestar.fr/var/telestar/storage/images/2015/articles/jean-gabin-sa-vie-secrete-ses-amours-et-ses-combats-105595/867196-1-fre-FR/Jean-Gabin-sa-vie-secrete-ses-amours-et-ses-combats.jpg?alias=exact1024x768_l",
   type:QuestionType.QCM,
   trackSources:'0'
 };
@@ -47,7 +47,7 @@ export const QUESTION_ACTOR2: Question = {
       isSelected: false,
     }
     ],
-  image:"https://file1.closermag.fr/var/closermag/storage/images/bio-people/biographie-jean-dujardin-112277/815517-1-fre-FR/Jean-Dujardin.jpg?alias=square500x500&size=x100&format=webp",
+  image:"https://imgr.starmag.com/2018/01/info-closer-jean-dujardin-refuse-de-jouer-des-sketchs-aux-cesar-2016_exact1024x768_l.jpg?resize=794%2C593&ssl=1&ulb=true&ver=2",
   type:QuestionType.QCM,
   trackSources : "https://www.youtube.com/watch?v=Zx1_6F-nCaw"
 }

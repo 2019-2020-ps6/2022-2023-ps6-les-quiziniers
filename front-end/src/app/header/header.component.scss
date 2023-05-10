@@ -33,13 +33,29 @@
   position: absolute;
   right: 0;
   margin-right: 10px;
+  margin-top: -3px;
   background-color: lightblue;
-  border-radius: 10%;
+  border-radius: 10px;
   color: black;
   font-size: 17px;
   font-weight: bold;
-  padding: 3px;
+  padding: 3px 5px;
   text-decoration: none;
+
+}
+
+#profil{
+    position: absolute;
+    right: 10%;
+    margin-top: -3px;
+    margin-right: 10px;
+    background-color: lightblue;
+    border-radius: 10px;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 3px 5px;
+    text-decoration: none;
 }
 
 #home{
@@ -58,7 +74,6 @@
   color: lightblue;
   font-size: 20px;
   font-weight: bold;
-  padding: 7px;
-  padding-right: 1px;
+  padding: 7px 1px 7px 7px;
   border-radius: 10px;
 }

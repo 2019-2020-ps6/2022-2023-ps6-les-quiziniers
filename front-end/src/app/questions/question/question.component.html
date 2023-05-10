@@ -39,9 +39,9 @@
     </td>
   </table>
       </div>
-  <p *ngIf="nextClicked && isAnswerSelected()">
-    <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
-    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
+  <p id="bm" *ngIf="nextClicked && isAnswerSelected()">
+    <i *ngIf="isCorrectSelected()" id = "correct">Bonne <br>réponse !</i>
+    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise <br>réponse !</i>
   </p>
 </div>
   <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
@@ -51,8 +51,8 @@
 </ng-container>
 
 <ng-container *ngIf="quizEnded">
-<div class="card" id="center" [ngStyle]="{'width': width,'margin-left':margin}">
-  <h1>Résultats</h1>
+<div id="center">
+  <h1 id="res">Résultats pour le soignant</h1>
   <table class="tablestats" >
     <tr class="tr2">
       <th class="th1">Question</th>
@@ -65,7 +65,7 @@
       <td class="td1">{{getCorrectAnswerValue(question)}}</td>
     </tr>
   </table>
-  <p>
+  <p id="nbrep">
     Vous avez répondu correctement à {{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
   </p>
   <button class="button-card" id="restartbutton" (click)="restartQuiz()">
