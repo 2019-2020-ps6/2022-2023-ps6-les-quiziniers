@@ -150,7 +150,7 @@ export const QUESTION_BLINDTEST_ANNEE2000: Question = {
 
 export const QUESTION_HISTOIRE3: Question = {
   id: '7',
-  label: "Dans quelle bataille les forces alliées ont-elles débarqué en Normandie lors de la Seconde Guerre mondiale ?",
+  label: "Dans quelle bataille les forces alliées ont-elles débarqué en Normandie ?",
   answers: [
     {
       value: 'Bataille de Stalingrad',
@@ -200,7 +200,7 @@ export const QUESTION_HISTOIRE4: Question = {
 
 export const QUESTION_HISTOIRE5: Question = {
   id: '9',
-  label: "Dans quelle bataille les forces romaines ont-elles défait l'armée de Carthage lors de la deuxième guerre punique ?",
+  label: "Dans quelle bataille les forces romaines ont-elles vaincu Carthage ?",
   answers: [
     {
       value: 'Bataille de Cannae',
@@ -224,7 +224,7 @@ export const QUESTION_HISTOIRE5: Question = {
 }
 export const QUESTION_HISTOIRE6: Question = {
   id: '10',
-  label: "Dans quelle bataille de la Première Guerre mondiale les forces allemandes ont-elles été vaincues par les forces britanniques, françaises et canadiennes en 1918 ?",
+  label: "Dans quelle bataille de la Première Guerre mondiale les forces allemandes ont-elles été vaincues en 1918 ?",
   answers: [
     {
       value: 'Bataille de la Marne',
