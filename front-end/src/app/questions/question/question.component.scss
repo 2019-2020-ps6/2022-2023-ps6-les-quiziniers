@@ -115,21 +115,28 @@
 
 #bm{
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-180%) translateY(150%);
+  margin-left: 65%;
+  margin-top: -3%;
   font-size: 110%;
+  z-index: 30;
+
 
   font-weight: bold;
 }
 
 #correct{
-  color: forestgreen;
+  color: white;
   font-weight: bold;
+  background-color: forestgreen;
+  padding: 5px;
+  border-radius: 10px;
 }
 #incorrect{
-  color: red;
+  color: white;
   font-weight: bold;
+  background-color: red;
+  padding: 5px;
+  border-radius: 10px;
 }
 .questionImage {
   position: absolute;
@@ -138,7 +145,7 @@
   height: auto;
   z-index:10;
   left: 50%;
-  margin-top: -18%;
+  margin-top: -20%;
 }
 
 h2{

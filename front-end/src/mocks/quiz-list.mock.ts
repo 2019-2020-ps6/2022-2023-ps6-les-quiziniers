@@ -2,7 +2,7 @@ import { Quiz } from '../models/quiz.model';
 import { Question } from '../models/question.model';
 import {
   QUESTION_ACTOR2,
-  QUESTION_BLINDTEST_ANNEE2000, QUESTION_BLINDTEST_ANNEE20002, QUESTION_BLINDTEST_ANNEE20003,
+  QUESTION_BLINDTEST_ANNEE2000, QUESTION_BLINDTEST_ANNEE20003,
   QUESTION_CAPITALES,
   QUESTION_HISTOIRE3, QUESTION_HISTOIRE4,
   QUESTION_HISTOIRE5, QUESTION_HISTOIRE6
@@ -38,7 +38,7 @@ export const QUIZ_LIST: Quiz[] = [ {
     id: '4',
     name: 'Les annees 2000',
     theme:'5',
-    questions: [QUESTION_BLINDTEST_ANNEE20003,QUESTION_BLINDTEST_ANNEE2000,QUESTION_BLINDTEST_ANNEE20002,],
+    questions: [QUESTION_BLINDTEST_ANNEE20003,QUESTION_BLINDTEST_ANNEE2000],
     points : 0,
     image:"https://static.fnac-static.com/multimedia/FR/images_produits/FR/Fnac.com/ZoomPE/7/2/8/5052498350827/tsp20130901100023/Annees-2000.jpg"
   }
