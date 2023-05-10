@@ -104,7 +104,8 @@ export class QuestionComponent implements OnInit {
         this.margintopImage="-25%";
         break;
 
-      default: this.router.navigate(['/stade1'])
+      default:
+        this.router.navigate(['/home-page-user/'])
     }
   }
 

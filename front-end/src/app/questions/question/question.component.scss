@@ -21,6 +21,12 @@
   z-index: -1;
 }
 
+#center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 
 #confirmbutton{
@@ -254,6 +260,7 @@ td{
   margin: 0 auto;
   border-collapse: collapse;
   width: 80%;
+
   max-width: 800px;
 }
 

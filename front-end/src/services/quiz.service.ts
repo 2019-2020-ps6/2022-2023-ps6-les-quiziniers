@@ -42,14 +42,15 @@ export class QuizService {
   }
 
   retrieveQuizzes(): void {
-    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
+    /*this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
-    });
+    });*/
   }
 
   addQuiz(quiz: Quiz): void {
-    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    //this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    quiz.id=this.quizzes.length.toString();
   }
 
   setSelectedQuiz(quizId: string): void {
