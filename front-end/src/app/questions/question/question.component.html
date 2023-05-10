@@ -16,8 +16,8 @@
       Suivant
     </button>
     <div class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
-      <audio controls>
-        <source [src]="question.trackSources" type="audio/mp3">
+      <audio #audioPlayer controls>
+        <source [src]="audiosrc" type="audio/mp3">
       </audio>
     </div>
       <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">

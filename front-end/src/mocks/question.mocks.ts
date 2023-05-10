@@ -150,7 +150,7 @@ export const QUESTION_BLINDTEST_ANNEE2000: Question = {
 
 export const QUESTION_HISTOIRE3: Question = {
   id: '7',
-  label: "Dans quelle bataille les forces alliées ont-elles débarqué en Normandie lors de la Seconde Guerre mondiale ?",
+  label: "Dans quelle bataille les forces alliées ont-elles débarqué en Normandie ?",
   answers: [
     {
       value: 'Bataille de Stalingrad',
@@ -200,7 +200,7 @@ export const QUESTION_HISTOIRE4: Question = {
 
 export const QUESTION_HISTOIRE5: Question = {
   id: '9',
-  label: "Dans quelle bataille les forces romaines ont-elles défait l'armée de Carthage lors de la deuxième guerre punique ?",
+  label: "Dans quelle bataille les forces romaines ont-elles vaincu Carthage ?",
   answers: [
     {
       value: 'Bataille de Cannae',
@@ -224,7 +224,7 @@ export const QUESTION_HISTOIRE5: Question = {
 }
 export const QUESTION_HISTOIRE6: Question = {
   id: '10',
-  label: "Dans quelle bataille de la Première Guerre mondiale les forces allemandes ont-elles été vaincues par les forces britanniques, françaises et canadiennes en 1918 ?",
+  label: "Dans quelle bataille de la Première Guerre mondiale les forces allemandes ont-elles été vaincues en 1918 ?",
   answers: [
     {
       value: 'Bataille de la Marne',
@@ -245,6 +245,54 @@ export const QUESTION_HISTOIRE6: Question = {
   image:"https://upload.wikimedia.org/wikipedia/commons/9/9f/8th_August_1918_%28Will_Longstaff%29.jpg",
   type:QuestionType.QCM,
   trackSources:"0"
+}
+export const QUESTION_BLINDTEST_ANNEE20002: Question = {
+  id: '11',
+  label: "Quel est le nom de l'artiste qui a interprété cette chanson R&B en 2001 ?",
+  answers: [
+    {
+      value: "Destiny's Child",
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: 'Alicia Keys',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: 'Beyoncé',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ]
+  ,image:"https://magazineantidote.com/wp-content/uploads/2019/02/survivor-cover-album-desitnys-child-survival-issue-magazine-antidote-1024x683.jpg",
+  type:QuestionType.Blindtest,
+  trackSources:"https://www.naijagreen.com/wp-content/uploads/music/2021/09/Destinys_Child_-_Survivor_[NaijaGreen.Com]_.mp3"
+}
+export const QUESTION_BLINDTEST_ANNEE20003: Question = {
+  id: '13',
+  label: "Quelle chanson a été un succès international pour Shakira en 2006 ?",
+  answers: [
+    {
+      value: "Hips Don't Lie",
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: 'Whenever, Wherever',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: 'Waka Waka',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ]
+  ,image:"https://i.ytimg.com/vi/DUT5rEU6pqM/maxresdefault.jpg",
+  type:QuestionType.Blindtest,
+  trackSources:"https://files.gospeljingle.com/uploads/music/2023/01/Shakira_-_Hips_Dont_Lie.mp3"
 }
 
 
