@@ -34,12 +34,13 @@ export class QuizComponent implements OnInit {
     }else {
       this.visibility = "hidden";
     }
+    console.log(this.quiz.id)
   }
 
 
 
   selectQuiz(): void {
-    this.quizSelected.emit(true);
+      this.quizSelected.emit(true);
   }
 
   edit(): void {
