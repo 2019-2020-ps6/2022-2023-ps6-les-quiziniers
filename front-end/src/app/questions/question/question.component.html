@@ -40,8 +40,8 @@
   </table>
       </div>
   <p id="bm" *ngIf="nextClicked && isAnswerSelected()">
-    <i *ngIf="isCorrectSelected()" id = "correct">Bonne <br>réponse !</i>
-    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise <br>réponse !</i>
+    <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
+    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
   </p>
 </div>
   <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">

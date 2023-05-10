@@ -82,7 +82,7 @@ export class QuestionComponent implements OnInit {
         this.marginleftPoint="83%";
         //this.margintopConfirmButton="36.25%";
         this.widthQuestImage="17%";
-        this.margintopImage="-13%";
+        this.margintopImage="-14%";
         break;
 
       case "2":
@@ -102,7 +102,7 @@ export class QuestionComponent implements OnInit {
         //this.marginrifhtPrecStade3="1%";
         //this.marginleftSuivStade3="3%";
         this.widthQuestImage="30%";
-        this.margintopImage="-25%";
+        this.margintopImage="-27%";
         break;
 
       default:
