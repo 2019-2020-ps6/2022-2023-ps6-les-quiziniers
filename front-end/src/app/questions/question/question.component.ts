@@ -100,7 +100,7 @@ export class QuestionComponent implements OnInit {
         break;
 
       default:
-        this.router.navigate(['/stade1/0'])
+        this.router.navigate(['/home-page-user/'])
     }
   }
 
