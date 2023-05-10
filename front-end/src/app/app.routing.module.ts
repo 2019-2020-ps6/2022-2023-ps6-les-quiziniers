@@ -37,7 +37,7 @@ const routes: Routes = [
     {path: 'question-quiz/:id', component: QuestionQuizComponent},
     {path: 'question/:id', component: QuestionComponent},
     {path: 'question-form', component: QuestionFormComponent},
-    {path: 'stade1', component: Stade1Component},
+    {path: 'stade1/:id', component: Stade1Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
     {path: 'user/:id', component: UserComponent},

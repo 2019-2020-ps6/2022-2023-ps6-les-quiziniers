@@ -11,6 +11,8 @@ import {UserService} from "../../../services/user.service";
 export class HomePageComponent implements OnInit {
   public user:User;
 
+
+
   constructor( private route: ActivatedRoute,private userService : UserService) {
     this.userService.userSelected$.subscribe((user) => this.user = user);
   }

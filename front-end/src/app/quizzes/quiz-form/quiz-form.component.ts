@@ -39,7 +39,7 @@ export class QuizFormComponent implements OnInit {
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-    this.quizService.addQuiz(quizToCreate);
+    //this.quizService.addQuiz(quizToCreate);
 
   }
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService) {

@@ -51,9 +51,6 @@ export class QuizService {
   addQuiz(quiz: Quiz): void {
     //this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
     quiz.id=this.quizzes.length.toString();
-    QUIZ_LIST.push(quiz);
-    console.log(QUIZ_LIST);
-    this.quizzes=QUIZ_LIST;
   }
 
   setSelectedQuiz(quizId: string): void {

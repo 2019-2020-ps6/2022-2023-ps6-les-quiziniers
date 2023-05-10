@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {User} from "../../../models/user.model";
+import {ActivatedRoute, Router} from "@angular/router";
+import {QuizService} from "../../../services/quiz.service";
 
 @Component({
   selector: 'app-stade1',
@@ -10,15 +12,19 @@ import {User} from "../../../models/user.model";
 export class Stade1Component implements OnInit {
   public width:String="";
   public margin:String= "";
+  public id;
 
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.id=this.route.snapshot.paramMap.get('id');
+
     throw new Error('Method not implemented.');
   }
   stadeUpdate() {
     this.width="100%"
     this.margin="0%";
-    console.log(this.width);
     sessionStorage.setItem('stade',"1");
   }
   stadeUpdate2() {

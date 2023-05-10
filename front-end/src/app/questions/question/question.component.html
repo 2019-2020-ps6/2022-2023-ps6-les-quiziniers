@@ -50,11 +50,9 @@
 </ng-container>
 
 <ng-container *ngIf="quizEnded">
-<div class="card">
-  <h1 class="question-question">
-    Résultats
-  </h1>
-  <table class="tablestats">
+<div class="card" id="center" [ngStyle]="{'width': width,'margin-left':margin}">
+  <h1>Résultats</h1>
+  <table class="tablestats" >
     <tr class="tr2">
       <th class="th1">Question</th>
       <th class="th1">Votre réponse</th>

@@ -26,10 +26,7 @@ export class QuizListComponent implements OnInit {
     //recuperer les quiz avec le id du theme;
     const id = this.route.snapshot.paramMap.get('id');
     this.theme=id;
-    console.log(this.quizList)
-    console.log(QUIZ_LIST)
     this.quizList=this.quizList.filter(quiz => quiz.theme == id);
-    console.log(this.quizList)
     if(sessionStorage.getItem("admin?")=="true"){
       this.visibility = "visible";
     }else {
