@@ -41,6 +41,20 @@ export const THEME_LIST: Theme[] = [
     image:"https://www.shutterstock.com/image-vector/abstract-cinema-background-vector-illustration-600w-220341433.jpg",
 
     quizList:QUIZ_LIST
+  },
+  {
+    id: '7',
+    name: 'Star Wars',
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png",
+
+    quizList:QUIZ_LIST
+  },
+  {
+    id: '8',
+    name: 'Polytech',
+    image:"https://www.polytech-reseau.org/wp-content/uploads/2021/03/cropped-logo_reseau_Polytech.png",
+
+    quizList:QUIZ_LIST
   }
 
 ];

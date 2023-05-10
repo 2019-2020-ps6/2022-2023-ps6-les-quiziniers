@@ -98,7 +98,8 @@ export class QuestionComponent implements OnInit {
         this.widthQuestImage="30%";
         break;
 
-      default: this.router.navigate(['/stade1'])
+      default:
+        this.router.navigate(['/home-page-user/'])
     }
   }
 

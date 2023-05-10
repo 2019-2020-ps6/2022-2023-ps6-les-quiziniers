@@ -2,14 +2,12 @@
     <h2>
         <img class="image" [src]="quiz.image"/>
     </h2>
-    <button class="button-card" (click)="selectQuiz()" routerLink="/question/{{quiz.id}}"> Cliquez pour séléctionner : {{quiz.name}}
+    <button class="button-card"  routerLink="/question/{{quiz.id}}"> Cliquez pour séléctionner : {{quiz.name}}
     </button>
   <div class="btnDM" [ngStyle]="{'visibility': visibility}" >
     <button class="button-card " (click)="delete()">Supprimer</button>
     <button class="button-card edit" routerLink="/edit-quiz/{{quiz.id}}">Modifier</button>
   </div>
 </div>
-<div>
-<app-quiz-form class="quizForm" [ngStyle]="{'visibility': visibility}"></app-quiz-form>
-</div>
+
 

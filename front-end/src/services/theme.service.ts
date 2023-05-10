@@ -26,5 +26,7 @@ export class ThemeService {
     this.themes$.next(this.themes);
   }
   public themeSelected$: Subject<Quiz> = new Subject();
-
+  getTheme(id: string): Theme {
+    return this.themes.find(x=>x.id===id)
+  }
 }

@@ -146,6 +146,105 @@ export const QUESTION_BLINDTEST_ANNEE2000: Question = {
   ,image:"https://i.ytimg.com/vi/ViwtNLUqkMY/maxresdefault.jpg",
   type:QuestionType.Blindtest,
   trackSources:"https://hiphopdes.com/uploads/2020/02/01%20Crazy%20in%20Love%20(feat_%20Jay-Z).mp3?_=1%22%3E"
-
-
 }
+
+export const QUESTION_HISTOIRE3: Question = {
+  id: '7',
+  label: "Dans quelle bataille les forces alliées ont-elles débarqué en Normandie lors de la Seconde Guerre mondiale ?",
+  answers: [
+    {
+      value: 'Bataille de Stalingrad',
+      isCorrect: false,
+      isSelected: false,
+    },
+    {
+      value: 'Bataille de Dunkerque',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: ' Bataille de Normandie',
+      isCorrect: true,
+      isSelected: false,
+    }
+  ],
+  image:"https://www.ecpad.fr/wp-content/uploads/2019/05/photogramme-debarquement-du-6-juin-et-bataille-de-normandie-1280x650.jpg",
+  type:QuestionType.QCM,
+  trackSources:"0"
+}
+
+export const QUESTION_HISTOIRE4: Question = {
+  id: '8',
+  label: "Quelle bataille a vu la victoire des forces grecques contre les Perses en 480 avant J.-C. ?",
+  answers: [
+    {
+      value: 'Bataille de Salamine',
+      isCorrect: true,
+      isSelected: false,
+    },
+    {
+      value: 'Bataille de Marathon',
+      isCorrect: false,
+      isSelected: false,
+    }
+    ,{
+      value: ' Bataille de Thermopyles',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ],
+  image:"https://odysseum.eduscol.education.fr/sites/default/files/2019-12/SALAMINE%20von%20Kaulbach.png",
+  type:QuestionType.QCM,
+  trackSources:"0"
+}
+
+export const QUESTION_HISTOIRE5: Question = {
+  id: '9',
+  label: "Dans quelle bataille les forces romaines ont-elles défait l'armée de Carthage lors de la deuxième guerre punique ?",
+  answers: [
+    {
+      value: 'Bataille de Cannae',
+      isCorrect: false,
+      isSelected: false,
+    },
+    {
+      value: 'Bataille de Zama',
+      isCorrect: true,
+      isSelected: false,
+    }
+    ,{
+      value: ' Bataille de Trasimène',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ],
+  image:"https://odysseum.eduscol.education.fr/sites/default/files/2019-12/Arista_romano%2C_battaglia_di_zama%2C_1570-1600_ca_02.jpeg",
+  type:QuestionType.QCM,
+  trackSources:"0"
+}
+export const QUESTION_HISTOIRE6: Question = {
+  id: '10',
+  label: "Dans quelle bataille de la Première Guerre mondiale les forces allemandes ont-elles été vaincues par les forces britanniques, françaises et canadiennes en 1918 ?",
+  answers: [
+    {
+      value: 'Bataille de la Marne',
+      isCorrect: false,
+      isSelected: false,
+    },
+    {
+      value: "Bataille d'Amiens",
+      isCorrect: true,
+      isSelected: false,
+    }
+    ,{
+      value: ' Bataille de Verdun',
+      isCorrect: false,
+      isSelected: false,
+    }
+  ],
+  image:"https://upload.wikimedia.org/wikipedia/commons/9/9f/8th_August_1918_%28Will_Longstaff%29.jpg",
+  type:QuestionType.QCM,
+  trackSources:"0"
+}
+
+
