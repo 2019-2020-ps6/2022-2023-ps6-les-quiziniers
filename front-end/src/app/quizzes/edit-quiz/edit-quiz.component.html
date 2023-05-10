@@ -2,8 +2,12 @@
 
 <button class="button-card" routerLink="/quiz-list">Back</button>
 <ng-container *ngIf="quiz">
-    <h2>{{quiz.name}}</h2>
-
+  <div>
+  <h2>
+    <input type="text"  [value]=quiz.name>
+  </h2>
+  <button class="button-card">Modifier</button>
+  </div>
     <app-question-form [quiz]="quiz"></app-question-form>
 </ng-container>
 </div>
