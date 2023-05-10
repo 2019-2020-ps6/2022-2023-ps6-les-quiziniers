@@ -8,13 +8,13 @@
   display: inline-block;
   border : none;
   justify-content: center;
-  transform: perspective(200px);
   background-color: #ffffff;
   position: absolute;
   height: 90%;
   width: 100%;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
   margin: 0;
   padding: 0;
@@ -24,13 +24,14 @@
 
 
 #confirmbutton{
+  position: absolute;
   background-color: $blue;
   border: solid 1px $blue;
   color: $white;
   font-weight: bold;
-  padding: 0.5em 1em;
-  margin: 36.5% auto 0 -3.75%;
-  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .answer {
   align-items: center;
@@ -58,15 +59,18 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 30%;
+  width: fit-content;
   color: #0042ab;
   will-change: transform,opacity;
-  z-index: 20;
+  z-index: 10;
+  margin: auto;
   padding: 0.5em 1em;
   margin-top: 5px;
   margin-bottom: 0%;
-  position: unset;
-
+  position: relative;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .answer:active {
@@ -114,13 +118,13 @@
   font-weight: bold;
 }
 .questionImage {
-  transform: scale(1);
+  position: absolute;
+  transform: scale(1) translateX(-50%);
   width: 30%;
   height: auto;
-  margin: 0 auto;
-  margin-top: 1.5%;
   z-index:10;
-  position: relative;
+  left: 50%;
+  margin-top: -18%;
 }
 
 h2{
@@ -130,12 +134,13 @@ h2{
 .question-question{
   transform: scale(1);
   width: 64%;
-  margin-left: 18%;
-  margin-top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2.5%;
   position: absolute;
   font-size: 30px;
   border-radius: 100%;
-  z-index:11;
+  z-index:10;
   background-color: unset;
 }
 
@@ -165,24 +170,35 @@ h2{
 }
 
 #prec{
-  margin-right: 100px;
-  margin-top: -15%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-207%) translateY(-300%);
 }
 
 #suiv{
-  margin-left: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(130%) translateY(-300%);
 }
 
 #points{
   position: absolute;
-  margin-top: 7%;
-  margin-left: 70%;
+  margin-left: 80%;
+  font-size: 115%;
+  font-weight: bold;
+  color: white;
+  background-color: darkslateblue;
+  padding: 5px;
+  border-radius: 10px;
+  transform: scale(1.25);
 }
 
 #zoom{
   position: absolute;
-  margin-top: 5%;
-  margin-left: 8%;
+  margin-left: 7%;
+  z-index: 13;
 }
 
 .toggle-switch {
@@ -220,8 +236,14 @@ h2{
 }
 
 .content{
-  position: relative;
-  margin: 12% auto 0;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  width: 100%;
+  top:50%;
+  transform: translateX(-50%) translateY(20%);
+  margin-top: 3.5%;
+  z-index: 10;
 }
 
 td{
@@ -253,4 +275,22 @@ td{
   background-color: #f5f5f5;
 }
 
+.answerAbs{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+
+  transform: translateY(-5%);
+  z-index: 10;
+}
+
+.card {
+  overflow:hidden;
+}
+
+.boiteVideo{
+  position: relative;
+
+  margin-top: -4%;
+}
 

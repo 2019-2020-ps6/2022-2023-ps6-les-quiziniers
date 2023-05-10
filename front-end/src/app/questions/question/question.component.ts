@@ -20,10 +20,17 @@ export class QuestionComponent implements OnInit {
   public isAnswerChecked = false;
   public switchState = false;
   public transform2:String = "";
-  public transform:String = "scale(1)";
+  public transform:String = "scale(1) translateX(-50%)";
+  public zoomPoint:String = "1";
+  public zoomPoint2:String = "1.5";
   public zindex2:String = "";
-  public zindex3:String = "10";
-  public transform3:String = "scale(1)";
+  public zindexAns:String = "10";
+  public zindexQuest:String = "10";
+  public zindexQuestImage:String = "10";
+  public zindexPoint:String = "10";
+
+  public transform3:String = "scale(1) translateX(-50%)";
+  public transformAnswer:String = "";
   public transform4:String = "scale(1)";
   public position2:String = "";
   public position3:String = "unset";
@@ -36,7 +43,7 @@ export class QuestionComponent implements OnInit {
   public marginleft2:String = "";
   public marginleft3:String = "18%";
   public margintop2:String = "";
-  public margintop3:String = "2%";
+  public margintop3:String = "2.5%";
   public background2:String = "";
   public background3:String = "unset";
 
@@ -47,6 +54,7 @@ export class QuestionComponent implements OnInit {
   public margintopPoint:String = "";
   public margintopConfirmButton:String = "";
   public widthQuestImage:String = "";
+  public margintopImage:String = "";
 
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
@@ -69,33 +77,31 @@ export class QuestionComponent implements OnInit {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
     switch (sessionStorage.getItem("stade")){
       case "1":
-        this.margintopContent="8%";
         this.marginleftZoom="8%";
-        this.marginleftPoint="78%";
-        this.margintopPoint="5%";
-        this.margintopConfirmButton="36.25%";
+        this.marginleftPoint="83%";
+        //this.margintopConfirmButton="36.25%";
         this.widthQuestImage="17%";
+        this.margintopImage="-14%";
         break;
 
       case "2":
         this.width="70%";
-        this.margin="15.5%";
         this.widthQuestImage="24%";
+
         break;
 
       case "3":
         this.width="50%";
-        this.margin="25%";
-        this.marginleftContent="9%";
-        this.margintopContent="19.5%";
+        //this.marginleftContent="9%";
+        //this.margintopContent="19.5%";
         this.marginleftZoom="4%";
-        this.marginleftPoint="68%";
-        this.margintopPoint="5%";
-        this.margintopConfirmButton="36.5%";
-        this.marginleftQuestImageStade3="-13%";
-        this.marginrifhtPrecStade3="1%";
-        this.marginleftSuivStade3="3%";
+        this.marginleftPoint="72%";
+        //this.margintopConfirmButton="36.5%";
+        //this.marginleftQuestImageStade3="-13%";
+        //this.marginrifhtPrecStade3="1%";
+        //this.marginleftSuivStade3="3%";
         this.widthQuestImage="30%";
+        this.margintopImage="-25%";
         break;
 
       default: this.router.navigate(['/stade1'])
@@ -125,30 +131,36 @@ export class QuestionComponent implements OnInit {
     if (this.switchState) {
       switch (sessionStorage.getItem("stade")) {
         case "1":
-          this.transform2 = "scale(2)";
-          this.zindex2 = "12";
+          this.transform2 = "scale(2) translateX(-25%)";
+          this.transformAnswer = "scale(2)";
+          this.zoomPoint2 = "1.5";
+          this.zindex2 = "11";
           this.width2 = "35%";
           this.marginleft2 = "35%";
           this.margintop2 = "7%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-8%";
-          this.marginbottom2 = "12%";
+          this.margintop4 = "-7%";
+          this.marginbottom2 = "10.5%";
           break;
         case "2":
-          this.transform2 = "scale(2)";
-          this.zindex2 = "12";
+          this.transform2 = "scale(2) translateX(-25%)";
+          this.transformAnswer = "scale(2)";
+          this.zoomPoint2 = "1.5";
+          this.zindex2 = "11";
           this.width2 = "35%";
           this.marginleft2 = "35%";
           this.margintop2 = "10%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-12%";
-          this.marginbottom2 = "18%";
+          this.margintop4 = "-11%";
+          this.marginbottom2 = "16%";
           break;
         case "3":
-          this.transform2 = "scale(2)";
-          this.zindex2 = "12";
+          this.transform2 = "scale(2) translateX(-25%)";
+          this.transformAnswer = "scale(2)";
+          this.zoomPoint2 = "1.5";
+          this.zindex2 = "11";
           this.width2 = "45%";
           this.marginleft2 = "27.5%";
           this.margintop2 = "15%";
@@ -161,33 +173,39 @@ export class QuestionComponent implements OnInit {
     } else {
       switch (sessionStorage.getItem("stade")) {
         case "1":
-          this.transform2 = "scale(1)";
+          this.transform2 = "scale(1) translateX(-50%)";
+          this.transformAnswer = "scale(1)";
+          this.zoomPoint2 = "1";
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2%";
+          this.margintop2 = "2.5%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
           this.marginbottom2 = "0%";
           break;
         case "2":
-          this.transform2 = "scale(1)";
+          this.transform2 = "scale(1) translateX(-50%)";
+          this.transformAnswer = "scale(1)";
+          this.zoomPoint2 = "1";
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2%";
+          this.margintop2 = "2.5%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
           this.marginbottom2 = "0%";
           break;
         case "3":
-          this.transform2 = "scale(1)";
+          this.transform2 = "scale(1) translateX(-50%)";
+          this.transformAnswer = "scale(1)";
+          this.zoomPoint2 = "1";
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2%";
+          this.margintop2 = "2.5%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
