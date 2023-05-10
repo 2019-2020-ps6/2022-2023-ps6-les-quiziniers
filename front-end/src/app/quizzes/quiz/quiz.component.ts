@@ -23,6 +23,8 @@ export class QuizComponent implements OnInit {
   @Output()
   deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
+
+
   ngOnInit(): void {
     const admin= sessionStorage.getItem("admin?")
     AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;

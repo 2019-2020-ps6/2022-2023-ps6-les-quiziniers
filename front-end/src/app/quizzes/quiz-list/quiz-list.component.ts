@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import {QUIZ_LIST} from "../../../mocks/quiz-list.mock";
 
 @Component({
   selector: 'quiz-list',
@@ -9,21 +10,31 @@ import { Quiz } from '../../../models/quiz.model';
   styleUrls: ['./quiz-list.component.scss']
 })
 export class QuizListComponent implements OnInit {
+  public visibility : String ="hidden"
 
   public quizList: Quiz[] = [];
+  @Output()
+  public theme;
 
 
   constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;})
     //recuperer les quiz avec le id du theme;
     const id = this.route.snapshot.paramMap.get('id');
+    this.theme=id;
+    console.log(this.quizList)
+    console.log(QUIZ_LIST)
     this.quizList=this.quizList.filter(quiz => quiz.theme == id);
-  }
-
-  ngOnInit(): void {
-
-
+    console.log(this.quizList)
+    if(sessionStorage.getItem("admin?")=="true"){
+      this.visibility = "visible";
+    }else {
+      this.visibility = "hidden";
+    }
   }
 
   quizSelected(selected: boolean): void {

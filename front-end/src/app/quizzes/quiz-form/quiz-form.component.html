@@ -1,18 +1,24 @@
 <div class="card">
   <h2>Créer un nouveau quizz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
-    <label for="title">
+    <label for="name">
       Title <br>
-      <input class="input-custom" type="text" id="title" [formControlName]="'title'">
+      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
     <br>
-    <label for="theme">
+    <label>
       Theme <br>
-      <select name="themeSelect" id="theme" >
-        <option class="theme-list" *ngFor="let theme of themeList">
-          {{theme.name}}
-        </option>
-      </select>
+      <h2>{{this.themename}}</h2>
+    </label>
+    <br>
+    <label for="image">
+      Image <br>
+      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+    </label>
+    <br>
+    <label for="points">
+      Points <br>
+      <input class="input-custom" type="text" id="points" [formControlName]="'points'"   >
     </label>
     <br>
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>

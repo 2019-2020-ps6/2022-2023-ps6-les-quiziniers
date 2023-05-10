@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Theme} from "../../../models/theme.model";
 import { ThemeService } from '../../../services/theme.service';
@@ -22,27 +22,34 @@ export class QuizFormComponent implements OnInit {
    * QuizForm: Object which manages the form in our component.
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
-  public themeList: Theme[]= []
+  @Input() theme: string;
+  public themename:string;
   public quizForm: FormGroup;
+  public numberValue: number;
   ngOnInit(): void {
+    this.themename=this.themeService.getTheme(this.theme).name;
+    this.quizForm = this.formBuilder.group({
+      name: [''],
+      theme:[this.theme],
+      image:[''],
+      points:0
+    });
   }
 
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-
     this.quizService.addQuiz(quizToCreate);
+
   }
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService) {
-    this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: [''],
-    });
-    this.themeService.themes$.subscribe((themes: Theme[]) =>{
-      this.themeList = themes;
-    });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
   }
+
+  validateNumber(inputValue: string): void {
+    this.numberValue = parseFloat(inputValue.replace(/[^0-9.]/g, ''));
+  }
+
 }

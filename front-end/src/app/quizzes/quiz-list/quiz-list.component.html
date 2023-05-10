@@ -5,4 +5,6 @@
         <!--More information: https://angular.io/guide/component-interaction-->
         <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
     </div>
-  </div>
+</div>
+<app-quiz-form class="quizForm" [theme]="theme" [ngStyle]="{'visibility': visibility}"></app-quiz-form>
+
