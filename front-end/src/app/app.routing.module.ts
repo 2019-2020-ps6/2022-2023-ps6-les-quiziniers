@@ -42,7 +42,7 @@ const routes: Routes = [
     {path: 'general-statistic', component: GeneralStatisticComponent},
     {path: 'user/:id', component: UserComponent},
     {path: 'user-form', component: UserFormComponent},
-    {path: 'home-page', component: HomePageComponent},
+    {path: 'home-page/:id', component: HomePageComponent},
     {path: 'change-mdp',component:HomePageChangemdpComponent},
   { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
   {path: 'app-quiz-theme', component: QuizThemeComponent},

@@ -39,10 +39,11 @@ export class UserService {
   }
 
   setSelectedUser(userId: string): void {
-    const urlWithId = this.userUrl + '/' + userId;
+    /*const urlWithId = this.userUrl + '/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
-    });
+    });*/
+    this.userSelected$.next(this.users.find(x=>x.id===userId));
   }
 
   deleteUser(user: User): void {
