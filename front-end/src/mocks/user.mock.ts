@@ -5,11 +5,11 @@ export const USER_LIST: User[] = [
     {
         id: '1',
   firstName: 'Michel',
-  lastName: 'Kadilili'
+  lastName: 'Dupont'
 },
 {
   id: '2',
-    firstName : 'Amir',
-  lastName : 'Bourré'
+    firstName : 'Gérard',
+  lastName : 'Hardy'
     }
 ];

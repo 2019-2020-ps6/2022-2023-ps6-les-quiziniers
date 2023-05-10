@@ -77,7 +77,7 @@ export const QUESTION_CAPITALES: Question = {
 }
 export const QUESTION_HISTOIRE1: Question = {
   id: '4',
-  label: "Quand s'est dérouler la bataille de Waterloo ?",
+  label: "Quand s'est déroulée la bataille de Waterloo ?",
   answers: [
     {
       value: '1815',
@@ -101,7 +101,7 @@ export const QUESTION_HISTOIRE1: Question = {
 }
 export const QUESTION_HISTOIRE2: Question = {
   id: '5',
-  label: "En quelle année a été élue la première femme présidente de la république ?",
+  label: "En quelle année a eu lieu l'invasion de la Pologne ?",
   answers: [
     {
       value: '2016',
@@ -114,12 +114,12 @@ export const QUESTION_HISTOIRE2: Question = {
       isSelected: false,
     }
     ,{
-      value: '1985',
+      value: '1939',
       isCorrect: true,
       isSelected: false,
     }
   ],
-  image:"https://media.sudouest.fr/3528892/1200x-1/so-58bda09f66a4bdfe0c7e46b7-ph0.jpg?v=1488953306",
+  image:"https://ichef.bbci.co.uk/news/976/cpsprodpb/13C8B/production/_110353018_nazisovbordergetty1sep39.jpg",
   type:QuestionType.QCM,
   trackSources:"0"
 }
