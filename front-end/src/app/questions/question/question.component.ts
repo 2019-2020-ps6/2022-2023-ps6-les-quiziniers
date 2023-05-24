@@ -62,6 +62,9 @@ export class QuestionComponent implements OnInit {
   public marginleftSuivStade3:String = "";
   public audiosrc: string;
 
+  public zoomCount = 0;
+  public timer: any;
+
   @Input()
   quizOG: Quiz;
 
@@ -102,7 +105,7 @@ export class QuestionComponent implements OnInit {
         //this.marginrifhtPrecStade3="1%";
         //this.marginleftSuivStade3="3%";
         this.widthQuestImage="30%";
-        this.margintopImage="-27%";
+        this.margintopImage="-23.5%";
         break;
 
       default:
@@ -143,8 +146,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "7%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-7%";
-          this.marginbottom2 = "10.5%";
+          this.margintop4 = "-45%";
+          this.marginbottom2 = "96%";
           break;
         case "2":
           this.transform2 = "scale(2) translateX(-25%)";
@@ -156,8 +159,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "10%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-11%";
-          this.marginbottom2 = "16%";
+          this.margintop4 = "-30%";
+          this.marginbottom2 = "81%";
           break;
         case "3":
           this.transform2 = "scale(2) translateX(-25%)";
@@ -169,8 +172,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "15%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-16.75%";
-          this.marginbottom2 = "24.5%";
+          this.margintop4 = "-30%";
+          this.marginbottom2 = "82%";
           break;
       }
     } else {
@@ -216,6 +219,22 @@ export class QuestionComponent implements OnInit {
           break;
       }
     }
+  }
+
+  incrementZoomCount() {
+    if (this.switchState) {
+      this.timer = setTimeout(() => {
+        this.zoomCount += 1;
+      }, 2000);
+    }
+  }
+
+  resetTimer() {
+    clearTimeout(this.timer);
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.timer);
   }
 
   answerLayout(answer: Answer): void {
@@ -320,6 +339,13 @@ export class QuestionComponent implements OnInit {
       }
     }
     return count;
+  }
+
+  public answerReview(): boolean {
+    if(this.getCorrectAnswersCount() > this.quizOG.questions.length / 2) {
+      return true;
+    }
+    return false;
   }
 
   public restartQuiz(): void {
