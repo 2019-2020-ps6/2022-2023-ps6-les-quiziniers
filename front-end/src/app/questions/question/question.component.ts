@@ -60,6 +60,7 @@ export class QuestionComponent implements OnInit {
   public marginleftQuestImageStade3:String = "";
   public marginrifhtPrecStade3:String = "";
   public marginleftSuivStade3:String = "";
+  public fontsizeRes:String = "";
   public audiosrc: string;
 
   public zoomCount = 0;
@@ -86,11 +87,13 @@ export class QuestionComponent implements OnInit {
         //this.margintopConfirmButton="36.25%";
         this.widthQuestImage="17%";
         this.margintopImage="-14%";
+        this.fontsizeRes="180%";
         break;
 
       case "2":
         this.width="70%";
         this.widthQuestImage="24%";
+
 
         break;
 
@@ -98,7 +101,7 @@ export class QuestionComponent implements OnInit {
         this.width="50%";
         //this.marginleftContent="9%";
         //this.margintopContent="19.5%";
-        this.marginleftZoom="4%";
+        this.marginleftZoom="5%";
         this.marginleftPoint="75%";
         //this.margintopConfirmButton="36.5%";
         //this.marginleftQuestImageStade3="-13%";
@@ -106,6 +109,7 @@ export class QuestionComponent implements OnInit {
         //this.marginleftSuivStade3="3%";
         this.widthQuestImage="30%";
         this.margintopImage="-23.5%";
+        this.fontsizeRes="140%";
         break;
 
       default:
@@ -146,8 +150,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "7%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-45%";
-          this.marginbottom2 = "96%";
+          this.margintop4 = "-60px";
+          this.marginbottom2 = "105px";
           break;
         case "2":
           this.transform2 = "scale(2) translateX(-25%)";
@@ -159,8 +163,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "10%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-30%";
-          this.marginbottom2 = "81%";
+          this.margintop4 = "-60px";
+          this.marginbottom2 = "105px";
           break;
         case "3":
           this.transform2 = "scale(2) translateX(-25%)";
@@ -172,8 +176,8 @@ export class QuestionComponent implements OnInit {
           this.margintop2 = "15%";
           this.background2 = "white";
           this.position2 = "relative";
-          this.margintop4 = "-30%";
-          this.marginbottom2 = "82%";
+          this.margintop4 = "-80px";
+          this.marginbottom2 = "120px";
           break;
       }
     } else {
@@ -263,16 +267,20 @@ export class QuestionComponent implements OnInit {
   nextClicked = false;
 
   checkAnswer(): void {
+    if (this.hasAnswered) {
+      return; // Sortir de la méthode si la réponse a déjà été validée
+    }
+
     this.hasAnswered = true;
     this.nextClicked = true;
     this.isAnswerChecked = true;
     this.isAnswered = true;
     this.isCorrectSelected();
+
     if (this.isCorrectSelected()) {
       this.quizOG.points += 1;
     }
   }
-
   isQuestionAnswered(): boolean {
     return this.isAnswered;
   }
@@ -346,6 +354,13 @@ export class QuestionComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  public zoomReview(): boolean {
+    if(this.zoomCount > this.quizOG.questions.length / 2) {
+      return false;
+    }
+    return true;
   }
 
   public restartQuiz(): void {

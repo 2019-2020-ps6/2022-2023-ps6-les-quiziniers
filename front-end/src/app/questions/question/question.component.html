@@ -24,19 +24,18 @@
         {{this.quizOG.points}} points {{ zoomCount }}
       </p>
       <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
-        Zoom
-        <button class="toggle-switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
+        <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">
+        Loupe<br>
+        <button class="toggle-switch" id="switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
       </p>
       <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="incrementZoomCount(); zindexAns=zindex2" (mouseleave)="resetTimer();zindexAns='10'">
         <table class="tableanswer">
-          <td>
             <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
                  (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
 
               {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
               <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->
             </div>
-          </td>
         </table>
       </div>
       <p id="bm" *ngIf="nextClicked && isAnswerSelected()">
@@ -54,11 +53,12 @@
   <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
   <div id="center">
     <h1 id="res">Résultats</h1>
-    <p id="nbrep">
+    <p id="nbrep" [ngStyle]="{'font-size':fontsizeRes}">
       Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
     </p>
-      <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, c'est bien continuez ainsi.</p>
-      <p *ngIf="!answerReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Si vous avez des difficultés à répondre aux questions, appelez un soignant pour vous aidez à mieux parametrer votre Quiz.</p>
+      <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.</p>
+      <p *ngIf="!answerReview() && !zoomReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
+      <p *ngIf="!answerReview() && zoomReview()" id="review3">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Appelez un soignant pour changer de Quiz si celui-ci ne vous plait pas</p>
     <button class="button-card" id="restartbutton" (click)="restartQuiz()">
       Recommencer
     </button>
