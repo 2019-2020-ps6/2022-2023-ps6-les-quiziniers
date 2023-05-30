@@ -30,9 +30,8 @@
       </p>
       <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="incrementZoomCount(); zindexAns=zindex2" (mouseleave)="resetTimer();zindexAns='10'">
         <table class="tableanswer">
-            <div [class.disabled]="isAnswerChecked" class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
-                 (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
-
+            <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
+         (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect && answer.isSelected, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
               {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
               <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->
             </div>
