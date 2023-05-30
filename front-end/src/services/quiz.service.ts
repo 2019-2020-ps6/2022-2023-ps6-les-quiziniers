@@ -20,7 +20,7 @@ export class QuizService {
    The list of quiz.
    The list is retrieved from the mock.
    */
-  private quizzes: Quiz[] = QUIZ_LIST;
+  private quizzes: Quiz[] = [];
 
 
   /*
@@ -42,10 +42,12 @@ export class QuizService {
   }
 
   retrieveQuizzes(): void {
-    /*this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
+    console.log(this.quizUrl)
+    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
+      console.log(this.quizzes)
       this.quizzes$.next(this.quizzes);
-    });*/
+    })
   }
 
   addQuiz(quiz: Quiz): void {
