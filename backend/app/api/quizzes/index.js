@@ -1,8 +1,10 @@
 const { Router } = require('express')
 const { Quiz } = require('../../models')
+const QuestionsRouter = require('./questions')
 
 const router = new Router()
 
+router.use('/:quizId/questions', QuestionsRouter)
 // getusers
 router.get('/', (req, res) => {
   try {
