@@ -282,9 +282,7 @@ export class QuestionComponent implements OnInit {
     this.isAnswered = true;
     this.isCorrectSelected();
     this.questionCount--;
-    if (this.isCorrectSelected()) {
-      this.quizOG.points += 1;
-    }
+
   }
   isQuestionAnswered(): boolean {
     return this.isAnswered;

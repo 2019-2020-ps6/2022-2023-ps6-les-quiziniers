@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
-import {Question} from "../../../models/question.model";
 
 @Component({
   selector: 'app-quiz',
