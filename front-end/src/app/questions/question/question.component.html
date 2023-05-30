@@ -21,7 +21,7 @@
         </audio>
       </div>
       <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-        {{this.quizOG.points}} points {{ zoomCount }}
+        il reste {{this.getAnswersCount()}} questions
       </p>
       <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
         <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">

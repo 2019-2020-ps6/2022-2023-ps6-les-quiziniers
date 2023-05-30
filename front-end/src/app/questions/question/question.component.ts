@@ -16,6 +16,7 @@ export class QuestionComponent implements OnInit {
   public width:String="";
   public margin:String= "";
   public isAnswered = false;
+  public questionCount = 0;
   public quizEnded = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
@@ -53,6 +54,7 @@ export class QuestionComponent implements OnInit {
   public marginleftZoom:String = "";
   public marginleftPoint:String = "";
   public margintopPoint:String = "";
+  public marginrightPoint:String = "10%";
   public margintopConfirmButton:String = "";
   public widthQuestImage:String = "";
   public margintopImage:String = "";
@@ -83,7 +85,7 @@ export class QuestionComponent implements OnInit {
     switch (sessionStorage.getItem("stade")){
       case "1":
         this.marginleftZoom="8%";
-        this.marginleftPoint="83%";
+        this.marginleftPoint="70%";
         //this.margintopConfirmButton="36.25%";
         this.widthQuestImage="17%";
         this.margintopImage="-14%";
@@ -93,6 +95,7 @@ export class QuestionComponent implements OnInit {
       case "2":
         this.width="70%";
         this.widthQuestImage="24%";
+        this.marginleftPoint="70%";
 
 
         break;
@@ -127,6 +130,7 @@ export class QuestionComponent implements OnInit {
 
     }
     this.audiosrc = this.question.trackSources;
+    this.questionCount=this.quizOG.questions.length;
     return null;
   }
   delete(): void {
@@ -271,12 +275,13 @@ export class QuestionComponent implements OnInit {
       return; // Sortir de la méthode si la réponse a déjà été validée
     }
 
+
     this.hasAnswered = true;
     this.nextClicked = true;
     this.isAnswerChecked = true;
     this.isAnswered = true;
     this.isCorrectSelected();
-
+    this.questionCount--;
     if (this.isCorrectSelected()) {
       this.quizOG.points += 1;
     }
@@ -348,6 +353,10 @@ export class QuestionComponent implements OnInit {
     }
     return count;
   }
+  public getAnswersCount(): number {
+    return this.questionCount;
+  }
+
 
   public answerReview(): boolean {
     if(this.getCorrectAnswersCount() > this.quizOG.questions.length / 2) {
