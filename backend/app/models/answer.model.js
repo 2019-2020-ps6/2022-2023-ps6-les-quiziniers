@@ -9,4 +9,4 @@ const answerSchema = {
 }
 const Answer = new BaseModel('Answer', answerSchema)
 
-module.export = { Answer, answerSchema }
+module.exports = { Answer, answerSchema }

@@ -380,7 +380,6 @@ export class QuestionComponent implements OnInit {
     }
     this.question = this.quizOG.questions[0];
     this.quizEnded = false;
-    this.quizOG.points = 0;
   }
 
   public goHome(): void {

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import {QUIZ_LIST_HISTOIRE} from "../mocks/quiz-list.mock";
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
@@ -20,7 +18,7 @@ export class QuizService {
    The list of quiz.
    The list is retrieved from the mock.
    */
-  private quizzes: Quiz[] = QUIZ_LIST;
+  private quizzes: Quiz[] = [];
 
 
   /*
@@ -42,15 +40,16 @@ export class QuizService {
   }
 
   retrieveQuizzes(): void {
-    /*this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
+    console.log(this.quizUrl)
+    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
+      console.log(this.quizzes)
       this.quizzes$.next(this.quizzes);
-    });*/
+    })
   }
 
   addQuiz(quiz: Quiz): void {
-    //this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
-    quiz.id=this.quizzes.length.toString();
+    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
   }
 
   setSelectedQuiz(quizId: string): void {
