@@ -2,13 +2,13 @@
   <h2>Créer un nouveau quizz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="name">
-      Title <br>
+      Titre du quizz <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
     <br>
     <label>
-      Theme <br>
-      <h2>{{this.themename}}</h2>
+      Thème du quizz <br>
+      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
     </label>
     <br>
     <label for="image">
@@ -16,7 +16,7 @@
       <input class="input-custom" type="text" id="image" [formControlName]="'image'">
     </label>
     <br>
-    <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
+    <button type="submit" class="button-card" (click)="addQuiz()">Créer le quizz</button>
   </form>
 </div>
 

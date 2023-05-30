@@ -65,7 +65,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: fit-content;
+  width: 100%;
   color: #0042ab;
   will-change: transform,opacity;
   z-index: 10;
@@ -74,9 +74,6 @@
   margin-top: 5px;
   margin-bottom: 0%;
   position: relative;
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .answer:active {
@@ -142,7 +139,8 @@
   position: absolute;
   transform: scale(1) translateX(-50%);
   width: 30%;
-  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: contain;
   z-index:10;
   left: 50%;
   margin-top: -20%;
@@ -158,7 +156,7 @@ h2{
   left: 50%;
   margin-top: 2.5%;
   position: absolute;
-  font-size: 21px;
+  font-size: 112%;
   border-radius: 100%;
   z-index:10;
   background-color: unset;
@@ -223,7 +221,19 @@ h2{
 #zoom{
   position: absolute;
   margin-left: 7%;
-  z-index: 13;
+  z-index: 10;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+#switch{
+  position: absolute;
+  margin:unset;
+  margin-top: 2%;
+}
+
+#loupe{
+  vertical-align: bottom;
 }
 
 .toggle-switch {
@@ -276,11 +286,7 @@ td{
 }
 
 .tablestats {
-  margin: 0 auto;
-  border-collapse: collapse;
-  width: 80%;
-
-  max-width: 800px;
+  width: 100%;
 }
 
 .th1, .td1, #res {
@@ -296,13 +302,16 @@ td{
 }
 
 #res{
-  margin: 5px;
-  width: 50%;
+  width: 35%;
+  margin: 4% 5px 5px;
 }
 
 #nbrep{
-  font-size: 110%;
+  color: #4CAF50;
+  font-size: 180%;
   font-weight: bold;
+  margin: unset;
+  margin-top: 1%;
 }
 
 
@@ -310,10 +319,10 @@ td{
 
 .answerAbs{
   position: absolute;
-  width: 100%;
   top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5%);
 
-  transform: translateY(-5%);
   z-index: 10;
 }
 
@@ -327,4 +336,28 @@ td{
   margin-top: -4%;
 }
 
+#review, #review2, #review3{
+  width: 70%;
+  font-size: 130%;
+  font-weight: bold;
+  color: $blue;
+  padding: 5px;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+#restartbutton, #homebutton{
+  position: absolute;
+  left : 50%;
+  transform: translateX(-50%);
+  top: 80%
+}
+
+#homebutton{
+  top: 90%;
+}
+
+.disabled {
+  pointer-events: none;
+}
 
