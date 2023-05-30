@@ -1,78 +1,69 @@
 <ng-container *ngIf="!quizEnded">
-<div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest}" (mouseenter)="transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='2.5%'; background3='unset'; zindexQuest='10'">
+  <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
+    <h1 class="question-question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest}" (mouseenter)="incrementZoomCount(); transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="resetTimer();transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='2.5%'; background3='unset'; zindexQuest='10'">
 
       <p id="yo" >
-      {{question.label}}
-       </p>
+        {{question.label}}
+      </p>
     </h1>
     <div class="content" [ngStyle]="{}">
-    <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
-      Précédent
-    </button>
+      <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
+        Précédent
+      </button>
 
-    <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindexQuestImage, 'margin-left':marginleftQuestImageStade3, 'margin-top':margintopImage, 'width':widthQuestImage}" (mouseenter)="transform=transform2; zindexQuestImage=zindex2" (mouseleave)="transform='scale(1) translateX(-50%)'; zindexQuestImage='10'" [src]="question.image" alt=""/>
-    <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
-      Suivant
-    </button>
-    <div class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
-      <audio #audioPlayer controls>
-        <source [src]="audiosrc" type="audio/mp3">
-      </audio>
-    </div>
-      <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-        {{this.quizOG.points}} points
-    </p>
-    <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
-      Zoom
-    <button class="toggle-switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
-    </p>
-      <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="zindexAns=zindex2" (mouseleave)="zindexAns='10'">
-    <table class="tableanswer">
-      <td>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
-         (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect && answer.isSelected, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
-
-          {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
-      <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->
-  </div>
-    </td>
-  </table>
+      <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindexQuestImage, 'margin-left':marginleftQuestImageStade3, 'margin-top':margintopImage, 'width':widthQuestImage}" (mouseenter)="incrementZoomCount(); transform=transform2; zindexQuestImage=zindex2" (mouseleave)="resetTimer();transform='scale(1) translateX(-50%)'; zindexQuestImage='10'" [src]="question.image" alt=""/>
+      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
+        Suivant
+      </button>
+      <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
+        <audio #audioPlayer controls>
+          <source [src]="audiosrc" type="audio/mp3">
+        </audio>
       </div>
-  <p id="bm" *ngIf="nextClicked && isAnswerSelected()">
-    <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
-    <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
-  </p>
-</div>
-  <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
-    Valider
-  </button>
+      <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
+        il reste {{this.getAnswersCount()}} questions
+      </p>
+      <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
+        <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">
+        Loupe<br>
+        <button class="toggle-switch" id="switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
+      </p>
+      <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="incrementZoomCount(); zindexAns=zindex2" (mouseleave)="resetTimer();zindexAns='10'">
+        <table class="tableanswer">
+            <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
+         (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect && answer.isSelected, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
+              {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
+              <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->
+            </div>
+        </table>
+      </div>
+      <p id="bm" *ngIf="nextClicked && isAnswerSelected()">
+        <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
+        <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
+      </p>
+    </div>
+    <button class="button-card" id="confirmbutton" [ngStyle]="{'margin-top':margintopConfirmButton}" (click)="checkAnswer()">
+      Valider
+    </button>
   </div>
 </ng-container>
 
 <ng-container *ngIf="quizEnded">
-<div id="center">
-  <h1 id="res">Résultats pour le soignant</h1>
-  <table class="tablestats" >
-    <tr class="tr2">
-      <th class="th1">Question</th>
-      <th class="th1">Votre réponse</th>
-      <th class="th1">Réponse correcte</th>
-    </tr>
-    <tr *ngFor="let question of quizOG.questions; let i=index" class="tr2">
-      <td class="td1">{{i+1}}. {{question.label}}</td>
-      <td class="td1">{{getAnswerValue(question)}}</td>
-      <td class="td1">{{getCorrectAnswerValue(question)}}</td>
-    </tr>
-  </table>
-  <p id="nbrep">
-    Vous avez répondu correctement à {{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
-  </p>
-  <button class="button-card" id="restartbutton" (click)="restartQuiz()">
-    Recommencer
-  </button>
-  <button class="button-card" id="homebutton" (click)="goHome()">
-    Quitter
-  </button>
-</div>
+  <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
+  <div id="center">
+    <h1 id="res">Résultats</h1>
+    <p id="nbrep" [ngStyle]="{'font-size':fontsizeRes}">
+      Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
+    </p>
+      <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.</p>
+      <p *ngIf="!answerReview() && !zoomReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
+      <p *ngIf="!answerReview() && zoomReview()" id="review3">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Appelez un soignant pour changer de Quiz si celui-ci ne vous plait pas</p>
+    <button class="button-card" id="restartbutton" (click)="restartQuiz()">
+      Recommencer
+    </button>
+    <button class="button-card" id="homebutton" (click)="goHome()">
+      Quitter
+    </button>
+  </div>
+  </div>
 </ng-container>
