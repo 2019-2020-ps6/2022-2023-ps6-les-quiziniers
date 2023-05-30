@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import {QUIZ_LIST_HISTOIRE} from "../mocks/quiz-list.mock";
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
@@ -51,8 +49,7 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz): void {
-    //this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
-    quiz.id=this.quizzes.length.toString();
+    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
   }
 
   setSelectedQuiz(quizId: string): void {

@@ -30,6 +30,7 @@ router.post('/', (req, res) => {
     res.status(201).json(quiz)
   } catch (err) {
     if (err.name === 'ValidationError') {
+      console.log(err)
       res.status(400).json(err.extra)
     } else {
       res.status(500).json(err)

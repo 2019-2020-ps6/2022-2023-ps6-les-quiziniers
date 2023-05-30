@@ -1,12 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Theme} from "../../../models/theme.model";
+import { QuizListComponent } from "../quiz-list/quiz-list.component";
 import { ThemeService } from '../../../services/theme.service';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {User} from "../../../models/user.model";
-import {Router} from "@angular/router";
-import {UserService} from "../../../services/user.service";
+
 
 @Component({
   selector: 'app-quiz-form',
@@ -14,6 +12,7 @@ import {UserService} from "../../../services/user.service";
   styleUrls: ['./quiz-form.component.scss']
 })
 export class QuizFormComponent implements OnInit {
+
 
   // Note: We are using here ReactiveForms to create our form. Be careful when you look for some documentation to
   // avoid TemplateDrivenForm (another type of form)
@@ -26,21 +25,22 @@ export class QuizFormComponent implements OnInit {
   public themename:string;
   public quizForm: FormGroup;
   public numberValue: number;
+  public quizL:QuizListComponent;
   ngOnInit(): void {
     this.themename=this.themeService.getTheme(this.theme).name;
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme:[this.theme],
-      image:[''],
-      points:0
+      image:['']
     });
   }
 
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-    //this.quizService.addQuiz(quizToCreate);
-
+    quizToCreate.questions=[]
+    console.log(quizToCreate)
+    this.quizService.addQuiz(quizToCreate);
   }
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService) {
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!

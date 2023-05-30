@@ -9,7 +9,6 @@ const quizSchema = {
   theme: Joi.string().required(),
   questions: Joi.array().items(questionSchema).required(),
   image: Joi.string().required(),
-  points: Joi.number().integer().positive().required(),
 }
 
 const Quiz = new BaseModel('Quiz', quizSchema)

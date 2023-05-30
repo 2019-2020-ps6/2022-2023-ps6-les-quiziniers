@@ -1,7 +1,6 @@
 
 import {Theme} from "../models/theme.model";
 import {QUIZ_LIST} from "./quiz-list.mock";
-import {QUIZ_LIST_HISTOIRE} from "./quiz-list.mock";
 
 
 export const THEME_LIST: Theme[] = [
@@ -9,7 +8,7 @@ export const THEME_LIST: Theme[] = [
     id: '1',
     name: 'Histoire',
     image:'https://static.lpnt.fr/images/2012/07/03/la-liberte-guidant-le-peuple-delacroix_423221_660x287.jpg',
-    quizList:QUIZ_LIST_HISTOIRE
+    quizList:QUIZ_LIST
   },
   {
     id: '2',

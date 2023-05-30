@@ -249,9 +249,6 @@ export class QuestionComponent implements OnInit {
     this.isAnswerChecked = true;
     this.isAnswered = true;
     this.isCorrectSelected();
-    if (this.isCorrectSelected()) {
-      this.quizOG.points += 1;
-    }
   }
 
   isQuestionAnswered(): boolean {
@@ -330,7 +327,6 @@ export class QuestionComponent implements OnInit {
     }
     this.question = this.quizOG.questions[0];
     this.quizEnded = false;
-    this.quizOG.points = 0;
   }
 
   public goHome(): void {
