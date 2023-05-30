@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Question } = require('../../../models')
+const { Question } = require('../../../../models')
 
 
 const router = new Router({ mergeParams: true })
