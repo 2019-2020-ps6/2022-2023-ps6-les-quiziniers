@@ -1,12 +1,12 @@
 const Joi = require('joi')
 const BaseModel = require('../utils/base-model.js')
 
-const userSchema = new BaseModel('User', {
+const userSchema = {
   id: Joi.string().required(),
   firstName: Joi.string().required(),
-  lastNale: Joi.string().required(),
-})
+  lastName: Joi.string().required(),
+}
 
-const User = new BaseModel('Theme', userSchema)
+const User = new BaseModel('User', userSchema)
 
-module.export = { User, userSchema }
+module.exports = { User, userSchema }

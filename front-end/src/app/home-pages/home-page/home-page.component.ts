@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,private userService : UserService) {
     this.userService.userSelected$.subscribe((user) => this.user = user);
+    console.log(this.user);
   }
   ngOnInit(): void {
     const id=this.route.snapshot.paramMap.get('id');

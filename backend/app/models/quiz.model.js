@@ -7,11 +7,11 @@ const quizSchema = {
   id: Joi.string().required(),
   name: Joi.string().required(),
   theme: Joi.string().required(),
-  // questions: Joi.array().item(questionSchema).required(),
+  questions: Joi.array().items(questionSchema).required(),
   image: Joi.string().required(),
   points: Joi.number().integer().positive().required(),
 }
 
 const Quiz = new BaseModel('Quiz', quizSchema)
 
-module.exports = { Quiz }
+module.exports = { Quiz, quizSchema }
