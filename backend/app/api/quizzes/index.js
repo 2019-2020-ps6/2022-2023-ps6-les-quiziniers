@@ -1,8 +1,9 @@
 const { Router } = require('express')
-const { Quiz, User } = require('../../models')
+const { Quiz } = require('../../models')
 
 const router = new Router()
 
+// getusers
 router.get('/', (req, res) => {
   try {
     res.status(200).json(Quiz.get())
@@ -11,6 +12,16 @@ router.get('/', (req, res) => {
   }
 })
 
+// getuser
+router.get('/:quizId', (req, res) => {
+  try {
+    res.status(200).json(Quiz.getById(req.params.quizId))
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+// createuser
 router.post('/', (req, res) => {
   try {
     const quiz = Quiz.create({ ...req.body })
@@ -19,15 +30,24 @@ router.post('/', (req, res) => {
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra)
     } else {
-      console.log(err)
       res.status(500).json(err)
     }
   }
 })
 
-router.delete('/:userId', (req, res) => {
+// deleteuser
+router.delete('/:quizId', (req, res) => {
   try {
-    res.status(200).json(User.delete(req.params.userId))
+    res.status(200).json(Quiz.delete(req.params.quizId))
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+// updateuser
+router.put('/:quizId', (req, res) => {
+  try {
+    res.status(200).json(Quiz.update(req.params.quizId, req.body))
   } catch (err) {
     res.status(500).json(err)
   }
