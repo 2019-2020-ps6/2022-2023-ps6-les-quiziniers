@@ -1,7 +1,7 @@
 const { Router } = require('express')
-const QuizzesRouter = require('./quizzes')
+const QuizzesRouter = require('./theme/quizzes')
 const UserRouter = require('./users')
-const QuestionRouter = require('./quizzes/questions/')
+const QuestionRouter = require('./theme/quizzes/questions/')
 
 const router = new Router()
 router.get('/status', (req, res) => res.status(200).json('ok'))
