@@ -32,7 +32,6 @@ export class QuizComponent implements OnInit {
     }else {
       this.visibility = "hidden";
     }
-    console.log(this.quiz.id)
   }
 
 

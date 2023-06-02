@@ -18,7 +18,6 @@ export class QuizThemeComponent implements OnInit {
     this.themeService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
     });
-    console.log(this.themeList);
   }
 
   ngOnInit(): void {

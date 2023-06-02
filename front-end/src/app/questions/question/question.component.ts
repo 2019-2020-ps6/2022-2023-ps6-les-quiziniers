@@ -123,7 +123,6 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-    console.log(this.quizOG);
     if (this.quizOG.questions.length != 0) {
       this.question = this.quizOG.questions[0];
       this.questionType = this.question.type;
@@ -246,7 +245,6 @@ export class QuestionComponent implements OnInit {
   }
 
   answerLayout(answer: Answer): void {
-    console.log(answer);
     if (answer.isCorrect) {
       answer.type += " C'est la bonne réponse";
     }

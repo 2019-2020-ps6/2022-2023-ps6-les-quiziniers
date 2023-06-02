@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
+import {BehaviorSubject, Subject, Subscription} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {FormBuilder} from "@angular/forms";
+import {QuizFormComponent} from "../app/quizzes/quiz-form/quiz-form.component";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,7 @@ export class QuizService {
    */
   private quizzes: Quiz[] = [];
 
+  private quiz : Quiz=null;
 
   /*
    Observable which contains the list of the quiz.
@@ -27,6 +30,10 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]>
     = new BehaviorSubject(this.quizzes);
+
+  public quiz$ : BehaviorSubject<Quiz>=
+    new BehaviorSubject(this.quiz);
+
 
   public quizSelected$: Subject<Quiz> = new Subject();
 
@@ -40,10 +47,8 @@ export class QuizService {
   }
 
   retrieveQuizzes(): void {
-    console.log(this.quizUrl)
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
-      console.log(this.quizzes)
       this.quizzes$.next(this.quizzes);
     })
   }
@@ -52,13 +57,20 @@ export class QuizService {
     this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
   }
 
+
+
   setSelectedQuiz(quizId: string): void {
-    /*const urlWithId = this.quizUrl + '/' + quizId;
+    const urlWithId = this.quizUrl + '/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
-      this.quizSelected$.next(quiz);
-    });*/
-    console.log(this.quizzes.find(x=>x.id===quizId))
-    this.quizSelected$.next(this.quizzes.find(x=>x.id===quizId));
+      this.quiz$.next(quiz)
+    })
+  }
+
+  updateQuiz(quiz:Quiz):void{
+    console.log(quiz)
+    this.http.put<Quiz>(this.quizUrl+'/'+quiz.id, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    console.log(quiz)
+
 
   }
 

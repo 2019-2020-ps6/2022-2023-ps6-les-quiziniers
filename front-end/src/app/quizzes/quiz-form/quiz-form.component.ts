@@ -40,7 +40,6 @@ export class QuizFormComponent implements OnInit {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
     quizToCreate.theme=this.theme
     quizToCreate.questions=[]
-    console.log(quizToCreate)
     this.quizService.addQuiz(quizToCreate);
   }
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService) {

@@ -1,14 +1,25 @@
 <div class="card">
 
-<button class="button-card" routerLink="/quiz-list">Back</button>
+<button class="button-card" routerLink="/quiz-list/{{this.quiz.theme}}">Back</button>
 <ng-container *ngIf="quiz">
   <div>
-  <h2>
-    <input type="text"  [value]=quiz.name>
-  </h2>
-  <button class="button-card">Modifier</button>
+  <div>
+    <form class="quiz-form" [formGroup]="quizForm">
+    <label for="name">
+    Titre du quizz <br>
+    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+    </label>
+    <br>
+    <br>
+    <label for="image">
+      Image <br>
+      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+    </label>
+    </form>
   </div>
-    <app-question-form [quiz]="quiz"></app-question-form>
+  <button class="button-card"(click)="updateQuiz()" routerLink="/quiz-list/{{this.quiz.theme}}">Modifier</button>
+  </div>
+  <app-question-form [quiz]="quiz"></app-question-form>
 </ng-container>
 </div>
 

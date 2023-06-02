@@ -17,29 +17,23 @@ export class QuizListComponent implements OnInit {
 
 
   constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute) {
-  }
-
-  ngOnInit(): void {
-    console.log("2222")
-    this.MakeInit()
-  }
-
-  MakeInit(): void {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;
       const id = this.route.snapshot.paramMap.get('id');
-      console.log(id)
       this.theme=id;
+      console.log(this.quizList)
+
       this.quizList=this.quizList.filter(quiz => quiz.theme == id);
       console.log(this.quizList)
       if(sessionStorage.getItem("admin?")=="true"){
         this.visibility = "visible";
       }else {
         this.visibility = "hidden";
-      }
-    })
-    //recuperer les quiz avec le id du theme;
+      }});
 
+  }
+
+  ngOnInit(): void {
   }
 
   quizSelected(selected: boolean): void {
