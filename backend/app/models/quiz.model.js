@@ -7,7 +7,6 @@ const quizSchema = {
   id: Joi.string().required(),
   name: Joi.string().required(),
   theme: Joi.string().required(),
-  questions: Joi.array().items(questionSchema).required(),
   image: Joi.string().required(),
 }
 
