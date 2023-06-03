@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { User } from 'src/models/user.model';
-import { UserService } from 'src/services/user.service';
-import { Router } from '@angular/router';
-import {Quiz} from "../../../models/quiz.model";
-import {QuizService} from "../../../services/quiz.service";
-import {Session} from "protractor";
+import {Component, OnInit} from '@angular/core';
+import {User} from 'src/models/user.model';
+import {UserService} from 'src/services/user.service';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home-page-user',
@@ -13,16 +12,17 @@ import {Session} from "protractor";
 })
 
 export class HomePageUserComponent implements OnInit {
-  public userList: User[]= []
+  public userList: User[] = []
+
   ngOnInit(): void {
-  }
-  constructor(private router: Router, public userService: UserService) {
-    this.userService.users$.subscribe((users: User[]) => {
-      this.userList = users;
-    });
+    this.userService.retrieveUsers().subscribe((users) => {
+        this.userList = users;
+      }
+    );
   }
 
-
+  constructor(private router: Router, public userService: UserService, private http: HttpClient) {
+  }
 
 
 }

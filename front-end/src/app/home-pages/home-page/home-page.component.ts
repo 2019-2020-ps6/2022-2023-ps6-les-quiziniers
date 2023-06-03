@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home-page',
@@ -13,13 +15,22 @@ export class HomePageComponent implements OnInit {
 
 
 
-  constructor( private route: ActivatedRoute,private userService : UserService) {
-    this.userService.userSelected$.subscribe((user) => this.user = user);
-  }
+  constructor(private route: ActivatedRoute, private userService: UserService, private http: HttpClient) { }
+
   ngOnInit(): void {
-    const id=this.route.snapshot.paramMap.get('id');
-    this.userService.setSelectedUser(id);
+    const id = this.route.snapshot.paramMap.get('id');
+    this.http.get<User>("http://localhost:9428/api/users/" + id).subscribe(
+      (user: User) => {
+        // La variable 'user' contient les détails de l'utilisateur récupérés depuis le backend
+        this.user = user;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des détails de l\'utilisateur:', error);
+      }
+    );
   }
+
+
 
 }
 

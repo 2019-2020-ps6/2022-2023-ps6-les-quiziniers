@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter,ViewChild, } from '@angular/core';
-import {Answer, Question, QuestionType} from '../../../models/question.model';
-import {QuizService} from "../../../services/quiz.service";
-import {Quiz} from "../../../models/quiz.model";
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Answer, Question, QuestionType } from '../../../models/question.model';
+import { QuizService } from "../../../services/quiz.service";
+import { Quiz } from "../../../models/quiz.model";
+import { ActivatedRoute } from "@angular/router";
 import { Router } from '@angular/router';
+import { Stade1Component } from "../../vision/stade1/stade1.component";
 
-import {Stade1Component} from "../../vision/stade1/stade1.component";
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -121,17 +121,9 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id);
-    if (this.quizOG.questions.length != 0) {
-      this.question = this.quizOG.questions[0];
-      this.questionType = this.question.type;
-
-    }
-    this.audiosrc = this.question.trackSources;
-    this.questionCount=this.quizOG.questions.length;
-    return null;
+    // do http request to get the quiz and the question
   }
+
   delete(): void {
     this.deleteQuestion.emit(this.question);
   }
