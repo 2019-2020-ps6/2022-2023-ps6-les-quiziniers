@@ -86,14 +86,7 @@ export class QuestionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router, private questionService: QuestionService,
               private answerService: AnswerService) {
     switch (sessionStorage.getItem("stade")) {
-      case "1":
-        this.marginleftZoom = "8%";
-        this.marginleftPoint = "70%";
-        //this.margintopConfirmButton="36.25%";
-        this.widthQuestImage = "17%";
-        this.margintopImage = "-14%";
-        this.fontsizeRes = "180%";
-        break;
+
 
       case "2":
         this.width = "70%";
@@ -119,7 +112,13 @@ export class QuestionComponent implements OnInit {
         break;
 
       default:
-        this.router.navigate(['/home-page-user/'])
+        this.marginleftZoom = "8%";
+        this.marginleftPoint = "70%";
+        //this.margintopConfirmButton="36.25%";
+        this.widthQuestImage = "17%";
+        this.margintopImage = "-14%";
+        this.fontsizeRes = "180%";
+        break;
     }
   }
 
@@ -130,6 +129,9 @@ export class QuestionComponent implements OnInit {
       this.question = this.questionList[this.indexQuestion];
       this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
         this.answerList = answers;
+      });
+      this.answerList.forEach((answer) => {
+        answer.isSelected = false;
       });
     });
   }
@@ -251,14 +253,21 @@ export class QuestionComponent implements OnInit {
     answer.type += " C'est pas bon";
   }
 
-  selectAnswer(answer) {
-    this.question.answers.forEach(a => a.isSelected = false);
+  selectAnswer(answer : Answer) {
+    if (this.hasAnswered) {
+      return; // Sortir de la méthode si la réponse a déjà été validée
+    }
+
+    this.answerList.forEach((answer) => {
+      answer.isSelected = false;
+    });
     answer.isSelected = true;
+    this.isAnswerSelected();
   }
 
 
   isAnswerSelected(): boolean {
-    return this.question.answers.some(answer => answer.isSelected);
+    return this.answerList.some(answer => answer.isSelected);
   }
 
   isCorrectSelected(): boolean {
@@ -272,7 +281,6 @@ export class QuestionComponent implements OnInit {
     if (this.hasAnswered) {
       return; // Sortir de la méthode si la réponse a déjà été validée
     }
-
 
     this.hasAnswered = true;
     this.nextClicked = true;
@@ -297,6 +305,9 @@ export class QuestionComponent implements OnInit {
         this.question = this.questionList[this.indexQuestion];
         this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
           this.answerList = answers;
+        });
+        this.answerList.forEach((answer) => {
+          answer.isSelected = false;
         });
       });
       this.audiosrc = this.question.trackSources;
@@ -323,6 +334,9 @@ export class QuestionComponent implements OnInit {
         this.question = this.questionList[this.indexQuestion];
         this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
           this.answerList = answers;
+        });
+        this.answerList.forEach((answer) => {
+          answer.isSelected = false;
         });
       });
 
@@ -394,6 +408,9 @@ export class QuestionComponent implements OnInit {
       this.question = this.questionList[this.indexQuestion];
       this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
         this.answerList = answers;
+      });
+      this.answerList.forEach((answer) => {
+        answer.isSelected = false;
       });
     });
     this.quizEnded = false;

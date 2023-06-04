@@ -12,8 +12,11 @@
       </button>
 
       <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindexQuestImage, 'margin-left':marginleftQuestImageStade3, 'margin-top':margintopImage, 'width':widthQuestImage}" (mouseenter)="incrementZoomCount(); transform=transform2; zindexQuestImage=zindex2" (mouseleave)="resetTimer();transform='scale(1) translateX(-50%)'; zindexQuestImage='10'" [src]="question.image" alt=""/>
-      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
+      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion < this.questionList.length -1">
         Suivant
+      </button>
+      <button class="button-card" id="terminer" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion >= this.questionList.length -1">
+        Terminer
       </button>
       <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
         <audio #audioPlayer controls>
@@ -21,7 +24,7 @@
         </audio>
       </div>
       <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-        il reste {{this.getAnswersCount()}} questions
+        Question {{this.indexQuestion+1}}/{{questionList.length}}<br>
       </p>
       <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
         <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">

@@ -1,9 +1,9 @@
 [
   {
-    "isSelected": "False",
+    "isSelected": false,
     "type": "test",
     "value": "Iphone",
-    "isCorrect": "False",
+    "isCorrect": false,
     "question": "1685823644863",
     "id": 1685835039245
   }
