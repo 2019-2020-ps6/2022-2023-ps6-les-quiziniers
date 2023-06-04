@@ -3,10 +3,11 @@ export interface Answer {
     type?: string;
     value: string;
     isCorrect: boolean;
+    question : number;
 }
 
 export interface Question {
-    id: string;
+    id: number;
     label: string;
     answers: Answer[];
     image : string;
