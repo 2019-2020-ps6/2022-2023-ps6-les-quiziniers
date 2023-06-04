@@ -12,7 +12,7 @@ export interface Question {
     answers: Answer[];
     image : string;
     type : QuestionType;
-    trackSources : string;
+    trackSources ?: string;
 }
 
 export enum QuestionType {

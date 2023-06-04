@@ -32,7 +32,7 @@ router.get('/questions/:questionId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    res.status(201).json(Answer.create({ ...req.body, question: req.params.questionId }))
+    res.status(201).json(Answer.create({ ...req.body}))
   } catch (err) {
     if (err.name === 'ValidationError') {
       console.log(err)

@@ -6,5 +6,13 @@
     "isCorrect": false,
     "question": "1685823644863",
     "id": 1685835039245
+  },
+  {
+    "isSelected": false,
+    "type": "test",
+    "value": "Samsung",
+    "isCorrect": true,
+    "question": "1685823644863",
+    "id": 1685901453493
   }
 ]

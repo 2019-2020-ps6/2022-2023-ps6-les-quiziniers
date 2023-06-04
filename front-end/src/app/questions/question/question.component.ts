@@ -80,6 +80,8 @@ export class QuestionComponent implements OnInit {
 
   answerList: Answer[] = [];
 
+  correctAnswerList: number[] = [];
+
   @Output()
   deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
 
@@ -132,6 +134,9 @@ export class QuestionComponent implements OnInit {
       });
       this.answerList.forEach((answer) => {
         answer.isSelected = false;
+      });
+      this.questionList.forEach((question) => {
+        this.correctAnswerList.push(0);
       });
     });
   }
@@ -286,7 +291,9 @@ export class QuestionComponent implements OnInit {
     this.nextClicked = true;
     this.isAnswerChecked = true;
     this.isAnswered = true;
-    this.isCorrectSelected();
+    if(this.isCorrectSelected()) {
+      this.correctAnswerList[this.indexQuestion] = 1;
+    }
   }
 
   isQuestionAnswered(): boolean {
@@ -367,13 +374,9 @@ export class QuestionComponent implements OnInit {
   }
 
   public getCorrectAnswersCount(): number {
-    let count = 0;
-    for (const question of this.questionList) {
-      if (question.answers.some(answer => answer.isSelected && answer.isCorrect)) {
-        count++;
-      }
-    }
-    return count;
+    return this.correctAnswerList.filter((value) => {
+      return value === 1;
+    }).length;
   }
 
   public getAnswersCount(): number {

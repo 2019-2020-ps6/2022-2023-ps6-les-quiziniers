@@ -9,7 +9,8 @@ const questionSchema = {
   answers: Joi.array().items(answerSchema).required(),
   image: Joi.string().required(),
   type: Joi.number().min(0).max(1).required(),
-  quiz : Joi.string().required(),
+  trackSources: Joi.string().optional(),
+  quiz: Joi.string().required(),
 }
 
 const Question = new BaseModel('Question', questionSchema)

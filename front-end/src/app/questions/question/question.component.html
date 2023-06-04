@@ -19,8 +19,8 @@
         Terminer
       </button>
       <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
-        <audio #audioPlayer controls>
-          <source [src]="audiosrc" type="audio/mp3">
+        <audio #audioPlayer *ngIf="question.trackSources" controls>
+          <source [src]="question.trackSources" type="audio/mp3">
         </audio>
       </div>
       <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
@@ -56,7 +56,7 @@
   <div id="center">
     <h1 id="res">Résultats</h1>
     <p id="nbrep" [ngStyle]="{'font-size':fontsizeRes}">
-      Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{quizOG.questions.length}}.
+      Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{questionList.length}}.
     </p>
       <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.</p>
       <p *ngIf="!answerReview() && !zoomReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
