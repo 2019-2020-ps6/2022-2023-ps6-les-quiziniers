@@ -1,10 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { QuizListComponent } from "../quiz-list/quiz-list.component";
 import { ThemeService } from '../../../services/theme.service';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Theme} from "../../../models/theme.model";
+import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -27,25 +30,37 @@ export class QuizFormComponent implements OnInit {
   public quizForm: FormGroup;
   public numberValue: number;
   public quizL:QuizListComponent;
+  themes: Theme[];
   ngOnInit(): void {
     this.themeService.getTheme(this.route.snapshot.paramMap.get("id")).subscribe((theme) => {
       this.themename=theme.name;
     });
     this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme:[this.themename],
-      image:['']
+      name: ['', Validators.required],
+      theme:[this.themename, Validators.required],
+      image:['', Validators.required]
+    });
+    // add all existing themes to the select
+    this.themeService.getAllThemes().subscribe((themes) => {
+      this.themes = themes;
     });
   }
 
-  addQuiz(): void {
-    // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
-    const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-    quizToCreate.theme=this.theme
-    quizToCreate.questions=[]
-    this.quizService.addQuiz(quizToCreate);
+  addQuiz() {
+    const quiz = this.quizForm.value;
+    this.http.post('http://localhost:9428/api/quizzes', quiz)
+      .subscribe(
+        response => {
+          console.log('Quiz ajouté avec succès à la base de données.');
+          this.router.navigate(['/quiz-list']);
+        },
+        error => {
+          console.error('Erreur lors de l\'ajout du quiz :', error);
+        }
+      );
   }
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService, private route: ActivatedRoute) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public themeService: ThemeService, private route: ActivatedRoute, private http: HttpClient
+              ,private router: Router) {
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
@@ -55,4 +70,7 @@ export class QuizFormComponent implements OnInit {
     this.numberValue = parseFloat(inputValue.replace(/[^0-9.]/g, ''));
   }
 
+  setTheme(id, name) {
+    this.theme = name;
+  }
 }

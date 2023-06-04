@@ -11,7 +11,7 @@ import {Quiz} from "../models/quiz.model";
 })
 export class ThemeService {
 
-  private themes: Theme[];
+  themes: Theme[];
   private themeURL = serverUrl + '/themes';
 
   /*
@@ -33,5 +33,21 @@ export class ThemeService {
 
   getAllThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(this.themeURL);
+  }
+
+  addTheme(theme: Theme): Observable<Theme> {
+    return this.http.post<Theme>(this.themeURL, theme, this.httpOptions);
+  }
+
+  deleteTheme(theme: Theme): Observable<Theme> {
+    return this.http.delete<Theme>(this.themeURL + '/' + theme.id, this.httpOptions);
+  }
+
+  retrieveTheme(id: string): Observable<Theme[]> {
+    return this.http.get<Theme[]>(this.themeURL + '/' + id);
+  }
+
+  deleteThemebyId(id: string) {
+    return this.http.delete<Theme>(this.themeURL + '/' + id, this.httpOptions);
   }
 }

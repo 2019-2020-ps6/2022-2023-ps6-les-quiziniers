@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
 import { Question } from 'src/models/question.model';
+import { HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-question-form',
@@ -16,7 +18,8 @@ export class QuestionFormComponent implements OnInit {
 
   public questionForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, private quizService: QuizService, private http: HttpClient,
+              private router : Router) {
     // Form creation
     this.initializeQuestionForm();
   }
@@ -24,7 +27,9 @@ export class QuestionFormComponent implements OnInit {
   private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
-      answers: this.formBuilder.array([])
+      image: ['', Validators.required],
+      trackSources: '',
+      answers: this.formBuilder.array([]),
     });
   }
 
@@ -47,10 +52,42 @@ export class QuestionFormComponent implements OnInit {
   }
 
   addQuestion(): void {
-    if (this.questionForm.valid) {
-      const question = this.questionForm.getRawValue() as Question;
-      // this.quizService.addQuestion(this.quiz, question);
-      this.initializeQuestionForm();
+    // do the http request and add the question to the quiz also, add each answer to the question by http request with the question id
+    const question = {
+      label: this.questionForm.value.label,
+      image: this.questionForm.value.image,
+      trackSources :  (this.questionForm.value.trackSources) ? this.questionForm.value.trackSources : undefined,
     }
+    let questionUrl = 'http://localhost:9428/api/quizzes/' + this.quiz.id + '/questions';
+    this.http.post(questionUrl, question)
+      .subscribe(
+        response => {
+          console.log('Question ajoutée avec succès.');
+          for(let i = 0; i<this.questionForm.value.answers.length; i++){
+            const answer = {
+              value: this.questionForm.value.answers[i].value,
+              isCorrect: this.questionForm.value.answers[i].isCorrect,
+              question: response['id'].toString(),
+              isSelected : false,
+            }
+            this.http.post('http://localhost:9428/api/answers', answer)
+              .subscribe(
+                response => {
+                  console.log('Réponse ajoutée avec succès.');
+                },
+                error => {
+                  console.error('Erreur lors de l\'ajout de la réponse :', error);
+                });
+          }
+          this.router.navigate(['/quiz-list']);
+        },
+        error => {
+          console.error('Erreur lors de l\'ajout de la question :', error);
+        });
+
+  }
+
+  removeAnswer(i: number) {
+    this.answers.removeAt(i);
   }
 }

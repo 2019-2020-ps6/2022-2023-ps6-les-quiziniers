@@ -46,8 +46,8 @@ export class UserService {
     this.userSelected$.next(this.users.find(x=>x.id===userId));
   }
 
-  deleteUser(user: User): void {
-    const urlWithId = this.userUrl + '/' + user.id;
+  deleteUser(userid: string): void {
+    const urlWithId = this.userUrl + '/' + userid;
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 }

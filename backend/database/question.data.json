@@ -1,19 +1,8 @@
 [
   {
-    "label": "Quelle est la marque de ce téléphone ?",
-    "answers": [],
-    "image": "https://proxymedia.woopic.com/api/v1/images/1618%2Fedithor%2Fterminaux%2F636x900-alcatel-1-2021-img1_61f8df5230ee0236ac664ce8.png?format=504x504&saveas=webp&saveasquality=80",
-    "type": 0,
-    "quiz": "1685827916043",
-    "id": 1685823644863,
-    "trackSources": "https://files.gospeljingle.com/uploads/music/2023/01/Shakira_-_Hips_Dont_Lie.mp3"
-  },
-  {
-    "label": "Bonjour Label3",
-    "answers": [],
-    "image": "myLink",
-    "type": 0,
-    "quiz": "1685827916043",
-    "id": 1685833816038
+    "label": "AXEL TEST",
+    "image": "tezrza",
+    "quiz": "1685906430899",
+    "id": 1685912779433
   }
 ]

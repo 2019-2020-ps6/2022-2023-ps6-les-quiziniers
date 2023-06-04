@@ -1,26 +1,36 @@
 <div class="card">
-  <h2>Create a new question</h2>
+  <h2>Créer une nouvelle question</h2>
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
-      Title <br>
+      Intitulé <br>
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
     <br>
-    <button class="button-card" (click)="addAnswer()">Add Answer</button>
+    <label for="image">
+      Image <br>
+      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+    </label>
+    <br>
+    <label for="trackSources">
+      Son (si vous souhaitez créer un BlindTest) <br>
+      <input class="input-custom" type="text" id="trackSources" [formControlName]="'trackSources'">
+    </label>
+    <br>
+    <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i=index">
         <div class="answer-form" [formGroupName]="i">
           <label>
-            Answer
+            Réponse
             <input type="text" [formControlName]="'value'">
-            <br>
-            Correct
+            <button type="button" (click)="removeAnswer(i)">X</button>
+            Correct ?
             <input type="checkbox" [formControlName]="'isCorrect'">
           </label>
         </div>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
+    <button type="submit" class="button-card" (click)="addQuestion()">Créer la question</button>
   </form>
 </div>
 

@@ -20,6 +20,7 @@ import {QuizFormComponent} from "./quizzes/quiz-form/quiz-form.component";
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
 import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
 import {ThemeComponent} from "./quizzes/theme/theme.component";
+import {ThemeFormComponent} from "./quizzes/theme-form/theme-form.component";
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'quiz-list/:id', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
+    {path: 'theme-form', component: ThemeFormComponent},
     {path: 'home-page', component: HomePageComponent},
     {path: 'home-page-user', component: HomePageUserComponent},
     {path: 'home-page-usertype', component: HomePageUserTypeComponent},

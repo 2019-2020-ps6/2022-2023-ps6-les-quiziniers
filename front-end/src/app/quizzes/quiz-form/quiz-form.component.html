@@ -1,6 +1,6 @@
 <div class="card">
   <h2>Créer un nouveau quizz</h2>
-  <form class="quiz-form" [formGroup]="quizForm">
+  <form class="quiz-form" [formGroup]="quizForm" (ngSubmit)="addQuiz()">
     <label for="name">
       Titre du quizz <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
@@ -8,15 +8,17 @@
     <br>
     <label>
       Thème du quizz <br>
-      <h2>{{themename}}</h2>
     </label>
+    <select [formControlName]="'theme'" id="theme" required>
+      <option [ngValue]="null" [disabled]="true" >Choisissez un thème</option>
+      <option *ngFor="let theme of themes" [value]="theme.id" (click)="setTheme(theme.id, theme.name)">{{theme.name}}</option>
+    </select>
     <br>
     <label for="image">
       Image <br>
       <input class="input-custom" type="text" id="image" [formControlName]="'image'">
     </label>
     <br>
-    <button type="submit" class="button-card" (click)="addQuiz()">Créer le quizz</button>
+    <button [disabled]=!this.quizForm.valid class="button-card" type="submit">Créer le quizz</button>
   </form>
 </div>
-

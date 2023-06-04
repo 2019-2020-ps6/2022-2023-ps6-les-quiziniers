@@ -11,6 +11,22 @@
         <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
       </label>
       <br>
-      <button type="submit" class="button-card" (click)="addUser()">Créer</button>
+      <label for="photoUrl">
+        Photo de profil <br>
+        <input class="input-custom" type="text" id="photoUrl" [formControlName]="'photoUrl'">
+      </label>
+      <br>
+      <button type="submit" class="button-card" (click)="addUser()" routerLink="/home-page-admin/">Créer</button>
+    </form>
+
+  <form class="userdeleteform" [formGroup]="userDeleteForm">
+    <label for="id">
+      Supprimer un patient <br>
+      </label>
+    <select class="input-custom" id="id" [formControlName]="'id'">
+      <option *ngFor="let user of users" [value]="user.id">{{user.firstName}} {{user.lastName}}</option>
+    </select>
+    <br>
+    <button type="submit" class="button-card" (click)="deleteUser()" routerLink="/home-page-admin/">Supprimer le patient</button>
     </form>
   </div>

@@ -1,0 +1,10 @@
+
+<div class="answer-list">
+    <div class="quiz" *ngFor="let awnswer of this.answerList">
+        <!--Inputs & Output allow communication between parent & child components.-->
+        <!--More information: https://angular.io/guide/component-interaction-->
+        <app-answer [answer]="answer" (answerSelected)="answerSelected($event)"></app-answer>
+    </div>
+</div>
+
+

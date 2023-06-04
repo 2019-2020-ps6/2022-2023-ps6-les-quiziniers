@@ -3,29 +3,33 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {QuizService} from '../../../services/quiz.service';
 import {Quiz} from '../../../models/quiz.model';
 import {HttpClient} from '@angular/common/http';
+import {AnswerService} from "../../../services/answer.service";
+import {Answer} from "../../../models/question.model";
 
 @Component({
-  selector: 'quiz-list',
-  templateUrl: './quiz-list.component.html',
-  styleUrls: ['./quiz-list.component.scss']
+  selector: 'answer-list',
+  templateUrl: './answer-list.component.html',
+  styleUrls: ['./answer-list.component.scss']
 })
-export class QuizListComponent implements OnInit {
+export class AnswerListComponent implements OnInit {
   public visibility: String = "hidden"
 
-  public quizList: Quiz[] = [];
+  public answerList: Answer[] = [];
   @Output()
   public theme;
+  answer: Answer;
 
 
-  constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute, private http: HttpClient,
+              private answerService: AnswerService) {
   }
 
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.retrieveQuizzesByTheme(id).subscribe((quizzes) => {
-      this.quizList = quizzes;
-    })
+    this.answerService.getAnswerByQuestionId(parseInt(id)).subscribe((answerList: Answer[]) => {
+      this.answerList = answerList;
+    });
 
     if (sessionStorage.getItem("admin?") == "true") {
       this.visibility = "visible";
@@ -43,9 +47,10 @@ export class QuizListComponent implements OnInit {
     this.router.navigate(['/edit-quiz/' + quiz.name]);
   }
 
-  deleteQuiz(quiz: Quiz): void {
-    this.http.delete("http://localhost:9428/api/quizzes/" + quiz.id).subscribe(() => {
-      this.quizList = this.quizList.filter(q => q.id != quiz.id);
-    });
+  deleteAnswer(quiz: Quiz): void {
+
+  }
+
+  answerSelected() {
   }
 }

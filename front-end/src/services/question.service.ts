@@ -21,4 +21,8 @@ export class QuestionService {
   getQuestionsByQuizzIdAndQuestionId(quizId: string,questionId: string) : Observable<Question>{
     return this.http.get<Question>(this.quizUrl + '/' + quizId + this.questionUrl+'/'+questionId);
   }
+
+  deleteQuestion(quizId: string,questionId: string) : Observable<Question>{
+    return this.http.delete<Question>(this.quizUrl + '/' + quizId + this.questionUrl+'/'+questionId);
+  }
 }

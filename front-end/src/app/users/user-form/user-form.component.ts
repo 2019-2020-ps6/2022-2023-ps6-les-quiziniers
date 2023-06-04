@@ -12,20 +12,39 @@ import { User } from '../../../models/user.model';
 export class UserFormComponent implements OnInit {
 
   public userForm: FormGroup;
+  public user : User;
+  users : User[];
+  userDeleteForm : FormGroup;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.userForm = this.formBuilder.group({
       firstName: [''],
-      lastName: ['']
+      lastName: [''],
+      photoUrl: [''],
+    });
+
+    this.userDeleteForm = this.formBuilder.group({
+      id: [''],
     });
   }
 
   ngOnInit(): void {
+    // retrieve all users and store them in the users property
+    this.userService.retrieveUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
 
   addUser(): void {
-    // We retrieve here the user object from the userForm and we cast the type "as User".
-    const userToCreate: User = this.userForm.getRawValue() as User;
-    this.userService.addUser(userToCreate);
+    // get the user from the form and create it with a http post request
+    const user = this.userForm.value;
+    this.userService.addUser(user);
   }
+
+  deleteUser() {
+    const user = this.userDeleteForm.value;
+    console.log(user);
+    this.userService.deleteUser(user.id);
+  }
+
 }

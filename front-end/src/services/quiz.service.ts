@@ -72,11 +72,8 @@ export class QuizService {
   }
 
   updateQuiz(quiz:Quiz):void{
-    console.log(quiz)
-    this.http.put<Quiz>(this.quizUrl+'/'+quiz.id, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
-    console.log(quiz)
-
-
+    const urlWithId = this.quizUrl + '/' + quiz.id;
+    this.http.put<Quiz>(urlWithId, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
   }
 
   deleteQuiz(quiz: Quiz): void {
