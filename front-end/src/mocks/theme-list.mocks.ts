@@ -1,6 +1,6 @@
 
 import {Theme} from "../models/theme.model";
-import {QUIZ_LIST} from "./quiz-list.mock";
+/* import {QUIZ_LIST} from "./quiz-list.mock";
 
 
 export const THEME_LIST: Theme[] = [
@@ -56,4 +56,4 @@ export const THEME_LIST: Theme[] = [
     quizList:QUIZ_LIST
   }
 
-];
+]; */

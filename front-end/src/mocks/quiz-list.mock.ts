@@ -1,5 +1,5 @@
 import { Quiz } from '../models/quiz.model';
-import {
+/*import {
   QUESTION_ACTOR2,
   QUESTION_BLINDTEST_ANNEE2000, QUESTION_BLINDTEST_ANNEE20003,
   QUESTION_CAPITALES,
@@ -41,3 +41,4 @@ export const QUIZ_LIST: Quiz[] = [ {
 ];
 
 
+*/

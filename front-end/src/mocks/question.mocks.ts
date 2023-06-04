@@ -1,5 +1,5 @@
 import {Question, QuestionType} from '../models/question.model';
-
+/*
 export const QUESTION_ACTOR1: Question = {
   id: '1',
   label: 'Jean Gabin a joué dans...',
@@ -270,5 +270,5 @@ export const QUESTION_BLINDTEST_ANNEE20003: Question = {
   type:QuestionType.Blindtest,
   trackSources:"https://files.gospeljingle.com/uploads/music/2023/01/Shakira_-_Hips_Dont_Lie.mp3"
 }
-
+*/
 

@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Theme } from '../../../models/theme.model';
+import {Theme} from '../../../models/theme.model';
 import {Quiz} from "../../../models/quiz.model";
 import {ThemeService} from "../../../services/theme.service";
-
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -14,21 +14,23 @@ export class QuizThemeComponent implements OnInit {
 
   public themeList: Theme[] = [];
 
-  constructor(private themeService : ThemeService){
-    this.themeService.themes$.subscribe((themes: Theme[]) => {
-      this.themeList = themes;
-    });
-    console.log(this.themeList);
+  constructor(private themeService: ThemeService, private http: HttpClient) {
   }
+
 
   ngOnInit(): void {
-
+    this.themeService.getAllThemes().subscribe((themes) => {
+        this.themeList = themes;
+      }
+    );
   }
+
   @Input()
   theme?: Quiz;
 
   @Output()
   themeSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   selectTheme(): void {
     this.themeSelected.emit(true);
   }

@@ -12,8 +12,11 @@
       </button>
 
       <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindexQuestImage, 'margin-left':marginleftQuestImageStade3, 'margin-top':margintopImage, 'width':widthQuestImage}" (mouseenter)="incrementZoomCount(); transform=transform2; zindexQuestImage=zindex2" (mouseleave)="resetTimer();transform='scale(1) translateX(-50%)'; zindexQuestImage='10'" [src]="question.image" alt=""/>
-      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()">
+      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion < this.questionList.length -1">
         Suivant
+      </button>
+      <button class="button-card" id="terminer" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion >= this.questionList.length -1">
+        Terminer
       </button>
       <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
         <audio #audioPlayer controls>
@@ -21,7 +24,7 @@
         </audio>
       </div>
       <p id="points" [ngStyle]="{'margin-left': marginleftPoint, 'margin-top':margintopPoint}">
-        Il reste {{this.getAnswersCount()}} questions.
+        Question {{this.indexQuestion+1}}/{{questionList.length}}<br>
       </p>
       <p id="zoom" [ngStyle]="{'margin-left': marginleftZoom}">
         <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">
@@ -30,7 +33,7 @@
       </p>
       <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="incrementZoomCount(); zindexAns=zindex2" (mouseleave)="resetTimer();zindexAns='10'">
         <table class="tableanswer">
-            <div class="answer" *ngFor="let answer of question.answers; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
+            <div class="answer" *ngFor="let answer of answerList; let i=index " [ngStyle]="{'transform':transform4, 'position':position3, 'margin-top':margintop5, 'margin-bottom':marginbottom3}" (mouseenter)="transform4=transformAnswer; position3=position2; margintop5=margintop4; marginbottom3=marginbottom2" (mouseleave)="transform4='scale(1)'; position3='relative'; margintop5='5px'; marginbottom3='0%'"
          (click)="selectAnswer(answer)" [ngClass]="{'correct-answer': isAnswerChecked && answer.isCorrect && answer.isSelected, 'incorrect-answer': isAnswerChecked && !answer.isCorrect && answer.isSelected, 'notselected': !isQuestionAnswered(), 'selected-answer': answer.isSelected && !hasAnswered}">
               {{answer.value}} <ng-container *ngIf="answer.isCorrect"></ng-container>  <br>
               <!-- <i id='check' class="far fa-check-square" *ngIf="answer.isSelected"></i>-->

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter,ViewChild, } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Answer, Question, QuestionType} from '../../../models/question.model';
 import {QuizService} from "../../../services/quiz.service";
-import {Quiz} from "../../../models/quiz.model";
-import {ActivatedRoute} from "@angular/router";
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from "@angular/router";
+import {QuestionService} from "../../../services/question.service";
+import {AnswerService} from "../../../services/answer.service";
+import {filter} from "rxjs/operators";
 
-import {Stade1Component} from "../../vision/stade1/stade1.component";
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -13,63 +13,64 @@ import {Stade1Component} from "../../vision/stade1/stade1.component";
 })
 export class QuestionComponent implements OnInit {
   @ViewChild('audioPlayer') audioPlayer: any;
-  public width:String="";
-  public margin:String= "";
+  public width: String = "";
+  public margin: String = "";
   public isAnswered = false;
   public questionCount = 0;
   public quizEnded = false;
   public hasAnswered = false;
   public isAnswerChecked = false;
   public switchState = false;
-  public transform2:String = "";
-  public transform:String = "scale(1) translateX(-50%)";
-  public zoomPoint:String = "1";
-  public zoomPoint2:String = "1.5";
-  public zindex2:String = "";
-  public zindexAns:String = "10";
-  public zindexQuest:String = "10";
-  public zindexQuestImage:String = "10";
-  public zindexPoint:String = "10";
+  public transform2: String = "";
+  public transform: String = "scale(1) translateX(-50%)";
+  public zoomPoint: String = "1";
+  public zoomPoint2: String = "1.5";
+  public zindex2: String = "";
+  public zindexAns: String = "10";
+  public zindexQuest: String = "10";
+  public zindexQuestImage: String = "10";
+  public zindexPoint: String = "10";
 
-  public transform3:String = "scale(1) translateX(-50%)";
-  public transformAnswer:String = "";
-  public transform4:String = "scale(1)";
-  public position2:String = "";
-  public position3:String = "unset";
-  public margintop4:String = "";
-  public margintop5:String = "5px";
-  public marginbottom2:String = "";
-  public marginbottom3:String = "0px";
-  public width2:String = "";
-  public width3:String = "64%";
-  public marginleft2:String = "";
-  public marginleft3:String = "18%";
-  public margintop2:String = "";
-  public margintop3:String = "2.5%";
-  public background2:String = "";
-  public background3:String = "unset";
+  public transform3: String = "scale(1) translateX(-50%)";
+  public transformAnswer: String = "";
+  public transform4: String = "scale(1)";
+  public position2: String = "";
+  public position3: String = "unset";
+  public margintop4: String = "";
+  public margintop5: String = "5px";
+  public marginbottom2: String = "";
+  public marginbottom3: String = "0px";
+  public width2: String = "";
+  public width3: String = "64%";
+  public marginleft2: String = "";
+  public marginleft3: String = "18%";
+  public margintop2: String = "";
+  public margintop3: String = "2.5%";
+  public background2: String = "";
+  public background3: String = "unset";
 
-  public marginleftContent:String = "";
-  public margintopContent:String = "";
-  public marginleftZoom:String = "";
-  public marginleftPoint:String = "";
-  public margintopPoint:String = "";
-  public marginrightPoint:String = "10%";
-  public margintopConfirmButton:String = "";
-  public widthQuestImage:String = "";
-  public margintopImage:String = "";
+  public marginleftContent: String = "";
+  public margintopContent: String = "";
+  public marginleftZoom: String = "";
+  public marginleftPoint: String = "";
+  public margintopPoint: String = "";
+  public marginrightPoint: String = "10%";
+  public margintopConfirmButton: String = "";
+  public widthQuestImage: String = "";
+  public margintopImage: String = "";
 
-  public marginleftQuestImageStade3:String = "";
-  public marginrifhtPrecStade3:String = "";
-  public marginleftSuivStade3:String = "";
-  public fontsizeRes:String = "";
+  public marginleftQuestImageStade3: String = "";
+  public marginrifhtPrecStade3: String = "";
+  public marginleftSuivStade3: String = "";
+  public fontsizeRes: String = "";
   public audiosrc: string;
 
   public zoomCount = 0;
   public timer: any;
 
-  @Input()
-  quizOG: Quiz;
+  questionList: Question[] = [];
+
+  indexQuestion: number = 0;
 
   @Input()
   questionType: QuestionType;
@@ -77,67 +78,67 @@ export class QuestionComponent implements OnInit {
   @Input()
   question: Question;
 
+  answerList: Answer[] = [];
+
   @Output()
   deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
-    this.quizService.quizSelected$.subscribe((quiz) => this.quizOG = quiz)
-    switch (sessionStorage.getItem("stade")){
-      case "1":
-        this.marginleftZoom="8%";
-        this.marginleftPoint="70%";
-        //this.margintopConfirmButton="36.25%";
-        this.widthQuestImage="17%";
-        this.margintopImage="-14%";
-        this.fontsizeRes="180%";
-        break;
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router, private questionService: QuestionService,
+              private answerService: AnswerService) {
+    switch (sessionStorage.getItem("stade")) {
+
 
       case "2":
-        this.width="70%";
-        this.widthQuestImage="24%";
-        this.marginleftPoint="70%";
+        this.width = "70%";
+        this.widthQuestImage = "24%";
+        this.marginleftPoint = "70%";
 
 
         break;
 
       case "3":
-        this.width="50%";
+        this.width = "50%";
         //this.marginleftContent="9%";
         //this.margintopContent="19.5%";
-        this.marginleftZoom="5%";
-        this.marginleftPoint="75%";
+        this.marginleftZoom = "5%";
+        this.marginleftPoint = "75%";
         //this.margintopConfirmButton="36.5%";
         //this.marginleftQuestImageStade3="-13%";
         //this.marginrifhtPrecStade3="1%";
         //this.marginleftSuivStade3="3%";
-        this.widthQuestImage="30%";
-        this.margintopImage="-23.5%";
-        this.fontsizeRes="140%";
+        this.widthQuestImage = "30%";
+        this.margintopImage = "-23.5%";
+        this.fontsizeRes = "140%";
         break;
 
       default:
-        this.router.navigate(['/home-page-user/'])
+        this.marginleftZoom = "8%";
+        this.marginleftPoint = "70%";
+        //this.margintopConfirmButton="36.25%";
+        this.widthQuestImage = "17%";
+        this.margintopImage = "-14%";
+        this.fontsizeRes = "180%";
+        break;
     }
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id);
-    console.log(this.quizOG);
-    if (this.quizOG.questions.length != 0) {
-      this.question = this.quizOG.questions[0];
-      this.questionType = this.question.type;
-
-    }
-    this.audiosrc = this.question.trackSources;
-    this.questionCount=this.quizOG.questions.length;
-    return null;
+    this.questionService.getQuestionsByQuizzId(this.route.snapshot.paramMap.get("id")).subscribe((questions) => {
+      this.questionCount = questions.length;
+      this.questionList = questions;
+      this.question = this.questionList[this.indexQuestion];
+      this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
+        this.answerList = answers;
+      });
+      this.answerList.forEach((answer) => {
+        answer.isSelected = false;
+      });
+    });
   }
+
   delete(): void {
     this.deleteQuestion.emit(this.question);
   }
-
-
 
 
   toggleSwitch() {
@@ -246,25 +247,31 @@ export class QuestionComponent implements OnInit {
   }
 
   answerLayout(answer: Answer): void {
-    console.log(answer);
     if (answer.isCorrect) {
       answer.type += " C'est la bonne réponse";
     }
     answer.type += " C'est pas bon";
   }
 
-  selectAnswer(answer) {
-    this.question.answers.forEach(a => a.isSelected = false);
+  selectAnswer(answer : Answer) {
+    if (this.hasAnswered) {
+      return; // Sortir de la méthode si la réponse a déjà été validée
+    }
+
+    this.answerList.forEach((answer) => {
+      answer.isSelected = false;
+    });
     answer.isSelected = true;
+    this.isAnswerSelected();
   }
 
 
   isAnswerSelected(): boolean {
-    return this.question.answers.some(answer => answer.isSelected);
+    return this.answerList.some(answer => answer.isSelected);
   }
 
   isCorrectSelected(): boolean {
-    return this.question.answers.some(answer => answer.isSelected && answer.isCorrect);
+    return this.answerList.some(answer => answer.isSelected && answer.isCorrect);
   }
 
 
@@ -275,17 +282,13 @@ export class QuestionComponent implements OnInit {
       return; // Sortir de la méthode si la réponse a déjà été validée
     }
 
-
     this.hasAnswered = true;
     this.nextClicked = true;
     this.isAnswerChecked = true;
     this.isAnswered = true;
     this.isCorrectSelected();
-    this.questionCount--;
-    if (this.isCorrectSelected()) {
-      this.quizOG.points += 1;
-    }
   }
+
   isQuestionAnswered(): boolean {
     return this.isAnswered;
   }
@@ -295,10 +298,19 @@ export class QuestionComponent implements OnInit {
     this.hasAnswered = false;
     this.isAnswerChecked = false;
 
-    const index = this.quizOG.questions.indexOf(this.question);
-    if (index < this.quizOG.questions.length - 1) {
-      this.question = this.quizOG.questions[index + 1];
-      this.audiosrc= this.question.trackSources;
+    if (this.indexQuestion < this.questionCount - 1) {
+      this.indexQuestion += 1;
+      this.questionService.getQuestionsByQuizzId(this.route.snapshot.paramMap.get("id")).subscribe((data: Question[]) => {
+        this.questionList = data;
+        this.question = this.questionList[this.indexQuestion];
+        this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
+          this.answerList = answers;
+        });
+        this.answerList.forEach((answer) => {
+          answer.isSelected = false;
+        });
+      });
+      this.audiosrc = this.question.trackSources;
       this.audioPlayer.nativeElement.load();
       this.audioPlayer.nativeElement.play();
       this.question.answers.forEach(a => a.isSelected = false);
@@ -315,10 +327,20 @@ export class QuestionComponent implements OnInit {
     this.hasAnswered = false;
     this.isAnswerChecked = false;
 
-    const index = this.quizOG.questions.indexOf(this.question);
-    if (index < this.quizOG.questions.length) {
-      this.question = this.quizOG.questions[index - 1];
-      this.audiosrc= this.question.trackSources;
+    if (this.indexQuestion > 0) {
+      this.indexQuestion -= 1;
+      this.questionService.getQuestionsByQuizzId(this.route.snapshot.paramMap.get("id")).subscribe((data: Question[]) => {
+        this.questionList = data;
+        this.question = this.questionList[this.indexQuestion];
+        this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
+          this.answerList = answers;
+        });
+        this.answerList.forEach((answer) => {
+          answer.isSelected = false;
+        });
+      });
+
+      this.audiosrc = this.question.trackSources;
       this.audioPlayer.nativeElement.load();
       this.audioPlayer.nativeElement.play();
     }
@@ -346,39 +368,51 @@ export class QuestionComponent implements OnInit {
 
   public getCorrectAnswersCount(): number {
     let count = 0;
-    for (const question of this.quizOG.questions) {
+    for (const question of this.questionList) {
       if (question.answers.some(answer => answer.isSelected && answer.isCorrect)) {
         count++;
       }
     }
     return count;
   }
+
   public getAnswersCount(): number {
     return this.questionCount;
   }
 
 
   public answerReview(): boolean {
-    if(this.getCorrectAnswersCount() > this.quizOG.questions.length / 2) {
+    if (this.getCorrectAnswersCount() > this.questionCount / 2) {
       return true;
     }
     return false;
   }
 
   public zoomReview(): boolean {
-    if(this.zoomCount > this.quizOG.questions.length / 2) {
+    if (this.zoomCount > this.questionCount / 2) {
       return false;
     }
     return true;
   }
 
   public restartQuiz(): void {
-    for (const question of this.quizOG.questions) {
+    for (const question of this.questionList) {
       for (const answer of question.answers) {
         answer.isSelected = false;
       }
+      this.hasAnswered = false;
     }
-    this.question = this.quizOG.questions[0];
+    this.indexQuestion = 0;
+    this.questionService.getQuestionsByQuizzId(this.route.snapshot.paramMap.get("id")).subscribe((data: Question[]) => {
+      this.questionList = data;
+      this.question = this.questionList[this.indexQuestion];
+      this.answerService.getAnswerByQuestionId(this.question.id).subscribe((answers) => {
+        this.answerList = answers;
+      });
+      this.answerList.forEach((answer) => {
+        answer.isSelected = false;
+      });
+    });
     this.quizEnded = false;
   }
 
@@ -386,4 +420,5 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['/app-quiz-theme'])
   }
 }
+
 // }

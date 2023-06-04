@@ -6,6 +6,7 @@ const answerSchema = {
   type: Joi.string().required(),
   value: Joi.string().required(),
   isCorrect: Joi.boolean().required(),
+  question: Joi.string().required(),
 }
 const Answer = new BaseModel('Answer', answerSchema)
 

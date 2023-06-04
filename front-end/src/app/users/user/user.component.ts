@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../../../models/user.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,8 @@ export class UserComponent implements OnInit {
   @Output()
   deleteUser: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
 
   ngOnInit(): void {
     const admin= sessionStorage.getItem("admin?")
@@ -24,6 +26,8 @@ export class UserComponent implements OnInit {
     }else{
       this.visibility="hidden";
     }
+
+    this.http.get<User>("http://localhost:9428/api/users/"+this.user.id).subscribe((user) => this.user = user);
   }
 
   delete() {

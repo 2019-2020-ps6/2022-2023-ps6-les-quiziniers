@@ -1,7 +1,8 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { QuizService } from '../../../services/quiz.service';
-import { Quiz } from '../../../models/quiz.model';
+import {QuizService} from '../../../services/quiz.service';
+import {Quiz} from '../../../models/quiz.model';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'quiz-list',
@@ -9,33 +10,30 @@ import { Quiz } from '../../../models/quiz.model';
   styleUrls: ['./quiz-list.component.scss']
 })
 export class QuizListComponent implements OnInit {
-  public visibility : String ="hidden"
+  public visibility: String = "hidden"
 
   public quizList: Quiz[] = [];
   @Output()
   public theme;
 
 
-  constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute) {
+  constructor(private router: Router, public quizService: QuizService, private route: ActivatedRoute, private http: HttpClient) {
   }
+
 
   ngOnInit(): void {
-    this.MakeInit()
+    const id = this.route.snapshot.paramMap.get('id');
+    this.quizService.retrieveQuizzesByTheme(id).subscribe((quizzes) => {
+      this.quizList = quizzes;
+    })
+
+    if (sessionStorage.getItem("admin?") == "true") {
+      this.visibility = "visible";
+    } else {
+      this.visibility = "hidden";
+    }
   }
 
-  MakeInit(): void {
-    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-    this.quizList = quizzes;})
-//recuperer les quiz avec le id du theme;
-  const id = this.route.snapshot.paramMap.get('id');
-  this.theme=id;
-  this.quizList=this.quizList.filter(quiz => quiz.theme == id);
-  if(sessionStorage.getItem("admin?")=="true"){
-    this.visibility = "visible";
-  }else {
-    this.visibility = "hidden";
-  }
-}
 
   quizSelected(selected: boolean): void {
 

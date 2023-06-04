@@ -19,7 +19,6 @@ export class QuestionListComponent implements OnInit {
   }
 
   deleteQuestion(question: Question): void {
-    this.quizService.deleteQuestion(this.quiz, question);
+    //TODO : call question service to delete the question
   }
-
 }

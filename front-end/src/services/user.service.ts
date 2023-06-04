@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import { User } from '../models/user.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {USER_LIST} from "../mocks/user.mock";
@@ -30,8 +30,8 @@ export class UserService {
       this.users$.next(this.users)
   }
 
-  retrieveUsers(): void {
-
+  retrieveUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.userUrl);
   }
 
   addUser(user: User): void {

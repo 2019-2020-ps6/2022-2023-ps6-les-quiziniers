@@ -1,11 +1,9 @@
 const { Router } = require('express')
 const { Quiz } = require('../../../models')
-const QuestionsRouter = require('./questions')
 
 const router = new Router()
 
-router.use('/:quizId/questions', QuestionsRouter)
-// getusers
+// get all quizzes
 router.get('/', (req, res) => {
   try {
     res.status(200).json(Quiz.get())
@@ -14,7 +12,7 @@ router.get('/', (req, res) => {
   }
 })
 
-// getuser
+// get quizz by id
 router.get('/:quizId', (req, res) => {
   try {
     res.status(200).json(Quiz.getById(req.params.quizId))
@@ -23,7 +21,7 @@ router.get('/:quizId', (req, res) => {
   }
 })
 
-// createuser
+// create quizz
 router.post('/', (req, res) => {
   try {
     const quiz = Quiz.create({ ...req.body })
@@ -38,7 +36,7 @@ router.post('/', (req, res) => {
   }
 })
 
-// deleteuser
+// delete quizz by id
 router.delete('/:quizId', (req, res) => {
   try {
     res.status(200).json(Quiz.delete(req.params.quizId))
@@ -47,7 +45,7 @@ router.delete('/:quizId', (req, res) => {
   }
 })
 
-// updateuser
+// update quizz by ID
 router.put('/:quizId', (req, res) => {
   try {
     res.status(200).json(Quiz.update(req.params.quizId, req.body))

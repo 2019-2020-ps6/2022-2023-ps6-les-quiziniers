@@ -30,8 +30,6 @@ export class Stade1Component implements OnInit {
   stadeUpdate2() {
     this.width="70%"
     this.margin="15.5%"
-    console.log(this.width);
-    console.log(this.margin)
     sessionStorage.setItem('stade',"2");
   }
   stadeUpdate3() {

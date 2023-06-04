@@ -1,10 +1,10 @@
 const { Router } = require('express')
 const { Theme } = require('../../models')
-const ThemeRouter = require('./quizzes')
+const QuizzRouter = require('./quizzes')
 
 const router = new Router()
 
-router.use('/:themeId/quizzes', ThemeRouter)
+router.use('/:themeId/quizzes', QuizzRouter)
 // getusers
 router.get('/', (req, res) => {
   try {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 // getuser
 router.get('/:themeId', (req, res) => {
   try {
-    res.status(200).json(Theme.getById(req.params.quizId))
+    res.status(200).json(Theme.getById(req.params.themeId))
   } catch (err) {
     res.status(500).json(err)
   }
