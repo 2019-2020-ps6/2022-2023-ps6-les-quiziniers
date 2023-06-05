@@ -1,8 +1,9 @@
+<ng-container *ngIf="quiz">
+
 <div class="card">
 
 <button class="button-card" routerLink="/quiz-list/{{this.quiz.theme}}">Retour</button>
   <h2>Modifier le quizz</h2>
-<ng-container *ngIf="quiz">
   <div>
   <div>
     <form class="quiz-form" [formGroup]="quizForm">
@@ -37,9 +38,10 @@
       </form>
     </div>
   </div>
+</div>
+  <div></div>
   <app-question-form [quiz]="quiz"></app-question-form>
 </ng-container>
-</div>
 
 
 

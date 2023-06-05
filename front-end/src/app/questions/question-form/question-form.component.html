@@ -3,7 +3,7 @@
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
       Intitulé <br>
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+      <input class="input-custom" type="text" id="label" maxlength="40" [formControlName]="'label'">
     </label>
     <br>
     <label for="image">

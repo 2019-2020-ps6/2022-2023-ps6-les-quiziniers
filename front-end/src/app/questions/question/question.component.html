@@ -1,24 +1,24 @@
 <ng-container *ngIf="!quizEnded">
   <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
-    <h1 class="question-question" id="fontsize" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest, 'font-size':fontsizeQuest}" (mouseenter)="incrementZoomCount(); transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="resetTimer();transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='2.5%'; background3='unset'; zindexQuest='10'">
+    <h1 class="question-question" id="fontsize" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest, 'font-size':fontsizeQuest}" (mouseenter)="incrementZoomCount(); transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="resetTimer();transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='1%'; background3='unset'; zindexQuest='10'">
 
       <p id="yo" >
         {{question.label}}
       </p>
     </h1>
     <div class="content" [ngStyle]="{}">
-      <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3}" (click)="getPrevious()">
+      <button class="button-card" id="prec" [ngStyle]="{'margin-left':marginrifhtPrecStade3, 'transform':transformPrec}" (click)="getPrevious()">
         Précédent
       </button>
 
       <img class="questionImage" [ngStyle]="{'transform':transform, 'z-index':zindexQuestImage, 'margin-left':marginleftQuestImageStade3, 'margin-top':margintopImage, 'width':widthQuestImage}" (mouseenter)="incrementZoomCount(); transform=transform2; zindexQuestImage=zindex2" (mouseleave)="resetTimer();transform='scale(1) translateX(-50%)'; zindexQuestImage='10'" [src]="question.image" alt=""/>
-      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion < this.questionList.length -1">
+      <button class="button-card" id="suiv" [ngStyle]="{'margin-left': marginleftSuivStade3, 'transform':transformSuiv}" (click)="getNext()" *ngIf="indexQuestion < this.questionList.length -1">
         Suivant
       </button>
-      <button class="button-card" id="terminer" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion >= this.questionList.length -1">
+      <button class="button-card" id="terminer" [ngStyle]="{'margin-left': marginleftSuivStade3, 'transform':transformSuiv}" (click)="getNext()" *ngIf="indexQuestion >= this.questionList.length -1">
         Terminer
       </button>
-      <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.trackSources !== undefined">
+      <div [class.disabled]="isAnswerChecked" class="boiteVideo" [ngStyle]="{'margin-top':marginTopAudio}" *ngIf="question.trackSources !== undefined">
         <audio #audioPlayer controls>
           <source [src]="question.trackSources" type="audio/mp3">
         </audio>

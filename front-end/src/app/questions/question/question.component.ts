@@ -45,7 +45,7 @@ export class QuestionComponent implements OnInit {
   public marginleft2: String = "";
   public marginleft3: String = "18%";
   public margintop2: String = "";
-  public margintop3: String = "2.5%";
+  public margintop3: String = "1%";
   public background2: String = "";
   public background3: String = "unset";
 
@@ -60,6 +60,9 @@ export class QuestionComponent implements OnInit {
   public margintopImage: String = "";
   public fontsizeQuest: String = "";
   public fontsizeAns: String = "";
+  public transformSuiv: String = "";
+  public transformPrec: String = "";
+  public marginTopAudio: String = "";
 
   public marginleftQuestImageStade3: String = "";
   public marginrifhtPrecStade3: String = "";
@@ -113,10 +116,12 @@ export class QuestionComponent implements OnInit {
         //this.marginrifhtPrecStade3="1%";
         //this.marginleftSuivStade3="3%";
         this.widthQuestImage = "30%";
-        this.margintopImage = "-23.5%";
+        this.margintopImage = "-27%";
         this.fontsizeRes = "140%";
         this.fontsizeQuest = "110%";
         this.fontsizeAns = "100%";
+        this.transformPrec = "translateX(-206%) translateY(-300%)";
+        this.transformSuiv = "translateX(133%) translateY(-300%)";
         break;
 
       default:
@@ -128,6 +133,9 @@ export class QuestionComponent implements OnInit {
         this.fontsizeRes = "180%";
         this.fontsizeQuest = "160%";
         this.fontsizeAns = "130%";
+        this.transformPrec = "translateX(-270%) translateY(-300%)";
+        this.transformSuiv = "translateX(195%) translateY(-300%)";
+        this.marginTopAudio = "-4%";
         break;
     }
   }
@@ -207,7 +215,7 @@ export class QuestionComponent implements OnInit {
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2.5%";
+          this.margintop2 = "1%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
@@ -220,7 +228,7 @@ export class QuestionComponent implements OnInit {
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2.5%";
+          this.margintop2 = "1%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
@@ -233,7 +241,7 @@ export class QuestionComponent implements OnInit {
           this.zindex2 = "10";
           this.width2 = "64%";
           this.marginleft2 = "18%";
-          this.margintop2 = "2.5%";
+          this.margintop2 = "1%";
           this.background2 = "unset";
           this.position2 = "unset";
           this.margintop4 = "5px";
