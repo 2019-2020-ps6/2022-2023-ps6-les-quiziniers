@@ -30,3 +30,10 @@
     <button type="submit" class="button-card" (click)="deleteUser()" routerLink="/home-page-admin/">Supprimer le patient</button>
     </form>
   </div>
+<br>
+<div class="card" *ngFor="let user of users">
+  <div class="user-list">
+    <app-user [user]="user" ></app-user>
+  </div>
+</div>
+

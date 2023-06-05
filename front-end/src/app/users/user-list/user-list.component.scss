@@ -1,4 +1,10 @@
 .user-list {
-    display: flex;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-list .col-md-4 {
+  width: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+}

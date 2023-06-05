@@ -11,17 +11,26 @@
       <input class="input-custom" type="text" id="image" [formControlName]="'image'">
     </label>
     <br>
+    <br>
     <button type="submit" class="button-card" (click)="addTheme()">Créer le thème</button>
   </form>
 
   <form class="deleteform" [formGroup]="deleteForm">
     <label for="id">
-      Supprimer un thème <br>
+      <h2>Supprimer un thème </h2>
+      <label>Choisir un thème à supprimer :</label> <br>
       <select class="input-custom" id="id" [formControlName]="'id'">
         <option *ngFor="let theme of themes" [value]="theme.id">{{theme.name}}</option>
       </select>
     </label>
     <br>
+    <br>
     <button type="submit" class="button-card" (click)="deleteTheme()">Supprimer le thème :</button>
   </form>
+</div>
+<br>
+<div class="card" *ngFor="let theme of themes">
+  <div class="theme-list">
+    <app-theme [theme]="theme" ></app-theme>
+  </div>
 </div>

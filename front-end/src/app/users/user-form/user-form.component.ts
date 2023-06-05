@@ -33,6 +33,7 @@ export class UserFormComponent implements OnInit {
     this.userService.retrieveUsers().subscribe((users) => {
       this.users = users;
     });
+
   }
 
   addUser(): void {
