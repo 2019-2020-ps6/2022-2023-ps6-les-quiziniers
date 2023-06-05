@@ -58,7 +58,7 @@
     <p id="nbrep" [ngStyle]="{'font-size':fontsizeRes}">
       Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{questionList.length}}.
     </p>
-      <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.</p>
+      <p *ngIf="answerReview()" id="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi. Vous avez zoomé {{zoomCount}} fois.</p>
       <p *ngIf="!answerReview() && !zoomReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
       <p *ngIf="!answerReview() && zoomReview()" id="review3">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Appelez un soignant pour changer de Quiz si celui-ci ne vous plait pas</p>
     <button class="button-card" id="restartbutton" (click)="restartQuiz()">

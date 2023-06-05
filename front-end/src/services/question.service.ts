@@ -15,7 +15,7 @@ export class QuestionService {
     constructor(private http: HttpClient) {}
 
     getQuestionsByQuizzId(quizId: string) : Observable<Question[]>{
-      return this.http.get<Question[]>(this.quizUrl + '/' + quizId + this.questionUrl);
+      return this.http.get<Question[]>(serverUrl +'/questions/quizzes/' + quizId);
     }
 
   getQuestionsByQuizzIdAndQuestionId(quizId: string,questionId: string) : Observable<Question>{
@@ -23,6 +23,6 @@ export class QuestionService {
   }
 
   deleteQuestion(quizId: string,questionId: string) : Observable<Question>{
-    return this.http.delete<Question>(this.quizUrl + '/' + quizId + this.questionUrl+'/'+questionId);
+    return this.http.delete<Question>(serverUrl + '/questions/' + questionId);
   }
 }

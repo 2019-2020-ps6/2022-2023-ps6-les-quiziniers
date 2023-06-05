@@ -15,9 +15,12 @@
 }
 
 .imagepatient{
-  width: 30%;
-  height: auto;
-
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
 }
 
 .button-container {
@@ -25,4 +28,18 @@
   justify-content: center;
   margin-top: 10px;
 }
+
+.card {
+  background: $white;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  padding: 0 1em 1em 1em;
+  border-radius: 20px;
+  margin-top: 2em;
+  width: 350px; /* Remplacez la valeur par celle que vous souhaitez */
+  height: 350px; /* Remplacez la valeur par celle que vous souhaitez */
+}
+
 

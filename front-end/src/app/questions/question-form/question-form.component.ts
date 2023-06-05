@@ -58,7 +58,7 @@ export class QuestionFormComponent implements OnInit {
       image: this.questionForm.value.image,
       trackSources :  (this.questionForm.value.trackSources) ? this.questionForm.value.trackSources : undefined,
     }
-    let questionUrl = 'http://localhost:9428/api/quizzes/' + this.quiz.id + '/questions';
+    let questionUrl = 'http://localhost:9428/api/questions/' + this.quiz.id ;
     this.http.post(questionUrl, question)
       .subscribe(
         response => {

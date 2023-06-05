@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Quiz, Question} = require('../../../../models')
+const { Quiz, Question } = require('../../../../models')
 
 const router = new Router({ mergeParams: true })
 
@@ -22,17 +22,23 @@ router.get('/:questionId', (req, res) => {
   }
 })
 
-router.post('/', (req, res) => {
+// get all questions from a quiz by quizId
+router.get('/quizzes/:quizzId', (req, res) => {
   try {
-    res.status(201).json(Question.create({ ...req.body, quiz: req.params.quizId }))
+    const quizId = req.params.quizzId
+    res.status(200).json(Question.get().filter((question) => question.quiz === quizId))
   } catch (err) {
-    if (err.name === 'ValidationError') {
-      console.log(err)
-      res.status(400).json(err.extra)
-    } else {
-      console.log(err)
-      res.status(500).json(err)
-    }
+    console.log(err)
+    res.status(500).json(err)
+  }
+})
+
+router.post('/:quizzId', (req, res) => {
+  try {
+    const question = Question.create({ ...req.body, quiz: req.params.quizzId})
+    res.status(201).json(question)
+  } catch (err) {
+    res.status(500).json(err)
   }
 })
 

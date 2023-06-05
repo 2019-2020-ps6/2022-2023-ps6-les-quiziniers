@@ -239,7 +239,7 @@ export class QuestionComponent implements OnInit {
     if (this.switchState) {
       this.timer = setTimeout(() => {
         this.zoomCount += 1;
-      }, 2000);
+      }, 1500);
     }
   }
 
@@ -400,9 +400,6 @@ export class QuestionComponent implements OnInit {
 
   public restartQuiz(): void {
     for (const question of this.questionList) {
-      for (const answer of question.answers) {
-        answer.isSelected = false;
-      }
       this.hasAnswered = false;
     }
     this.indexQuestion = 0;
