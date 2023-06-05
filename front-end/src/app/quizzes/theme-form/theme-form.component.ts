@@ -4,7 +4,7 @@ import { QuizListComponent } from "../quiz-list/quiz-list.component";
 import { ThemeService } from '../../../services/theme.service';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Route, Router, RouterLink} from "@angular/router";
 import {Theme} from "../../../models/theme.model";
 import {ThemeListComponent} from "../theme-list/theme-list.component";
 import {HttpClient} from "@angular/common/http";
@@ -32,6 +32,7 @@ export class ThemeFormComponent implements OnInit {
   public numberValue: number;
   public themeL:ThemeListComponent;
   deleteForm : FormGroup;
+  routerLink: RouterLink;
   ngOnInit():void {
     this.themeService.getTheme(this.route.snapshot.paramMap.get("id")).subscribe((theme) => {
       this.themename=theme.name;
@@ -73,7 +74,7 @@ export class ThemeFormComponent implements OnInit {
     themeToCreate.name=this.themeForm.get('name').value;
     themeToCreate.image=this.themeForm.get('image').value;
     this.themeService.addTheme(themeToCreate).subscribe((theme) => {
-      this.router.navigate(['/themes']);
+      this.router.navigate(['../quiz-form'], { relativeTo: this.route });
     });
   }
 

@@ -18,8 +18,8 @@
       <button class="button-card" id="terminer" [ngStyle]="{'margin-left': marginleftSuivStade3}" (click)="getNext()" *ngIf="indexQuestion >= this.questionList.length -1">
         Terminer
       </button>
-      <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.type==QuestionType.Blindtest">
-        <audio #audioPlayer *ngIf="question.trackSources" controls>
+      <div [class.disabled]="isAnswerChecked" class="boiteVideo" *ngIf="question.trackSources !== undefined">
+        <audio #audioPlayer controls>
           <source [src]="question.trackSources" type="audio/mp3">
         </audio>
       </div>
