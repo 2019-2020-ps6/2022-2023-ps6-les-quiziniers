@@ -58,6 +58,8 @@ export class QuestionComponent implements OnInit {
   public margintopConfirmButton: String = "";
   public widthQuestImage: String = "";
   public margintopImage: String = "";
+  public fontsizeQuest: String = "";
+  public fontsizeAns: String = "";
 
   public marginleftQuestImageStade3: String = "";
   public marginrifhtPrecStade3: String = "";
@@ -67,6 +69,8 @@ export class QuestionComponent implements OnInit {
 
   public zoomCount = 0;
   public timer: any;
+
+
 
   questionList: Question[] = [];
 
@@ -111,6 +115,8 @@ export class QuestionComponent implements OnInit {
         this.widthQuestImage = "30%";
         this.margintopImage = "-23.5%";
         this.fontsizeRes = "140%";
+        this.fontsizeQuest = "110%";
+        this.fontsizeAns = "100%";
         break;
 
       default:
@@ -120,6 +126,8 @@ export class QuestionComponent implements OnInit {
         this.widthQuestImage = "17%";
         this.margintopImage = "-14%";
         this.fontsizeRes = "180%";
+        this.fontsizeQuest = "160%";
+        this.fontsizeAns = "130%";
         break;
     }
   }
@@ -392,7 +400,7 @@ export class QuestionComponent implements OnInit {
   }
 
   public zoomReview(): boolean {
-    if (this.zoomCount > this.questionCount / 2) {
+    if (this.zoomCount > (this.questionCount / 2)) {
       return false;
     }
     return true;

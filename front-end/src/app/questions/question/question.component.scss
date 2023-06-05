@@ -196,14 +196,14 @@ h2{
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translateX(-207%) translateY(-300%);
+  transform: translateX(-212%) translateY(-300%);
 }
 
 #suiv, #terminer{
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translateX(130%) translateY(-300%);
+  transform: translateX(135%) translateY(-300%);
 }
 
 #points{
@@ -213,7 +213,7 @@ h2{
   font-weight: bold;
   color: white;
   background-color: darkslateblue;
-  padding: 5px;
+  padding: 3.5px;
   border-radius: 10px;
   transform: scale(1.25);
 }
@@ -359,5 +359,9 @@ td{
 
 .disabled {
   pointer-events: none;
+}
+
+.fontsize, #fontsize2, #fontsize {
+  font-size: 120%;
 }
 
