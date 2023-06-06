@@ -63,6 +63,7 @@ export class QuestionComponent implements OnInit {
   public transformSuiv: String = "";
   public transformPrec: String = "";
   public marginTopAudio: String = "";
+  public marginTopBM: String = "";
 
   public marginleftQuestImageStade3: String = "";
   public marginrifhtPrecStade3: String = "";
@@ -122,6 +123,7 @@ export class QuestionComponent implements OnInit {
         this.fontsizeAns = "100%";
         this.transformPrec = "translateX(-206%) translateY(-300%)";
         this.transformSuiv = "translateX(133%) translateY(-300%)";
+        this.marginTopBM = "-9%";
         break;
 
       default:
@@ -136,6 +138,7 @@ export class QuestionComponent implements OnInit {
         this.transformPrec = "translateX(-270%) translateY(-300%)";
         this.transformSuiv = "translateX(195%) translateY(-300%)";
         this.marginTopAudio = "-4%";
+        this.marginTopBM = "-6%";
         break;
     }
   }
