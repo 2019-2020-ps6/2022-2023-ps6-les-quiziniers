@@ -138,7 +138,7 @@ export class QuestionComponent implements OnInit {
         this.transformPrec = "translateX(-270%) translateY(-300%)";
         this.transformSuiv = "translateX(195%) translateY(-300%)";
         this.marginTopAudio = "-4%";
-        this.marginTopBM = "-6%";
+        this.marginTopBM = "-5%";
         break;
     }
   }
