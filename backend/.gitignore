@@ -2,3 +2,9 @@
 .idea/
 node_modules/
 !database/.gitkeep
+
+# E2E folder
+
+/playwright-report
+
+/test-results
