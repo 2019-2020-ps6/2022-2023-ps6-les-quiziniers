@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
 
-// This file is here to test the playwright integration.
+// This file is here to test the playwright integration. Make the branch appear
 test.describe('Initial test display', () => {
   test('Basic test', async ({ page }) => {
     await page.goto(testUrl);
