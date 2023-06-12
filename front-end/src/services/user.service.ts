@@ -12,13 +12,18 @@ export class UserService {
   /*
    The list of user.
    */
-  private users: User[] = USER_LIST;
+  private users: User[] = USER_LIST;ù
+
+  private user : User=null;
 
   /*
    Observable which contains the list of the user.
    */
   public users$: BehaviorSubject<User[]>
     = new BehaviorSubject([]);
+
+  public user$: BehaviorSubject<User>
+    = new BehaviorSubject(this.user);
 
   public userSelected$: Subject<User> = new Subject();
 
@@ -38,16 +43,18 @@ export class UserService {
     this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
-  setSelectedUser(userId: string): void {
-    /*const urlWithId = this.userUrl + '/' + userId;
-    this.http.get<User>(urlWithId).subscribe((user) => {
-      this.userSelected$.next(user);
-    });*/
-    this.userSelected$.next(this.users.find(x=>x.id===userId));
+  async setSelectedUser(userId: string) {
+    const urlWithId = this.userUrl + '/' + userId;
+    return this.http.get<User>(urlWithId);
   }
 
   deleteUser(userid: string): void {
     const urlWithId = this.userUrl + '/' + userid;
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
+  }
+
+  updateUser(user: User,id:string):void{
+    console.log(user)
+    this.http.put<User>(this.userUrl+"/"+id, user, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 }

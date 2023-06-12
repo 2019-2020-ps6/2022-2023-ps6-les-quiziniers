@@ -3,6 +3,21 @@
   background-color: unset;
   border: none;
 }
+
+.btn{
+  border: solid 1px $blue;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  margin:2px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: $blue;
+  color: $white;
+}
+.btn:hover {
+  cursor: pointer;
+}
 .card{
   margin-top: unset;
   padding: 0.5em;
