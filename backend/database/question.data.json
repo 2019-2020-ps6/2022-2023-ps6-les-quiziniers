@@ -101,5 +101,17 @@
     "image": "https://content.ribambel.com/wp-content/uploads/2022/10/40581-vous-saurez-tout-sur-la-signification-du-v2_article_big-2.jpeg",
     "quiz": "1686038677751",
     "id": 1686038726702
+  },
+  {
+    "label": "Quelle est la capitale du Canada ?",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png",
+    "quiz": "1686044356039",
+    "id": 1686044403061
+  },
+  {
+    "label": "Quelle est est la capitale du Japon ?",
+    "image": "https://content.ribambel.com/wp-content/uploads/2022/10/40581-vous-saurez-tout-sur-la-signification-du-v2_article_big-2.jpeg",
+    "quiz": "1686044356039",
+    "id": 1686044427247
   }
 ]
