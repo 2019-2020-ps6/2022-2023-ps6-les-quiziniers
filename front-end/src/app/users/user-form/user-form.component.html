@@ -23,7 +23,7 @@
     <label for="id">
       Supprimer un patient <br>
       </label>
-    <select class="input-custom" id="id" [formControlName]="'id'">
+    <select  class="input-custom" id="id" [formControlName]="'id'">
       <option *ngFor="let user of users" [value]="user.id">{{user.firstName}} {{user.lastName}}</option>
     </select>
     <br>
