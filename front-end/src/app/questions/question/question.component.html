@@ -1,8 +1,8 @@
 <ng-container *ngIf="!quizEnded">
-  <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
+  <div class="card" data-testid="quest" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question" id="fontsize" data-test-id="question" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest, 'font-size':fontsizeQuest}" (mouseenter)="incrementZoomCount(); transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="resetTimer();transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='1%'; background3='unset'; zindexQuest='10'">
 
-      <p id="yo" data-testid="questionlabel{{this.indexQuestion}}">
+      <p id="yo" >
         {{question.label}}
       </p>
     </h1>
@@ -29,7 +29,7 @@
       <p id="zoom" class="fontsize" [ngStyle]="{'margin-left': marginleftZoom}">
         <img id="loupe" src="../../assets/images/loupe.png" height="40" width="40">
         Loupe<br>
-        <button class="toggle-switch" id="switch" data-test-id="zoom" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
+        <button class="toggle-switch" id="switch" [ngClass]="{'active': switchState}" (click)="toggleSwitch()"></button>
       </p>
       <div class="answerAbs" [ngStyle]="{'z-index':zindexAns}" (mouseenter)="incrementZoomCount(); zindexAns=zindex2" (mouseleave)="resetTimer();zindexAns='10'">
         <table class="tableanswer">

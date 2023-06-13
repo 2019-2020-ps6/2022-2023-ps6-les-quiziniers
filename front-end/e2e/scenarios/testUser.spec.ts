@@ -20,10 +20,9 @@ test.describe('Initial test display', () => {
       await e2.fillForm("photoUrl", 'imageJohnDoe');
       await e2.clickCreate("btnCreate");
       await page.goto(testUrl + "/user-list");
-      const user = await page.getByTestId('John Doe imageJohnDoe');
-      const userFalse = await page.getByTestId('John Da imageJohnDoe');
-      await expect(user).toHaveCount(1)
-      await expect(userFalse).toHaveCount(0);
+      await e2.setPage(page)
+      await e2.verifUser("John","Doe","imageJohnDoe",1);
+      await e2.verifUser("John","Da","imageJohnDoe",0);
     });
 
     await test.step("Modification de l'user ",async () => {
@@ -31,10 +30,9 @@ test.describe('Initial test display', () => {
       await page.getByTestId('bouton John Doe imageJohnDoe').click();
       await e2.fillForm("photoUrl", 'https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg');
       await e2.clickCreate("btnModif")
-      const user = await page.getByTestId('John Doe https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg');
-      await expect(user).toHaveCount(1)
-      const userFalse = await page.getByTestId('John Doe imageJohnDoe');
-      await expect(userFalse).toHaveCount(0);
+      await page.goto(testUrl + "/user-list")
+      await e2.verifUser("John","Doe","https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg",1)
+      await e2.verifUser("John","Doe","imageJohnDoe",0);
     })
 
 
@@ -42,7 +40,8 @@ test.describe('Initial test display', () => {
     await test.step("Suppression de l'user crée",async () => {
       await page.selectOption('select[id="id"]', {label: 'John Doe'});
       await page.getByRole('button', {name: 'Supprimer le patient'}).click();
-      await expect(user).toHaveCount(0)
+      await page.goto(testUrl + "/user-list")
+      await e2.verifUser("John","Doe","https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg",0)
     });
   });
 });
