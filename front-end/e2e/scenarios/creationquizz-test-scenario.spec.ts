@@ -1,6 +1,6 @@
+// noinspection BadExpressionStatementJS
 
-
-/*import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
 import { Browser, BrowserContext } from 'playwright';
 const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
@@ -112,4 +112,4 @@ test.describe('Quiz test', () => {
       });
     });
 });
-*/
+
