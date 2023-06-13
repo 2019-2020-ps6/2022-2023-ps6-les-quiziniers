@@ -11,7 +11,7 @@ export class UserFixture {
     await this.page.fill("input[id=" + id + "]", value)
   }
 
-  async clickCreate(value:string): Promise<void> {
+  async  clickCreate(value:string): Promise<void> {
     await this.page.click("[data-testid="+value+"]");
   }
 }
