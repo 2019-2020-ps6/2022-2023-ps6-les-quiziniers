@@ -7,7 +7,7 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 test.describe('Quiz test', () => {
   test('Create and verify quiz',async ({page}) => {
       await page.goto("http://localhost:4200/home-page-adminmdp");
-      await page.getByTestId('passwordinput').type("ssoi213");
+      await page.getByTestId('passwordinput').type("soi213");
       await page.getByTestId('passwordbutton').click();
       await page.getByTestId('createquizzbutton').click();
       await page.getByTestId('createquizzbutton').click();
@@ -29,7 +29,7 @@ test.describe('Quiz test', () => {
 
   test('Delete quiz',async ({page}) => {
     await page.goto("http://localhost:4200/home-page-adminmdp");
-    await page.getByTestId('passwordinput').type("ssoi213");
+    await page.getByTestId('passwordinput').type("soi213");
     await page.getByTestId('passwordbutton').click();
     await page.getByTestId('managequizzbutton').click();
     await page.getByTestId('managequizzbutton').click();
@@ -48,7 +48,7 @@ test.describe('Quiz test', () => {
 
       await test.step(`Create quiz`, async () => {
         await page.goto("http://localhost:4200/home-page-adminmdp");
-        await page.getByTestId('passwordinput').type("ssoi213");
+        await page.getByTestId('passwordinput').type("soi213");
         await page.getByTestId('passwordbutton').click();
         await page.getByTestId('createquizzbutton').click();
         await page.getByTestId('createquizzbutton').click();
@@ -66,7 +66,7 @@ test.describe('Quiz test', () => {
           }
         }, deserializedStorage);
         await page.goto("http://localhost:4200/home-page-adminmdp");
-        await page.getByTestId('passwordinput').type("ssoi213");
+        await page.getByTestId('passwordinput').type("soi213");
         await page.getByTestId('passwordbutton').click();
         await page.getByRole('button', { name: 'Gestion des thèmes' }).click();
         await page.getByRole('button', { name: 'Gestion des thèmes' }).click();
@@ -96,7 +96,7 @@ test.describe('Quiz test', () => {
 
         await test.step(`Delete the quizz after check`, async () => {
           await page.goto("http://localhost:4200/home-page-adminmdp");
-          await page.getByTestId('passwordinput').type("ssoi213");
+          await page.getByTestId('passwordinput').type("soi213");
           await page.getByTestId('passwordbutton').click();
           await page.getByTestId('managequizzbutton').click();
           await page.getByTestId('managequizzbutton').click();
