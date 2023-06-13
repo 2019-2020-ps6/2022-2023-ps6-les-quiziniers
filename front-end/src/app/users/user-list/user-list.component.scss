@@ -3,8 +3,41 @@
   flex-wrap: wrap;
 }
 
+.search-bar {
+  display: flex;
+  width: 500px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+button[type="submit"] {
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
 .user-list .col-md-4 {
   width: 33.33%;
   padding: 10px;
   box-sizing: border-box;
 }
+
+
+
+
+
+
+
+
+
+
+

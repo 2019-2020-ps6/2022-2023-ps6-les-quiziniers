@@ -23,10 +23,8 @@ test.describe('Initial test display', () => {
 
     await test.step("Modification de l'user ",async () => {
       await page.goto(testUrl + "/user-list");
-      await page.getByRole('button', {name: 'John Doe'}).click();
-    });
-
-
+      await page.getByTestId('John Doe imageJohnDoe').click();
+    })
     await test.step("Suppression de l'user crée",async () => {
       await page.selectOption('select[id="id"]', {label: 'John Doe'});
       await page.getByRole('button', {name: 'Supprimer le patient'}).click();
