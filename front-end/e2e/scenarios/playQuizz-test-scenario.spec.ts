@@ -10,7 +10,7 @@ test.describe('Quiz play test', () => {
 
       await test.step(`usertype displayed`, async () => {
         // check if the page has a div from the class "card" with two buttons
-        const patientButton = await page.$('button[data-testid="patient"]');
+        const patientButton = await page.$('button[data-test-id="patient"]');
         await patientButton.click();
         await patientButton.click();
       });
