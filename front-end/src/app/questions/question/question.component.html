@@ -40,7 +40,7 @@
             </div>
         </table>
       </div>
-      <p id="bm" *ngIf="nextClicked && isAnswerSelected()" [ngStyle]="{'margin-top':marginTopBM}">
+      <p id="bm" data-testid="playerAnswer" *ngIf="nextClicked && isAnswerSelected()" [ngStyle]="{'margin-top':marginTopBM}">
         <i *ngIf="isCorrectSelected()" id = "correct">Bonne réponse !</i>
         <i *ngIf="!isCorrectSelected()" id = "incorrect">Mauvaise réponse !</i>
       </p>

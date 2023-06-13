@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { testUrl, homepageUrl } from 'e2e/e2e.config';
+import {E2EComponentFixture} from "../e2e-component.fixture";
+import {QuestionFixture} from "../../src/app/questions/question/question.fixture";
 
 test.describe('Quiz play test', () => {
   test('choose user and config vision',
@@ -9,12 +11,6 @@ test.describe('Quiz play test', () => {
       await test.step(`usertype displayed`, async () => {
         // check if the page has a div from the class "card" with two buttons
         const patientButton = await page.$('button[data-testid="patient"]');
-        expect(patientButton).not.toBeNull();
-      });
-      await test.step(`Click patient button`, async () => {
-        // Cliquer sur le bouton patient qui est dans une balise a avec l'id patient
-        const patientButton = await page.$('button[data-testid="patient"]');
-        expect(patientButton).not.toBeNull();
         await patientButton.click();
         await patientButton.click();
       });
@@ -35,28 +31,24 @@ test.describe('Quiz play test', () => {
       await test.step(`menu is displayed`, async () => {
         //check if the button "Configuration de la vision" is displayed and click on it
         const button = await page.$('button[data-testid="vision"]');
-        expect(button).not.toBeNull();
         await button.click();
       });
 
       await test.step(`Click on the button with id stade 1"`, async () => {
         // click on the button with id stade 1"
         const button = await page.$('a[data-testid="stade2"]');
-        expect(button).not.toBeNull();
         await button.click();
       });
 
       await test.step(`Click on the button valider"`, async () => {
         // click on the button valider
         const button = await page.$('a[data-testid="valider"]');
-        expect(button).not.toBeNull();
         await button.click();
       });
 
       await test.step(`Click on the button "Accéder aux quizz"`, async () => {
         // click on the button "Accéder aux quizz"
         const button = await page.$('button[data-testid="quizz"]');
-        expect(button).not.toBeNull();
         await button.click();
       });
 
@@ -86,32 +78,18 @@ test.describe('Quiz play test', () => {
         await firstQuiz.click();
       });
 
-      //initialisation d'une variable pour compter le nombre de question
-      let i = 1;
       let buttonNext = await page.$('button[id="suiv"]');
-      while (await page.$('#prec') !== null) {
-        await test.step(`Check if basics question elements are displayed for question `+ i, async () => {
-          const question = await page.$$('.quest');
-          expect(question).not.toBeNull();
+
+        await test.step(`Check if basics question elements are displayed for question `, async () => {
           const answer = await page.$$('p[id="yo"]');
           expect(answer).not.toBeNull();
           const button = await page.$$('button[id="prec"]');
           expect(button).not.toBeNull();
-          if(await page.$('#suiv') !== null){
-            buttonNext = await page.$('button[id="suiv"]');
-            expect(buttonNext).not.toBeNull();
-          }
-          else if(await page.$('#terminer') !== null){
-            buttonNext = await page.$('button[id="terminer"]');
-            expect(buttonNext).not.toBeNull();
-          }
           const image = await page.$$('.questionImage');
           expect(image).not.toBeNull();
-          const confirmbutton = await page.$$('button[id="confirmbutton"]');
-          expect(confirmbutton).not.toBeNull();
         });
 
-        await test.step(`Check stade is good for question `+i, async () => {
+        await test.step(`Check stade is good for question`, async () => {
           // get width property in the div "card" and check if it's 70%
           const card = await page.$('.card');
           expect(card).not.toBeNull();
@@ -125,73 +103,22 @@ test.describe('Quiz play test', () => {
           expect(cards.length).toBe(3);
         });
 
-        await test.step(`Check if counter question works`, async () => {
-          const points = await page.$('#points');
-          // Récupérez le texte du paragraphe
-          const textContent = await points.innerText();
-          console.log(textContent);
-          expect(textContent).not.toBeNull();
-          // Extrayez la valeur de this.indexQuestion+1 du texte récupéré
-          const matchResult = textContent.match(/Question\s+(\d+)/);
-          console.log(matchResult[1]);
-          expect(matchResult).not.toBeNull();
-          const indexQuestionValue = matchResult ? matchResult[1] : null;
-          console.log(indexQuestionValue);
-          // Vérifiez que la valeur extraite est égale à this.indexQuestion+1
-          expect(indexQuestionValue).toBe(i.toString());
-        });
-
-        await test.step(`Check and Click on to switch on zoom button for question `+i, async () => {
-          // click on the zoom button
-          const button = await page.$('button[id="switch"]');
-          expect(button).not.toBeNull();
-          await button.click();
-        });
-
-        await test.step(`Zoom on zoomable element`, async () => {
-          const imageElement = await page.$('.questionImage');
-          // check if zoomable element is not void
-          const imageStylesBefore = await imageElement.evaluate((el) => {
-            const { transform } = getComputedStyle(el);
-            return { transform };
-          });
-          expect(imageStylesBefore.transform).toEqual('matrix(1, 0, 0, 1, -107.667, 0)');
-
-          // Déclenchez l'événement mouseenter sur l'image
-          await imageElement.dispatchEvent('mouseenter');
-
-          // Vérifiez que le scale de l'image est passé à 2 et le translateX à -25% après mouseenter
-          const imageStylesAfterMouseEnter = await imageElement.evaluate((el) => {
-            const { transform } = getComputedStyle(el);
-            return { transform };
-          });
-          expect(imageStylesAfterMouseEnter.transform).toEqual('matrix(2, 0, 0, 2, -107.667, 0)');
-
-          // Déclenchez l'événement mouseleave sur l'image
-          await imageElement.dispatchEvent('mouseleave');
-
-          // Vérifiez que le scale de l'image est revenu à 1 et le translateX à -50% après mouseleave
-          const imageStylesAfterMouseLeave = await imageElement.evaluate((el) => {
-            const { transform } = getComputedStyle(el);
-            return { transform };
-          });
-          expect(imageStylesAfterMouseLeave.transform).toEqual('matrix(1, 0, 0, 1, -107.667, 0)');
-        });
-
-        await test.step(`Check and Click to switch off zoom button for question `+i, async () => {
-          // click on the zoom button
-          const button = await page.$('button[id="switch"]');
-          expect(button).not.toBeNull();
-          await button.click();
-        });
-
-        await test.step(`Click on "suivant" ou "terminer" to pass to question `+i, async () => {
-          // click on the button suivant
+        await test.step(`Click on first answer and check if its true or false`, async () => {
+          // click on first answer and check if its true or false
+          let q1 = await new QuestionFixture(page);
+          await q1.allVerif(1,"Bonne");
           await buttonNext.click();
+          await q1.allVerif(2,"Mauvaise");
+          await buttonNext.click();
+          await q1.allVerif(3,"Mauvaise");
+          await buttonNext.click();
+          await q1.allVerif(4,"Bonne");
+          await buttonNext.click();
+          await q1.allVerif(5,"Bonne");
+          const buttonTerminer = await page.$('button[id="terminer"]');
+          await buttonTerminer.click();
+          await q1.verifZoomCount();
         });
-
-        i++;
-      }
     });
 });
 
