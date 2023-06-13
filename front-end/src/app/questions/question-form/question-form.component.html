@@ -8,7 +8,7 @@
     <br>
     <label for="image">
       Image <br>
-      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+      <input class="input-custom" type="text" id="image" data-testid = "questionformimage" [formControlName]="'image'">
     </label>
     <br>
     <label for="trackSources">
@@ -22,7 +22,7 @@
         <div class="answer-form" [formGroupName]="i">
           <label>
             Réponse
-            <input type="text" [formControlName]="'value'">
+            <input type="text" id="answer{{i}}" [formControlName]="'value'">
             <button type="button" (click)="removeAnswer(i)">X</button>
             Correct ?
             <input type="checkbox" [formControlName]="'isCorrect'">

@@ -1,19 +1,16 @@
-
+// noinspection BadExpressionStatementJS
 
 import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
-
+import { Browser, BrowserContext } from 'playwright';
+const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 test.describe('Quiz test', () => {
-  test('Create and verify quiz',
-    async ({page}) => {
-      await page.goto("http://localhost:4200/quiz-form");
-
-      await test.step(`Quizz form is displayed`, async () => {
-        // check if the page has a div from the class "card" with the text "Créer un nouveau quizz"
-        const card = await page.$('div.card');
-        const text = await card.innerText();
-        expect(text).toContain('Créer un nouveau quizz');
-      });
+  test('Create and verify quiz',async ({page}) => {
+      await page.goto("http://localhost:4200/home-page-adminmdp");
+      await page.getByTestId('passwordinput').type("soi213");
+      await page.getByTestId('passwordbutton').click();
+      await page.getByTestId('createquizzbutton').click();
+      await page.getByTestId('createquizzbutton').click();
       await test.step(`Fill the quizz form`, async () => {
         // Créer un nouveau quiz
         await page.fill('input[id="name"]', 'Mon Quizz de Test');
@@ -23,64 +20,96 @@ test.describe('Quiz test', () => {
       });
 
       await test.step(`Check if the quizz has been created by the form completion`, async () => {
-        // Aller dans la page des thèmes
-        const cards = await page.$$('div.card');
-        // Vérifier chaque bouton dans les éléments 'div' avec la classe "card"
-        for (const card of cards) {
-          const button = await card.$('button');
-          const text = await button.innerText();
-          expect(text).not.toBe(' Un nom de quizz qui ne sera jamais utilisé ');
-          if (text === ' Cliquez pour séléctionner : Mon Quizz de Test ') {
-            expect(text).toBe(' Cliquez pour séléctionner : Mon Quizz de Test ');
-            // Si le bouton est trouvé, le test réussit
-            return;
-          }
-        }
+        await page.goto("http://localhost:4200/app-quiz-theme");
+        await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
+        const card = await page.$('div.card:has-text("Mon Quizz de Test")');
+        expect(card).not.toBeNull();
       });
     });
 
-    test('Create and verify question',
-      args => {
-        async ({page}) => {
-          await page.goto("http://localhost:4200/app-quiz-theme");
-          const cards = await page.$$('div.card');
-          for (const card of cards) {
-            // if card has the text "Mon Quizz de Test" then click on the "Modifier" button of this card
-            const text = await card.innerText();
-            if (text.includes('Mon Quizz de Test')) {
-              const buttonmodifier = await card.$('button[class="button-card edit"]');
-              expect(buttonmodifier).not.toBeNull();
-              await card.click('button[class="button-card edit"]');
-              break;
-            }
-          }
-          // get into the div with the class "card" and the text "Créer une nouvelle question"
-          const card = await page.$('div.card');
-          const text = await card.innerText();
-          expect(text).toContain('Créer une nouvelle question');
-          // Fill the question form
-          await page.fill('input[id="question"]', 'Quelle est la capitale de la France ?');
-          await page.fill('input[id="image"]', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.123rf.com%2Fphoto_105962596_stock-vector-paris-france-city-skyline-silhouette-vector-illustration.html&psig=AOvVaw0Q4Z4Z2Z4Z2Z4Z2Z4Z2Z4Z2&ust=1634178975761000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjQ4Z7Xz_MCFQAAAAAdAAAAABAD');
-          // click three times on the button "Ajouter une réponse"
-          await page.click('button[id="add-answer"]');
-          await page.click('button[id="add-answer"]');
-          await page.click('button[id="add-answer"]');
-          await page.fill('input[id="answer1"]', 'Paris');
-          await page.fill('input[id="answer2"]', 'Lyon');
-          await page.fill('input[id="answer3"]', 'Marseille');
-          // check the correct answer (answer1) and submit the form to create the question and go back to the theme page
-          await page.check('input[id="answer1"]');
-          await page.click('button[type="submit"]');
-          // check if the question has been created by the form completion
-          const cards2 = await page.$$('div.card');
-          for (const card2 of cards2) {
-            const text2 = await card2.innerText();
-            if (text2.includes('Quelle est la capitale de la France ?')) {
-              expect(text2).toContain('Quelle est la capitale de la France ?');
-              return;
-            }
-          }
-        }
+  test('Delete quiz',async ({page}) => {
+    await page.goto("http://localhost:4200/home-page-adminmdp");
+    await page.getByTestId('passwordinput').type("soi213");
+    await page.getByTestId('passwordbutton').click();
+    await page.getByTestId('managequizzbutton').click();
+    await page.getByTestId('managequizzbutton').click();
+    await page.getByText("Cliquez pour séléctionner : Géographie").click();
+    // for each divs with class quiz in the page we check if the name of the quiz is the same as the one we want to delete and if it is we click on the delete button
+    const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
+    await div.getByTestId('deletequizbutton').click();
+    await page.goto("http://localhost:4200/app-quiz-theme");
+    await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
+    const isQuizzDeleted = !(await page.$(`button:has-text("${"Cliquez pour séléctionner : Mon Quizz de Test"}")`));
+    expect(isQuizzDeleted).toBe(true);
+  });
+
+  test('Create and verify question',
+    async ({page}) => {
+
+      await test.step(`Create quiz`, async () => {
+        await page.goto("http://localhost:4200/home-page-adminmdp");
+        await page.getByTestId('passwordinput').type("soi213");
+        await page.getByTestId('passwordbutton').click();
+        await page.getByTestId('createquizzbutton').click();
+        await page.getByTestId('createquizzbutton').click();
+        await page.fill('input[id="name"]', 'Mon Quizz de Test');
+        await page.selectOption('select[id="theme"]', {label: 'Géographie'});
+        await page.fill('input[id="image"]', 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/testing-logo-design-template-ce84480d61b3db9a8e1522a99875832f_screen.jpg?ts=1615794516');
+        await page.click('button[type="submit"]');
       });
+      await test.step(`Create question to a quizz`, async () => {
+        let deserializedStorage = {};
+        let context = await page.context();
+        await context.addInitScript((deserializedStorage)=>{
+          for (const key in deserializedStorage){
+            localStorage.setItem(key,deserializedStorage[key]);
+          }
+        }, deserializedStorage);
+        await page.goto("http://localhost:4200/home-page-adminmdp");
+        await page.getByTestId('passwordinput').type("soi213");
+        await page.getByTestId('passwordbutton').click();
+        await page.getByRole('button', { name: 'Gestion des thèmes' }).click();
+        await page.getByRole('button', { name: 'Gestion des thèmes' }).click();
+        await page.getByRole('button', { name: 'Cliquez pour séléctionner : Géographie' }).click();
+        const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
+        await div.getByTestId('editquizbutton').click();
+        await page.getByLabel('Intitulé').type("...Quelle est la capitale de la France ?");
+        await page.getByTestId('questionformimage').type("https://www.thetrainline.com/cms/media/1360/france-eiffel-tower-paris.jpg?mode=crop&width=1080&height=1080&quality=70");
+        await page.getByRole('button', { name: 'Ajouter une réponse' }).click();
+        await page.getByRole('button', { name: 'Ajouter une réponse' }).click();
+        await page.getByRole('button', { name: 'Ajouter une réponse' }).click();
+        await page.fill('input[id="answer0"]', 'Paris');
+        await page.fill('input[id="answer1"]', 'Lyon');
+        await page.fill('input[id="answer2"]', 'Marseille');
+        await page.getByRole('checkbox').first().check();
+        await page.getByRole('button', { name: 'Créer la question' }).click();
+      });
+      await test.step(`Verify that question has been created`, async () => {
+        await page.goto("http://localhost:4200/app-quiz-theme");
+        await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
+        await page.click('button:has-text(" Cliquez pour séléctionner : Mon Quizz de Test ")');
+        // check if the question card
+        const questionlabel = page.getByText('lle est la capitale de la France ?');
+        expect(questionlabel).not.toBeNull();
+        const firstanswer = page.getByText('Paris');
+        expect(firstanswer).not.toBeNull();
+
+        await test.step(`Delete the quizz after check`, async () => {
+          await page.goto("http://localhost:4200/home-page-adminmdp");
+          await page.getByTestId('passwordinput').type("soi213");
+          await page.getByTestId('passwordbutton').click();
+          await page.getByTestId('managequizzbutton').click();
+          await page.getByTestId('managequizzbutton').click();
+          await page.getByText("Cliquez pour séléctionner : Géographie").click();
+          // for each divs with class quiz in the page we check if the name of the quiz is the same as the one we want to delete and if it is we click on the delete button
+          const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
+          await div.getByTestId('deletequizbutton').click();
+          await page.goto("http://localhost:4200/app-quiz-theme");
+          await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
+          const isQuizzDeleted = !(await page.$(`button:has-text("${"Cliquez pour séléctionner : Mon Quizz de Test"}")`));
+          expect(isQuizzDeleted).toBe(true);
+        });
+      });
+    });
 });
 

@@ -9,4 +9,5 @@
   <div>
     <img src="{{user.photoUrl}}" alt="Photo du patient" class="imagepatient" />
   </div>
+  <button [ngStyle]="{'visibility': visibility}"  class="btn" routerLink="/user-edit/{{user.id}}">Modifier cette utilisateur</button>
 </div>
