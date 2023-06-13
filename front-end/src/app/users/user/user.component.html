@@ -1,5 +1,5 @@
 <div class="card">
-  <button class="button-card" id="profil" routerLink="/home-page/{{user.id}}">
+  <button attr.data-testid="{{user.firstName}} {{user.lastName}} {{user.photoUrl}}" class="button-card" id="profil" routerLink="/home-page/{{user.id}}">
     <h2>
       <i class="fas fa-user"></i>
       {{user.firstName}}
@@ -9,4 +9,5 @@
   <div>
     <img src="{{user.photoUrl}}" alt="Photo du patient" class="imagepatient" />
   </div>
+  <button attr.data-testid="bouton {{user.firstName}} {{user.lastName}} {{user.photoUrl}}" [ngStyle]="{'visibility': visibility}"  class="btn" routerLink="/user-edit/{{user.id}}">Modifier ce patient</button>
 </div>

@@ -1,0 +1,22 @@
+<div class="card">
+    <h2>Modifier un patient</h2>
+    <form class="user-form" [formGroup]="userEditForm">
+      <label for="firstName">
+        Prénom <br>
+        <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
+      </label>
+      <br>
+      <label for="lastName">
+       Nom de famille <br>
+        <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
+      </label>
+      <br>
+      <label for="photoUrl">
+        Photo de profil <br>
+        <input class="input-custom" type="text" id="photoUrl" [formControlName]="'photoUrl'">
+      </label>
+      <br>
+      <button data-testid="btnModif" type="submit" class="button-card" (click)="updateUser()" routerLink="/home-page-admin/">Modifier</button>
+    </form>
+</div>
+

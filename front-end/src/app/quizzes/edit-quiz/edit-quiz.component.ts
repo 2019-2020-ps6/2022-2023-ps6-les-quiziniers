@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
-import {Form, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Theme} from "../../../models/theme.model";
 import {ThemeService} from "../../../services/theme.service";
@@ -23,6 +23,7 @@ export class EditQuizComponent implements OnInit {
   public questionList : Question[];
   deleteForm : FormGroup;
 
+
   constructor(public formBuilder: FormBuilder,private route: ActivatedRoute,private themeService : ThemeService, private quizService: QuizService , private http: HttpClient, private router : Router, private questionService : QuestionService) {
     this.quizService.quiz$.subscribe((quiz: Quiz) => {
       this.quiz = quiz;
@@ -32,13 +33,15 @@ export class EditQuizComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id)
+    this.quizForm = new FormGroup({
+      name: new FormControl(''),
+      image: new FormControl(''),
+      theme: new FormControl(''),
+    });
     this.themeService.getAllThemes().subscribe((themes) => {
       this.themes = themes;
-    });
-    this.quizForm = this.formBuilder.group({
-      name: [this.quiz.name],
-      image: [this.quiz.image],
-      theme: [this.quiz.theme],
+      console.log(themes);
+      this.quizForm.setValue({theme: themes});
     });
     this.questionService.getQuestionsByQuizzId(this.quiz.id).subscribe((questions) => {
       this.questionList = questions;

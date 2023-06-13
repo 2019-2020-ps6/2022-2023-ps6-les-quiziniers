@@ -12,7 +12,7 @@
     </label>
     <br>
     <br>
-    <button type="submit" class="button-card" (click)="addTheme()">Créer le thème</button>
+    <button type="submit" class="button-card" id="Créer_le_thème"(click)="addTheme()">Créer le thème</button>
   </form>
 
   <form class="deleteform" [formGroup]="deleteForm">
@@ -25,7 +25,7 @@
     </label>
     <br>
     <br>
-    <button type="submit" class="button-card" (click)="deleteTheme()">Supprimer le thème :</button>
+    <button type="submit" class="button-card" data-test-id="supprimer" (click)="deleteTheme()" >Supprimer le thème :</button>
   </form>
 </div>
 <br>

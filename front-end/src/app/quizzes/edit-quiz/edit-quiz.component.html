@@ -6,27 +6,25 @@
   <h2>Modifier le quizz</h2>
   <div>
   <div>
-    <form class="quiz-form" [formGroup]="quizForm">
-    <label for="name">
-    Nouveau titre <br>
-    <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-    </label>
-    <br>
-    <br>
-    <label for="image">
-      Nouvelle image <br>
-      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
-    </label>
+    <form [formGroup]="quizForm">
+
+      <label for="name">Nom du quizz: </label>
+      <input id="name" type="text" formControlName="name">
       <br>
+      <label for="image">Image: </label>
+      <input id="image" type="text" formControlName="image">
       <br>
-      <select [formControlName]="'theme'" id="theme" required>
+      <label for="theme">Thème du quizz </label>
+      <select id="theme" formControlName="theme">
         <option [ngValue]="null" [disabled]="true" >Choisissez un thème</option>
         <option *ngFor="let theme of themes" [value]="theme.id" (click)="setTheme(theme.id, theme.name)">{{theme.name}}</option>
       </select>
+
+
     </form>
     <br>
   </div>
-  <button class="button-card"(click)="updateQuiz()" routerLink="/quiz-list/{{this.quiz.theme}}">Confirmer</button>
+  <button class="button-card"(click)="updateQuiz()" routerLink="/quiz-list/{{this.quiz.theme}}" data-testid = "confirmereditquiz">Confirmer</button>
     <div>
       <form class="delete-form" [formGroup]="deleteForm">
         <select [formControlName]="'id'" id="id">

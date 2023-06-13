@@ -32,6 +32,8 @@ import {ThemeListComponent} from "./quizzes/theme-list/theme-list.component";
 import {ThemeFormComponent} from "./quizzes/theme-form/theme-form.component";
 import {FormsModule} from '@angular/forms';
 import {AnswerListComponent} from "./quizzes/answer-list/answer-list.component";
+import {UserEditComponent} from "./users/user-edit/user-edit.component";
+
 
 
 @NgModule({
@@ -63,6 +65,7 @@ import {AnswerListComponent} from "./quizzes/answer-list/answer-list.component";
     ThemeListComponent,
     ThemeFormComponent,
     AnswerListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
