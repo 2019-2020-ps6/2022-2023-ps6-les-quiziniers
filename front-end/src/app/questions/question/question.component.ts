@@ -404,7 +404,7 @@ export class QuestionComponent implements OnInit {
 
 
   public answerReview(): boolean {
-    if (this.getCorrectAnswersCount() > this.questionCount / 2) {
+    if (this.getCorrectAnswersCount() > this.questionCount / 2 || this.getCorrectAnswersCount() === this.questionCount / 2) {
       return true;
     }
     return false;

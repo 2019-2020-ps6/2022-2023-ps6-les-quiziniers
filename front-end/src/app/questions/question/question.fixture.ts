@@ -73,7 +73,7 @@ export class QuestionFixture {
   }
 
   async verifZoomCount(): Promise<void> {
-    const pZoom = await this.page.$('p[id="review5"]');
+    const pZoom = await this.page.$('.review');
     const textContent = await pZoom.innerText();
     const ZoomCount = textContent.split("\n");
     console.log(ZoomCount);

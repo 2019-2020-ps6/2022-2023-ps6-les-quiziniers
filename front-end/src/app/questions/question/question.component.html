@@ -58,10 +58,10 @@
     <p id="nbrep" [ngStyle]="{'font-size':fontsizeRes}">
       Vous avez répondu correctement à <br>{{getCorrectAnswersCount()}} question(s) sur {{questionList.length}}.
     </p>
-      <p *ngIf="answerReview() && zoomReview()" id="review4">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.<br> Vous avez zoomé seulement {{zoomCount}} fois, c'est bien.</p>
-      <p *ngIf="answerReview() && !zoomReview()" id="review5">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.<br> Vous avez zoomé {{zoomCount}} fois. <br> Appelez un soignant pour mieux configurer votre stade de vision </p>
-      <p *ngIf="!answerReview() && !zoomReview()" id="review2">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
-      <p *ngIf="!answerReview() && zoomReview()" id="review3">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br> Appelez un soignant pour changer de Quiz si celui-ci ne vous plait pas</p>
+      <p *ngIf="answerReview() && zoomReview()" class="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.<br> Vous avez zoomé seulement {{zoomCount}} fois, c'est bien.</p>
+      <p *ngIf="answerReview() && !zoomReview()" class="review">Vous avez répondu juste à plus de la moitié des questions, Bravo continuez ainsi.<br> Vous avez zoomé {{zoomCount}} fois. <br> Appelez un soignant pour mieux configurer votre stade de vision </p>
+      <p *ngIf="!answerReview() && !zoomReview()" class="review">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br>Appelez un soignant pour mieux configurer votre stade de vision</p>
+      <p *ngIf="!answerReview() && zoomReview()" class="review">Vous avez répondu juste à moins de la moitié des questions, c'est un bon début il faut continuer à pratiquer.<br><br> Vous avez zoomé {{ zoomCount }} fois. <br> Appelez un soignant pour changer de Quiz si celui-ci ne vous plait pas</p>
     <button class="button-card" id="restartbutton" (click)="restartQuiz()">
       Recommencer
     </button>
