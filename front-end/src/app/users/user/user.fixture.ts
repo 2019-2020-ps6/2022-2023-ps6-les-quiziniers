@@ -18,7 +18,7 @@ export class UserFixture {
     await expect(user).toHaveCount(nb)
   }
 
-  async clickCreate(value:string): Promise<void> {
+  async  clickCreate(value:string): Promise<void> {
     await this.page.click("[data-testid="+value+"]");
   }
 }
