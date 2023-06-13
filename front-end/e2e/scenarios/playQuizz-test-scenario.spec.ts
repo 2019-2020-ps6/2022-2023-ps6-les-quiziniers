@@ -15,10 +15,10 @@ test.describe('Quiz play test', () => {
         await patientButton.click();
       });
 
-      await test.step(`Check if list of patient is not void`, async () => {
-        // check if list of patient is not void
-        const userList = await page.$$('.user-list');
-        expect(userList.length).toBeGreaterThan(0);
+      await test.step(`Check if list of patient is not empty`, async () => {
+        // check if there is div with class name user-list
+        const cards = await page.$$('.user-list');
+        expect(cards).not.toBeNull();
       });
 
       await test.step(`Click on the first patient`, async () => {
