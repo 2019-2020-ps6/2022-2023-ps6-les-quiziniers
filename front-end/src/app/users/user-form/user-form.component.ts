@@ -44,7 +44,6 @@ export class UserFormComponent implements OnInit {
 
   deleteUser() {
     const user = this.userDeleteForm.value;
-    console.log(user);
     this.userService.deleteUser(user.id);
   }
 

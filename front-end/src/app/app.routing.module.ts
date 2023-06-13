@@ -21,13 +21,13 @@ import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-
 import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
 import {ThemeComponent} from "./quizzes/theme/theme.component";
 import {ThemeFormComponent} from "./quizzes/theme-form/theme-form.component";
+import {UserEditComponent} from "./users/user-edit/user-edit.component";
 
 
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-
-  {path: 'quiz-list/:id', component: QuizListComponent},
+    {path: 'quiz-list/:id', component: QuizListComponent},
     {path: 'quiz-form', component: QuizFormComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'theme-form', component: ThemeFormComponent},
@@ -42,13 +42,14 @@ const routes: Routes = [
     {path: 'stade1/:id', component: Stade1Component},
     {path: 'statistic-list', component: StatisticListComponent},
     {path: 'general-statistic', component: GeneralStatisticComponent},
+    {path: 'user-edit/:id', component: UserEditComponent},
     {path: 'user/:id', component: UserComponent},
     {path: 'user-form', component: UserFormComponent},
     {path: 'home-page/:id', component: HomePageComponent},
     {path: 'change-mdp',component:HomePageChangemdpComponent},
-  { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
-  {path: 'app-quiz-theme', component: QuizThemeComponent},
-  {path: 'app-theme', component: ThemeComponent},
+    { path: '', redirectTo: '/home-page-usertype', pathMatch: 'full' },
+    {path: 'app-quiz-theme', component: QuizThemeComponent},
+    {path: 'app-theme', component: ThemeComponent},
   { path: '**', redirectTo: 'app-quiz-theme' },
 ];
 

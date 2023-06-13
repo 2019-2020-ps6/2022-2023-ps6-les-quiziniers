@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import {FormGroup, FormBuilder, FormArray, Validators, FormControl} from '@angular/forms';
 import {Question} from "../../../models/question.model";
 import {Router} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
@@ -15,16 +15,18 @@ export class HomePageAdminMDPComponent implements OnInit {
 
 
   constructor(public formBuilder: FormBuilder,private Router: Router) {
-    this.mdp = this.formBuilder.group({
-      label: ['', Validators.required],
-    });
   }
 
   ngOnInit(): void {
     if(sessionStorage.getItem("mdp")==null){
       sessionStorage.setItem('mdp',"soi213");
     }
-    throw new Error('Method not implemented.');
+    this.mdp = new FormGroup({
+      label: new FormControl('')
+    })
+    this.mdp.setValue({
+        label:""
+      })
   }
   verifMdp(): void {
     console.log("Bouton cliqué!!")

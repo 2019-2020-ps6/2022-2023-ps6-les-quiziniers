@@ -6,4 +6,5 @@ export class E2EComponentFixture {
   constructor(page: Page) {
     this.page = page;
   }
+
 }
