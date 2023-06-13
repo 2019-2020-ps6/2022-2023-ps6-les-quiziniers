@@ -6,12 +6,6 @@
     "id": 1686036646370
   },
   {
-    "firstName": "zizi",
-    "lastName": "Lannister",
-    "photoUrl": "https://pics.livejournal.com/grrm/pic/000ce2f7/s320x240",
-    "id": 1686036726004
-  },
-  {
     "firstName": "Olenna",
     "lastName": "Tyrell",
     "photoUrl": "https://tvline.com/wp-content/uploads/2020/09/diana-rigg-got.jpg",
@@ -34,11 +28,5 @@
     "lastName": "Dupond",
     "photoUrl": "https://static.independent.co.uk/2022/11/04/12/newFile-4.jpg?quality=50&width=640&auto=webp",
     "id": 1686044461078
-  },
-  {
-    "firstName": "John",
-    "lastName": "Doe",
-    "photoUrl": "imageJohnDoe",
-    "id": 1686575361249
   }
 ]
