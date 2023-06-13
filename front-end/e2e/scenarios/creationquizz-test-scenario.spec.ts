@@ -154,7 +154,7 @@ test.describe('Quiz test', () => {
         const div = page.getByText('Cliquez pour séléctionner : Nouveau nom de test SupprimerModifier');
         await div.getByTestId('deletequizbutton').click();
         await page.goto("http://localhost:4200/app-quiz-theme");
-        await page.click('button:has-text(" Cliquez pour séléctionner : L\'Histoire ")');
+        await page.click('button:has-text(" Cliquez pour séléctionner : Musique ")');
           const isQuizzDeleted = !(await page.$(`button:has-text("${"Cliquez pour séléctionner : Nouveau nom de test"}")`));
         expect(isQuizzDeleted).toBe(true);
     });
