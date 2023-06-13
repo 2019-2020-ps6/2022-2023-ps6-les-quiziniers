@@ -29,14 +29,20 @@ export class HomePageAdminMDPComponent implements OnInit {
       })
   }
   verifMdp(): void {
+    console.log("Bouton cliqué!!")
     const truemdp=sessionStorage.getItem('mdp');
+    console.log(truemdp);
+    console.log(this.mdp.valid);
     if (this.mdp.valid) {
       const motdepasse = this.mdp.getRawValue().label as string;
+      console.log(motdepasse);
       if(motdepasse===truemdp){
         sessionStorage.setItem('admin?',"true");
+        console.log("admin true")
         this.Router.navigate(['/home-page-admin']);
       }
     }
+
   }
 
 
