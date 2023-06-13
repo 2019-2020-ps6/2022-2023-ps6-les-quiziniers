@@ -2,7 +2,7 @@
   <div class="card" [ngStyle]="{'width': width,'margin-left':margin}">
     <h1 class="question-question" id="fontsize" [ngStyle]="{'transform':transform3, 'width':width3, 'margin-top':margintop3,'background-color':background3, 'z-index':zindexQuest, 'font-size':fontsizeQuest}" (mouseenter)="incrementZoomCount(); transform3=transform2; width3=width2; margintop3=margintop2; background3=background2; zindexQuest=zindex2" (mouseleave)="resetTimer();transform3='scale(1) translateX(-50%)'; width3='64%'; margintop3='1%'; background3='unset'; zindexQuest='10'">
 
-      <p id="yo" >
+      <p id="yo" data-testid="questionlabel{{this.indexQuestion}}">
         {{question.label}}
       </p>
     </h1>

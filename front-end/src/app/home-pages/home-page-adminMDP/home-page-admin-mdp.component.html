@@ -3,11 +3,11 @@
   <form class="quiz-form" [formGroup]="mdp">
     <label for="label">
       Mot de passe <br>
-      <input class="input-custom" type="password" id="label" [formControlName]="'label'">
+      <input class="input-custom" type="password" id="label" data-testid="passwordinput" [formControlName]="'label'">
     </label>
     <br>
     <div class="answer" >
-      <button (click)="verifMdp()" class="button-card" >Entrez le mot de passe</button>
+      <button (click)="verifMdp()" class="button-card" data-testid="passwordbutton" >Entrez le mot de passe</button>
     </div>
   </form>
 </div>
