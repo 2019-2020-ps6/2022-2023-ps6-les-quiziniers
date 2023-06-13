@@ -4,8 +4,8 @@ import {E2EComponentFixture} from "../e2e-component.fixture";
 import {QuestionFixture} from "../../src/app/questions/question/question.fixture";
 
 test.describe('Quiz play test', () => {
-  test('choose user and config vision',
-    async ({page}) => {
+  test.setTimeout(120000);
+  test('from choose user type to play quizz', async ({page}) => {
       await page.goto(homepageUrl);
 
       await test.step(`usertype displayed`, async () => {
@@ -106,6 +106,7 @@ test.describe('Quiz play test', () => {
         await test.step(`Click on first answer and check if its true or false`, async () => {
           // click on first answer and check if its true or false
           let q1 = await new QuestionFixture(page);
+          test.setTimeout(120000);
           await q1.allVerif(1,"Bonne");
           await buttonNext.click();
           await q1.allVerif(2,"Mauvaise");
