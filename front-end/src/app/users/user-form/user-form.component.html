@@ -16,7 +16,7 @@
         <input class="input-custom" type="text" id="photoUrl" [formControlName]="'photoUrl'">
       </label>
       <br>
-      <button type="submit" class="button-card" (click)="addUser()" routerLink="/home-page-admin/">Créer</button>
+      <button data-testid="btnCreate" class="button-card" (click)="addUser()" routerLink="/home-page-admin/">Créer</button>
     </form>
 
   <form class="userdeleteform" [formGroup]="userDeleteForm">
@@ -28,7 +28,7 @@
     </select>
     <br>
     <button
-      type="submit" class="button-card" (click)="deleteUser()" routerLink="/home-page-admin/">Supprimer le patient</button>
+       class="button-card" (click)="deleteUser()" routerLink="/home-page-admin/">Supprimer le patient</button>
     </form>
   </div>
 <br>
