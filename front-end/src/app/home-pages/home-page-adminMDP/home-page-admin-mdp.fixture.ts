@@ -7,6 +7,5 @@ export class homePageAdminMDPFixture extends E2EComponentFixture {
     await this.page.click("button[data-test-id=ergotherapeute]");
     await this.page.fill("input[type=password]", "soi213");
     await this.page.click("button[data-testid=passwordbutton]");
-    await this.page.click("button[data-testid=passwordbutton]");
   }
 }
