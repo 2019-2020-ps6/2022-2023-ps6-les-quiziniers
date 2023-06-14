@@ -53,11 +53,13 @@ export class QuizListComponent implements OnInit {
     });
   }
 
-  getQuizzes():void{
-    this.quizList=this.quizListTemp;
-    console.log(this.quizList)
+  getQuizzes(): void {
+    this.quizList = this.quizListTemp;
     const content = this.recherche.getRawValue().motrecherche as string;
-    console.log(content)
-    this.quizList=this.quizList.filter(u=>u.name.includes(content));
+    const searchContent = content.toLowerCase(); // Convertir la recherche en minuscules
+
+    this.quizList = this.quizList.filter((quiz) =>
+      quiz.name.toLowerCase().includes(searchContent)
+    );
   }
 }

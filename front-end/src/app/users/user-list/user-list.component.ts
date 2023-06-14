@@ -34,17 +34,28 @@ export class UserListComponent implements OnInit {
 
   }
 
-  getUsers():void{
-    this.users=this.userTemp;
+  getUsers(): void {
+    this.users = this.userTemp;
     const content = this.recherche.getRawValue().motrecherche as string;
-    if(content.includes(" ")){
-       const firstname=content.split(" ")[0]
-       const lastname = content.split(" ")[1]
-       this.users=this.users.filter(u=>u.firstName.includes(firstname) && u.lastName.includes(lastname));
-    }else{
-      this.users=this.users.filter(u=>u.firstName.includes(content) || u.lastName.includes(content) );
+    const searchContent = content.toLowerCase(); // Convertir la recherche en minuscules
+
+    if (searchContent.includes(" ")) {
+      const firstName = searchContent.split(" ")[0];
+      const lastName = searchContent.split(" ")[1];
+      this.users = this.users.filter(
+        (u) =>
+          u.firstName.toLowerCase().includes(firstName) &&
+          u.lastName.toLowerCase().includes(lastName)
+      );
+    } else {
+      this.users = this.users.filter(
+        (u) =>
+          u.firstName.toLowerCase().includes(searchContent) ||
+          u.lastName.toLowerCase().includes(searchContent)
+      );
     }
   }
+
   deleteUser(user: User): void {
     this.userService.deleteUser(user.id);
   }
