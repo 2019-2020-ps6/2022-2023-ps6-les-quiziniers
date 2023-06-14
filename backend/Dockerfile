@@ -5,6 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN chown -R node:node /app && su node -c "npm install"
+RUN npm ci --omit=dev
 
 USER node
 

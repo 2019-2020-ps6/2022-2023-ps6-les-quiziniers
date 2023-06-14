@@ -8,6 +8,7 @@ import {Theme} from "../../../models/theme.model";
 import {ThemeService} from "../../../services/theme.service";
 import {QuestionService} from "../../../services/question.service";
 import {Question} from "../../../models/question.model";
+import {serverUrl} from "../../../configs/server.config";
 
 
 @Component({
@@ -55,7 +56,7 @@ export class EditQuizComponent implements OnInit {
   updateQuiz(): void {
     // get the quiz from the form and update it with a http put request
     const quiz = this.quizForm.value;
-    this.http.put('http://localhost:9428/api/quizzes/' + this.quiz.id, quiz)
+    this.http.put(serverUrl+'/quizzes/' + this.quiz.id, quiz)
       .subscribe(
         response => {
           console.log('Quiz modifié avec succès.');
