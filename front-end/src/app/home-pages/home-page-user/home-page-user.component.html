@@ -1,3 +1,10 @@
+<form [formGroup]="recherche">
+  <div class="search-bar" id="searchDiv">
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom du patient"[formControlName]="'motrecherche'" >
+    <div></div>
+    <button type="submit" id="search" (click)="getUsers()">Lancer la recherche</button>
+  </div>
+</form>
 <div class="card">
   <h2>Qui êtes-vous ?</h2>
   <div class="user-list" *ngFor="let user of userList">

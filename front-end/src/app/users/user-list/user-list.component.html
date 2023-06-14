@@ -2,7 +2,7 @@
 <app-user-form (usersUpdated)="onUsersUpdated($event)"></app-user-form>
 <form [formGroup]="recherche">
   <div class="search-bar" id="searchDiv">
-    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez un nom de patient"[formControlName]="'motrecherche'" >
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom d'un patient"[formControlName]="'motrecherche'" >
     <div></div>
     <button type="submit" id="search" (click)="getUsers()">Lancer la recherche</button>
   </div>
