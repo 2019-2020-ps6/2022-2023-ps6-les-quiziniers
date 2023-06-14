@@ -34,6 +34,9 @@ export class QuestionFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.addAnswer();
+    this.addAnswer();
+    this.addAnswer();
   }
 
   get answers(): FormArray {
