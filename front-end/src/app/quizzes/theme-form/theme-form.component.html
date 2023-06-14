@@ -1,3 +1,9 @@
+<form [formGroup]="recherche">
+  <div class="search-bar">
+    <input for="motrecherche" type="text" placeholder="Rechercher"[formControlName]="'motrecherche'" >
+    <button type="submit" (click)="getThemes()">Rechercher</button>
+  </div>
+</form>
 <div class="card">
   <h2>Créer un nouveau thème</h2>
   <form class="theme-form" [formGroup]="themeForm">
