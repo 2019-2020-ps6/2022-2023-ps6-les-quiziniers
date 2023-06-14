@@ -4,9 +4,9 @@
       <button type="submit" (click)="getUsers()">Rechercher</button>
     </div>
 </form>
-<app-user-form></app-user-form>
+<app-user-form (usersUpdated)="onUsersUpdated($event)"></app-user-form>
 <div class="user-list">
-    <div class="user" *ngFor="let user of []">
+    <div class="card" *ngFor="let user of users">
         <app-user  [user]="user" (deleteUser)="deleteUser($event)"></app-user>
     </div>
 </div>

@@ -12,29 +12,34 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class UserListComponent implements OnInit {
 
   public recherche:FormGroup;
+  users: User[];
   constructor(private userService: UserService) {
     this.userService.users$.subscribe((users: User[]) => {
-      //this.userList = users;
+      this.users = users;
     });
   }
 
   ngOnInit(): void {
-   // console.log('ON INIT',this.userList)
+    console.log('ON INIT',this.users)
     this.recherche = new FormGroup({
       motrecherche: new FormControl('')
     })
   }
 
+  onUsersUpdated(users: User[]): void {
+    this.users = users;
+  }
+
   getUsers():void{
-    //console.log("IN START",this.userList)
+    console.log("IN START",this.users)
     const content = this.recherche.getRawValue().motrecherche as string;
     if(content.includes(" ")){
        const firstname=content.split(" ")[0]
        const lastname = content.split(" ")[1]
        console.log(firstname,lastname)
-     //  console.log(this.userList)
-       //this.userList=this.userList.filter(u=>u.firstName==firstname && u.lastName==lastname);
-       //console.log(this.userList)
+        console.log(this.users)
+       this.users=this.users.filter(u=>u.firstName==firstname && u.lastName==lastname);
+       console.log(this.users)
     }
   }
   deleteUser(user: User): void {

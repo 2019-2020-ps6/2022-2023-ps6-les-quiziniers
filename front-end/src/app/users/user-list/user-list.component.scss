@@ -1,3 +1,5 @@
+@import '../../../styles/card.scss';
+
 .user-list {
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +27,18 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #45a049;
 }
+.user-list .col-md-4 {
+  width: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .user-list .col-md-4 {
   width: 33.33%;
   padding: 10px;
