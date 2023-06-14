@@ -13,9 +13,11 @@ export class UserListComponent implements OnInit {
 
   public recherche:FormGroup;
   users: User[];
+  userTemp:User[];
   constructor(private userService: UserService) {
     this.userService.users$.subscribe((users: User[]) => {
       this.users = users;
+      this.userTemp=users;
     });
   }
 
@@ -28,18 +30,19 @@ export class UserListComponent implements OnInit {
 
   onUsersUpdated(users: User[]): void {
     this.users = users;
+    this.userTemp=users;
+
   }
 
   getUsers():void{
-    console.log("IN START",this.users)
+    this.users=this.userTemp;
     const content = this.recherche.getRawValue().motrecherche as string;
     if(content.includes(" ")){
        const firstname=content.split(" ")[0]
        const lastname = content.split(" ")[1]
-       console.log(firstname,lastname)
-        console.log(this.users)
-       this.users=this.users.filter(u=>u.firstName==firstname && u.lastName==lastname);
-       console.log(this.users)
+       this.users=this.users.filter(u=>u.firstName.includes(firstname) && u.lastName.includes(lastname));
+    }else{
+      this.users=this.users.filter(u=>u.firstName.includes(content) || u.lastName.includes(content) );
     }
   }
   deleteUser(user: User): void {
