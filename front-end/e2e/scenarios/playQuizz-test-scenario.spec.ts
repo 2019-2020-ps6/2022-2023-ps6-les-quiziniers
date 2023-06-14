@@ -4,14 +4,11 @@ import {E2EComponentFixture} from "../e2e-component.fixture";
 import {QuestionFixture} from "../../src/app/questions/question/question.fixture";
 
 test.describe('Quiz play test', () => {
-  test.setTimeout(120000);
   test('from choose user type to play quizz', async ({page}) => {
       await page.goto(homepageUrl);
-
       await test.step(`usertype displayed`, async () => {
         // check if the page has a div from the class "card" with two buttons
         const patientButton = await page.$('button[data-test-id="patient"]');
-        await patientButton.click();
         await patientButton.click();
       });
 

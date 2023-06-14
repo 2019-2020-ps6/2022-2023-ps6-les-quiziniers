@@ -12,25 +12,23 @@ test.describe('Initial test display', () => {
 
     let user:Locator ;
     await test.step("Verification de l'ajout de l'user ",async () => {
-      await page.goto(testUrl+"/home-page-usertype")
-      await h2.goToAdminPage()
-      await page.goto(testUrl + "/user-list");
+      await page.goto(testUrl+"/home-page-usertype");
+      await h2.goToAdminPage();
+      await e2.clickButton("manageUser");
       await e2.fillForm("firstName", 'John');
       await e2.fillForm("lastName", 'Doe');
       await e2.fillForm("photoUrl", 'imageJohnDoe');
-      await e2.clickCreate("btnCreate");
-      await page.goto(testUrl + "/user-list");
-      await e2.setPage(page)
+      await e2.clickButton("btnCreate");
+      await e2.clickButton("manageUser");
       await e2.verifUser("John","Doe","imageJohnDoe",1);
       await e2.verifUser("John","Da","imageJohnDoe",0);
     });
 
     await test.step("Modification de l'user ",async () => {
-      await page.goto(testUrl + "/user-list");
       await page.getByTestId('bouton John Doe imageJohnDoe').click();
       await e2.fillForm("photoUrl", 'https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg');
-      await e2.clickCreate("btnModif")
-      await page.goto(testUrl + "/user-list")
+      await e2.clickButton("btnModif")
+      await e2.clickButton("manageUser");
       await e2.verifUser("John","Doe","https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg",1)
       await e2.verifUser("John","Doe","imageJohnDoe",0);
     })
@@ -40,7 +38,7 @@ test.describe('Initial test display', () => {
     await test.step("Suppression de l'user crée",async () => {
       await page.selectOption('select[id="id"]', {label: 'John Doe'});
       await page.getByRole('button', {name: 'Supprimer le patient'}).click();
-      await page.goto(testUrl + "/user-list")
+      await e2.clickButton("manageUser");
       await e2.verifUser("John","Doe","https://upload.wikimedia.org/wikipedia/commons/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg",0)
     });
   });
