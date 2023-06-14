@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { UserService } from '../../../services/user.service';
@@ -12,9 +12,9 @@ import { User } from '../../../models/user.model';
 export class UserFormComponent implements OnInit {
 
   public userForm: FormGroup;
-  public user : User;
-  users : User[];
-  userDeleteForm : FormGroup;
+  public user: User;
+  users: User[];
+  userDeleteForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.userForm = this.formBuilder.group({
@@ -23,15 +23,19 @@ export class UserFormComponent implements OnInit {
       photoUrl: [''],
     });
 
+
     this.userDeleteForm = this.formBuilder.group({
       id: [''],
     });
   }
 
+  @Output() usersUpdated: EventEmitter<User[]> = new EventEmitter<User[]>();
+
   ngOnInit(): void {
     // retrieve all users and store them in the users property
     this.userService.retrieveUsers().subscribe((users) => {
       this.users = users;
+      this.usersUpdated.emit(users);
     });
 
   }

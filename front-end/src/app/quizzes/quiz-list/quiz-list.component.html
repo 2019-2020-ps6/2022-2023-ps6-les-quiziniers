@@ -1,9 +1,15 @@
-
+<form [formGroup]="recherche">
+  <div class="search-bar" id="searchDiv">
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom d'un quiz"[formControlName]="'motrecherche'" >
+    <div></div>
+    <button type="submit" id="search" (click)="getQuizzes()">Lancer la recherche</button>
+  </div>
+</form>
 <div class="quiz-list">
     <div class="quiz" *ngFor="let quiz of quizList">
         <!--Inputs & Output allow communication between parent & child components.-->
         <!--More information: https://angular.io/guide/component-interaction-->
-        <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
+        <app-quiz [quiz]="quiz"  (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
     </div>
 </div>
 

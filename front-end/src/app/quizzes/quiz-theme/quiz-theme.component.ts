@@ -3,6 +3,7 @@ import {Theme} from '../../../models/theme.model';
 import {Quiz} from "../../../models/quiz.model";
 import {ThemeService} from "../../../services/theme.service";
 import {HttpClient} from '@angular/common/http';
+import {FormControl, FormGroup} from "@angular/forms";
 
 
 @Component({
@@ -13,6 +14,8 @@ import {HttpClient} from '@angular/common/http';
 export class QuizThemeComponent implements OnInit {
 
   public themeList: Theme[] = [];
+  public themeListTemp:Theme[]=[];
+  public recherche:FormGroup;
 
   constructor(private themeService: ThemeService, private http: HttpClient) {
   }
@@ -21,8 +24,12 @@ export class QuizThemeComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.getAllThemes().subscribe((themes) => {
         this.themeList = themes;
+        this.themeListTemp=themes;
       }
     );
+    this.recherche = new FormGroup({
+      motrecherche: new FormControl('')
+    })
   }
 
   @Input()
@@ -33,6 +40,16 @@ export class QuizThemeComponent implements OnInit {
 
   selectTheme(): void {
     this.themeSelected.emit(true);
+  }
+
+  getThemes(): void {
+    this.themeList = this.themeListTemp;
+    const content = this.recherche.getRawValue().motrecherche as string;
+    const searchContent = content.toLowerCase(); // Convertir la recherche en minuscules
+
+    this.themeList = this.themeList.filter((theme) =>
+      theme.name.toLowerCase().includes(searchContent)
+    );
   }
 
 }

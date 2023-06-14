@@ -14,8 +14,7 @@ test.describe('Quiz test', () => {
     await test.step(`Create quiz`, async () => {
       await page.goto(testUrl + "/home-page-usertype");
       await h2.goToAdminPage();
-      await e2.clickCreate('createquizzbutton');
-      await page.getByTestId('createquizzbutton').click();
+      await e2.clickButton('createquizzbutton');
     });
     await test.step(`Fill the quizz form`, async () => {
         // Créer un nouveau quiz
@@ -43,18 +42,16 @@ test.describe('Quiz test', () => {
           await page.getByTestId('passwordinput').type("soi213");
           await page.getByTestId('passwordbutton').click();
           await page.getByRole('button', {name: 'Gestion des thèmes'}).click();
-          await page.getByRole('button', {name: 'Gestion des thèmes'}).click();
           await page.getByRole('button', {name: 'Cliquez pour séléctionner : Géographie'}).click();
           const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
           await div.getByTestId('editquizbutton').click();
           await page.getByLabel('Intitulé').type("...Quelle est la capitale de la France ?");
           await page.getByTestId('questionformimage').type("https://www.thetrainline.com/cms/media/1360/france-eiffel-tower-paris.jpg?mode=crop&width=1080&height=1080&quality=70");
           await page.getByRole('button', {name: 'Ajouter une réponse'}).click();
-          await page.getByRole('button', {name: 'Ajouter une réponse'}).click();
-          await page.getByRole('button', {name: 'Ajouter une réponse'}).click();
           await page.fill('input[id="answer0"]', 'Paris');
           await page.fill('input[id="answer1"]', 'Lyon');
           await page.fill('input[id="answer2"]', 'Marseille');
+          await page.fill('input[id="answer3"]', 'Toulouse');
           await page.getByRole('checkbox').first().check();
           await page.getByRole('button', {name: 'Créer la question'}).click();
     });
@@ -71,7 +68,6 @@ test.describe('Quiz test', () => {
 
     await test.step(`Edit the quizz`, async () => {
         await page.goto("http://localhost:4200/home-page-admin");
-        await page.getByRole('button', {name: 'Gestion des Quizzs'}).click();
         await page.getByRole('button', {name: 'Gestion des Quizzs'}).click();
         await page.getByRole('button', {name: 'Cliquez pour séléctionner : Géographie'}).click();
         const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
@@ -92,7 +88,6 @@ test.describe('Quiz test', () => {
         await page.goto("http://localhost:4200/home-page-adminmdp");
         await page.getByTestId('passwordinput').type("soi213");
         await page.getByTestId('passwordbutton').click();
-        await page.getByTestId('managequizzbutton').click();
         await page.getByTestId('managequizzbutton').click();
         await page.getByText("Cliquez pour séléctionner : Musique").click();
         // for each divs with class quiz in the page we check if the name of the quiz is the same as the one we want to delete and if it is we click on the delete button

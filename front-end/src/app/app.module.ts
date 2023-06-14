@@ -28,7 +28,6 @@ import {HomePageAdminComponent} from "./home-pages/home-page-admin/home-page-adm
 import {HomePageChangemdpComponent} from "./home-pages/home-page-changemdp/home-page-changemdp.component";
 import {QuizThemeComponent} from './quizzes/quiz-theme/quiz-theme.component';
 import {ThemeComponent} from "./quizzes/theme/theme.component";
-import {ThemeListComponent} from "./quizzes/theme-list/theme-list.component";
 import {ThemeFormComponent} from "./quizzes/theme-form/theme-form.component";
 import {FormsModule} from '@angular/forms';
 import {AnswerListComponent} from "./quizzes/answer-list/answer-list.component";
@@ -62,7 +61,6 @@ import {UserEditComponent} from "./users/user-edit/user-edit.component";
     HomePageChangemdpComponent,
     QuizThemeComponent,
     ThemeComponent,
-    ThemeListComponent,
     ThemeFormComponent,
     AnswerListComponent,
     UserEditComponent

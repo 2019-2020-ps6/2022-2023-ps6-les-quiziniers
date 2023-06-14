@@ -14,7 +14,6 @@ test.describe('theme', () => {
 
       await homePageAdminMDPFixture1.goToAdminPage();
       await themeFixture1.clickButton("Gestion_des_thèmes");
-      await themeFixture1.goToPage("theme-form");
       await themeFixture1.fillForm("name", "Thème Test");
       await themeFixture1.fillForm("image", "https://aides-territoires-prod.s3.fr-par.scw.cloud/aides-territoires-prod/upload/Shutterstock_Lisa_Kolbasa.png");
       await themeFixture1.clickButton("Créer_le_thème");

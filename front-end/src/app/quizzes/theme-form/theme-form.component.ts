@@ -1,12 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Form, FormBuilder, FormGroup} from '@angular/forms';
+import {Form, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import { QuizListComponent } from "../quiz-list/quiz-list.component";
 import { ThemeService } from '../../../services/theme.service';
 import { QuizService } from '../../../services/quiz.service';
-import { Quiz } from '../../../models/quiz.model';
 import {ActivatedRoute, Route, Router, RouterLink} from "@angular/router";
 import {Theme} from "../../../models/theme.model";
-import {ThemeListComponent} from "../theme-list/theme-list.component";
 import {HttpClient} from "@angular/common/http";
 
 
@@ -27,12 +25,16 @@ export class ThemeFormComponent implements OnInit {
    */
   theme: string;
   public themename:string;
-  public themes: Theme[];
+
+  public themes: Theme[]=[];
+  public themesTemp: Theme[];
+  public recherche:FormGroup;
+
   public themeForm: FormGroup;
   public numberValue: number;
-  public themeL:ThemeListComponent;
   deleteForm : FormGroup;
   routerLink: RouterLink;
+
   ngOnInit():void {
     this.themeService.getTheme(this.route.snapshot.paramMap.get("id")).subscribe((theme) => {
       this.themename=theme.name;
@@ -40,6 +42,7 @@ export class ThemeFormComponent implements OnInit {
     // add each theme to the list of themes
     this.themeService.getAllThemes().subscribe((themes) => {
       this.themes = themes;
+      this.themesTemp=themes;
     });
     this.themeForm = this.formBuilder.group({
       name: [''],
@@ -48,6 +51,10 @@ export class ThemeFormComponent implements OnInit {
     this.deleteForm = this.formBuilder.group({
       id: ['']
     });
+
+    this.recherche = new FormGroup({
+      motrecherche: new FormControl('')
+    })
   }
 
   addtheme(): void {
@@ -85,4 +92,14 @@ export class ThemeFormComponent implements OnInit {
       this.router.navigate(['/themes']);
     });
   }
+  getThemes(): void {
+    this.themes = this.themesTemp;
+    const content = this.recherche.getRawValue().motrecherche as string;
+    const searchContent = content.toLowerCase(); // Convertir la recherche en minuscules
+
+    this.themes = this.themes.filter((theme) =>
+      theme.name.toLowerCase().includes(searchContent)
+    );
+  }
+
 }
