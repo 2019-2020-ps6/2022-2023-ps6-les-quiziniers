@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {QuizService} from '../../../services/quiz.service';
 import {Quiz} from '../../../models/quiz.model';
 import {HttpClient} from '@angular/common/http';
+import {serverUrl} from "../../../configs/server.config";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -48,7 +49,7 @@ export class QuizListComponent implements OnInit {
   }
 
   deleteQuiz(quiz: Quiz): void {
-    this.http.delete("http://localhost:9428/api/quizzes/" + quiz.id).subscribe(() => {
+    this.http.delete(serverUrl+"/quizzes/" + quiz.id).subscribe(() => {
       this.quizList = this.quizList.filter(q => q.id != quiz.id);
     });
   }

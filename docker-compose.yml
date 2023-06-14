@@ -1,0 +1,39 @@
+services:
+  backend:
+    container_name: backend
+    image: backend
+    build: ./backend
+    ports:
+      - "8000:9428"
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:9428 || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./front-end
+      args:
+        - API_URL=http://backend:9428
+    ports:
+      - "8080:80"
+    restart: always
+    depends_on:
+      - backend
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:80 || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../../../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import {serverUrl} from "../../../configs/server.config";
 
 @Component({
   selector: 'app-user',
@@ -27,7 +28,7 @@ export class UserComponent implements OnInit {
       this.visibility="hidden";
     }
 
-    this.http.get<User>("http://localhost:9428/api/users/"+this.user.id).subscribe((user) => this.user = user);
+    this.http.get<User>(serverUrl+"/users/"+this.user.id).subscribe((user) => this.user = user);
   }
 
   delete() {
