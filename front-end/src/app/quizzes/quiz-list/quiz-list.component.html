@@ -1,7 +1,8 @@
 <form [formGroup]="recherche">
-  <div class="search-bar">
-    <input for="motrecherche" type="text" placeholder="Rechercher"[formControlName]="'motrecherche'" >
-    <button type="submit" (click)="getQuizzes()">Rechercher</button>
+  <div class="search-bar" id="searchDiv">
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom de quiz"[formControlName]="'motrecherche'" >
+    <div></div>
+    <button type="submit" id="search" (click)="getQuizzes()">Lancer la recherche</button>
   </div>
 </form>
 <div class="quiz-list">

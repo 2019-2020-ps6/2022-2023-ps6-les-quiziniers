@@ -5,17 +5,13 @@
   flex-wrap: wrap;
 }
 
-.search-bar {
-  display: flex;
-  width: 500px;
-}
-input[type="text"] {
+#inputText {
     width: 100%;
     padding: 8px;
     font-size: 16px;
   }
 
-button[type="submit"] {
+#search {
   padding: 8px 12px;
   background-color: #4CAF50;
   color: white;
@@ -24,7 +20,7 @@ button[type="submit"] {
   font-size: 16px;
 }
 
-button[type="submit"]:hover {
+#search:hover {
   background-color: #45a049;
 }
 .user-list .col-md-4 {
@@ -43,6 +39,19 @@ button[type="submit"]:hover {
   width: 33.33%;
   padding: 10px;
   box-sizing: border-box;
+}
+
+#search{
+  width: 40%;
+}
+
+#inputText{
+  width: 50%;
+}
+
+#searchDiv{
+  position: relative;
+  margin: 0 auto;
 }
 
 
