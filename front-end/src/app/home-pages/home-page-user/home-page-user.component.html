@@ -5,11 +5,11 @@
     <button type="submit" id="search" (click)="getUsers()">Lancer la recherche</button>
   </div>
 </form>
-<div class="card">
+<div class="card" data-testid="userlist">
   <h2>Qui êtes-vous ?</h2>
   <div class="user-list" *ngFor="let user of userList">
     <div class="card">
-      <app-user [user]="user" ></app-user>
+      <app-user [user]="user"></app-user>
     </div>
   </div>
 </div>

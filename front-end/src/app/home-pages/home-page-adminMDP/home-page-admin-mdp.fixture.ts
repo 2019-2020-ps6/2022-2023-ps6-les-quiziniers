@@ -7,4 +7,8 @@ export class homePageAdminMDPFixture extends E2EComponentFixture {
     await this.page.fill("input[type=password]", "soi213");
     await this.page.click("button[data-testid=passwordbutton]");
   }
+
+  async goToPatientPage(): Promise<void> {
+    await this.page.click("button[data-test-id=patient]");
+  }
 }
