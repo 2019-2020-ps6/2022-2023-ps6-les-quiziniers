@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="form1">
     <h2>Ajouter un patient</h2>
     <form class="user-form" [formGroup]="userForm">
       <label for="firstName">
@@ -18,11 +18,10 @@
       <br>
       <button data-testid="btnCreate" class="button-card" (click)="addUser()" routerLink="/home-page-admin/">Créer</button>
     </form>
-
+</div>
+  <div class="card" id="form2">
   <form class="userdeleteform" [formGroup]="userDeleteForm">
-    <label for="id">
-      Supprimer un patient <br>
-      </label>
+    <h2 for="id">Supprimer un patient</h2>
     <select  class="input-custom" id="id" [formControlName]="'id'">
       <option *ngFor="let user of users" [value]="user.id">{{user.firstName}} {{user.lastName}}</option>
     </select>

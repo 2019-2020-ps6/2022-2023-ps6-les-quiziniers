@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Theme} from "../../../models/theme.model";
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
+import {serverUrl} from "../../../configs/server.config";
 
 
 @Component({
@@ -48,7 +49,7 @@ export class QuizFormComponent implements OnInit {
 
   addQuiz() {
     const quiz = this.quizForm.value;
-    this.http.post('http://localhost:9428/api/quizzes', quiz)
+    this.http.post(serverUrl+'/quizzes', quiz)
       .subscribe(
         response => {
           console.log('Quiz ajouté avec succès à la base de données.');

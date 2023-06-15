@@ -1,15 +1,18 @@
 import { test, expect } from '@playwright/test';
-import { testUrl, homepageUrl } from 'e2e/e2e.config';
+import { testUrl, homepageUrl, themeUrl } from 'e2e/e2e.config';
 import {E2EComponentFixture} from "../e2e-component.fixture";
 import {QuestionFixture} from "../../src/app/questions/question/question.fixture";
+import {UserFixture} from "../../src/app/users/user/user.fixture";
+import {homePageAdminMDPFixture} from "../../src/app/home-pages/home-page-adminMDP/home-page-admin-mdp.fixture";
 
 test.describe('Quiz play test', () => {
   test('from choose user type to play quizz', async ({page}) => {
+    let q1 = await new QuestionFixture(page);
+    let u1 = await new UserFixture(page);
+    let h1 = await new homePageAdminMDPFixture(page);
       await page.goto(homepageUrl);
-      await test.step(`usertype displayed`, async () => {
-        // check if the page has a div from the class "card" with two buttons
-        const patientButton = await page.$('button[data-test-id="patient"]');
-        await patientButton.click();
+      await test.step(`click patient`, async () => {
+        await h1.goToPatientPage()
       });
 
       await test.step(`Check if list of patient is not empty`, async () => {
@@ -27,26 +30,22 @@ test.describe('Quiz play test', () => {
 
       await test.step(`menu is displayed`, async () => {
         //check if the button "Configuration de la vision" is displayed and click on it
-        const button = await page.$('button[data-testid="vision"]');
-        await button.click();
+        await u1.clickButton("vision");
       });
 
       await test.step(`Click on the button with id stade 1"`, async () => {
         // click on the button with id stade 1"
-        const button = await page.$('a[data-testid="stade2"]');
-        await button.click();
+        await u1.clickButton("stade2");
       });
 
       await test.step(`Click on the button valider"`, async () => {
         // click on the button valider
-        const button = await page.$('a[data-testid="valider"]');
-        await button.click();
+        await u1.clickButton("valider");
       });
 
       await test.step(`Click on the button "Accéder aux quizz"`, async () => {
         // click on the button "Accéder aux quizz"
-        const button = await page.$('button[data-testid="quizz"]');
-        await button.click();
+        await u1.clickButton("quizz");
       });
 
       await test.step(`Check if list of theme is not void`, async () => {
@@ -102,7 +101,6 @@ test.describe('Quiz play test', () => {
 
         await test.step(`Click on first answer and check if its true or false`, async () => {
           // click on first answer and check if its true or false
-          let q1 = await new QuestionFixture(page);
           test.setTimeout(120000);
           await q1.allVerif(1,"Bonne");
           await buttonNext.click();

@@ -5,6 +5,7 @@ import { Quiz } from 'src/models/quiz.model';
 import { Question } from 'src/models/question.model';
 import { HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {serverUrl} from "../../../configs/server.config";
 
 @Component({
   selector: 'app-question-form',
@@ -61,7 +62,7 @@ export class QuestionFormComponent implements OnInit {
       image: this.questionForm.value.image,
       trackSources :  (this.questionForm.value.trackSources) ? this.questionForm.value.trackSources : undefined,
     }
-    let questionUrl = 'http://localhost:9428/api/questions/' + this.quiz.id ;
+    let questionUrl = serverUrl+'/questions/' + this.quiz.id ;
     this.http.post(questionUrl, question)
       .subscribe(
         response => {
@@ -73,7 +74,7 @@ export class QuestionFormComponent implements OnInit {
               question: response['id'].toString(),
               isSelected : false,
             }
-            this.http.post('http://localhost:9428/api/answers', answer)
+            this.http.post(serverUrl+'/answers', answer)
               .subscribe(
                 response => {
                   console.log('Réponse ajoutée avec succès.');
