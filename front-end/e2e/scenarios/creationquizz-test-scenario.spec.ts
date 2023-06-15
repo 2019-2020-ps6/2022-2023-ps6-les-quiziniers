@@ -9,6 +9,7 @@ import {UserFixture} from "../../src/app/users/user/user.fixture";
 const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 test.describe('Quiz test', () => {
   test('Create a quiz, add a question, edit then delete it',async ({page}) => {
+    test.setTimeout(120000);
     let h2 = new homePageAdminMDPFixture(page);
     let e2 = new UserFixture(page);
     await test.step(`Create quiz`, async () => {
@@ -25,7 +26,7 @@ test.describe('Quiz test', () => {
     });
 
     await test.step(`Check if the quizz has been created by the form completion`, async () => {
-        await page.goto("http://localhost:4200/app-quiz-theme");
+        await page.goto("http://localhost:8080/app-quiz-theme");
         await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
         const card = await page.$('div.card:has-text("Mon Quizz de Test")');
         expect(card).not.toBeNull();
@@ -38,7 +39,7 @@ test.describe('Quiz test', () => {
               localStorage.setItem(key, deserializedStorage[key]);
             }
           }, deserializedStorage);
-          await page.goto("http://localhost:4200/home-page-adminmdp");
+          await page.goto("http://localhost:8080/home-page-adminmdp");
           await page.getByTestId('passwordinput').type("soi213");
           await page.getByTestId('passwordbutton').click();
           await page.getByRole('button', {name: 'Gestion des thèmes'}).click();
@@ -56,7 +57,7 @@ test.describe('Quiz test', () => {
           await page.getByRole('button', {name: 'Créer la question'}).click();
     });
     await test.step(`Verify that question has been created`, async () => {
-          await page.goto("http://localhost:4200/app-quiz-theme");
+          await page.goto("http://localhost:8080/app-quiz-theme");
           await page.click('button:has-text(" Cliquez pour séléctionner : Géographie ")');
           await page.click('button:has-text(" Cliquez pour séléctionner : Mon Quizz de Test ")');
           // check if the question card
@@ -67,7 +68,7 @@ test.describe('Quiz test', () => {
     });
 
     await test.step(`Edit the quizz`, async () => {
-        await page.goto("http://localhost:4200/home-page-admin");
+        await page.goto("http://localhost:8080/home-page-admin");
         await page.getByRole('button', {name: 'Gestion des Quizzs'}).click();
         await page.getByRole('button', {name: 'Cliquez pour séléctionner : Géographie'}).click();
         const div = page.getByText('Cliquez pour séléctionner : Mon Quizz de Test SupprimerModifier');
@@ -78,14 +79,14 @@ test.describe('Quiz test', () => {
         await page.getByTestId("confirmereditquiz").click();
     });
     await test.step(`Verify that quizz has been edited`, async () => {
-        await page.goto("http://localhost:4200/app-quiz-theme");
+        await page.goto("http://localhost:8080/app-quiz-theme");
         await page.click('button:has-text(" Cliquez pour séléctionner : Musique ")');
         const card = await page.$('div.card:has-text("Nouveau nom de test")');
         expect(card).not.toBeNull();
     });
 
     await test.step(`Delete the quizz after check`, async () => {
-        await page.goto("http://localhost:4200/home-page-adminmdp");
+        await page.goto("http://localhost:8080/home-page-adminmdp");
         await page.getByTestId('passwordinput').type("soi213");
         await page.getByTestId('passwordbutton').click();
         await page.getByTestId('managequizzbutton').click();
@@ -95,7 +96,7 @@ test.describe('Quiz test', () => {
         await div.getByTestId('deletequizbutton').click();
     });
     await test.step(`Verify that the quizz has been deleted`, async () => {
-        await page.goto("http://localhost:4200/app-quiz-theme");
+        await page.goto("http://localhost:8080/app-quiz-theme");
         await page.click('button:has-text(" Cliquez pour séléctionner : Musique ")');
         const isQuizzDeleted = !(await page.$(`button:has-text("${"Cliquez pour séléctionner : Nouveau nom de test"}")`));
         expect(isQuizzDeleted).toBe(true);

@@ -13,7 +13,7 @@ export class themeFixture extends E2EComponentFixture{
   }
 
   async goToPage(admin: string) {
-    return this.page.goto("http://localhost:4200/"+admin);
+    return this.page.goto("http://localhost:8080/"+admin);
   }
 
 }
