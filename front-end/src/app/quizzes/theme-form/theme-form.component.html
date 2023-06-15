@@ -1,11 +1,4 @@
-<form [formGroup]="recherche">
-  <div class="search-bar" id="searchDiv">
-    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom d'un théme "[formControlName]="'motrecherche'" >
-    <div></div>
-    <button type="submit" id="search" (click)="getThemes()">Rechercher</button>
-  </div>
-</form>
-<div class="card">
+<div class="card" id="form1">
   <h2>Créer un nouveau thème</h2>
   <form class="theme-form" [formGroup]="themeForm">
     <label for="name">
@@ -21,7 +14,8 @@
     <br>
     <button type="submit" class="button-card" id="Créer_le_thème"(click)="addTheme()">Créer le thème</button>
   </form>
-
+</div>
+  <div class="card" id="form2">
   <form class="deleteform" [formGroup]="deleteForm">
     <label for="id">
       <h2>Supprimer un thème </h2>
@@ -34,7 +28,14 @@
     <br>
     <button type="submit" class="button-card" data-test-id="supprimer" (click)="deleteTheme()" >Supprimer le thème</button>
   </form>
-</div>
+  </div>
+<form [formGroup]="recherche">
+  <div class="search-bar" id="searchDiv">
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom d'un théme "[formControlName]="'motrecherche'" >
+    <div></div>
+    <button type="submit" id="search" (click)="getThemes()">Rechercher</button>
+  </div>
+</form>
 <br>
 <div class="card" *ngFor="let theme of themes">
   <div class="theme-list">

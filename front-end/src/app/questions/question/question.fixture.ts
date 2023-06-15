@@ -9,9 +9,9 @@ export class QuestionFixture {
 
 
   async allVerif(i: number, value: string): Promise<void> {
-    await this.verifAnswer(value);
     await this.verifQuestionCount(i);
     await this.verifZoom();
+    await this.verifAnswer(value);
   }
 
   async verifAnswer(value: string): Promise<void> {
@@ -39,11 +39,25 @@ export class QuestionFixture {
   }
 
   async verifZoom(): Promise<void> {
-    // click on the zoom button
-    const buttonSwitchOn = await this.page.$('button[id="switch"]');
-    await buttonSwitchOn.click();
     const imageElement = await this.page.$('.questionImage');
     expect(imageElement).not.toBeNull();
+
+    //check if image is zoomable when zoom button is switched off
+    console.log(imageElement);
+    const transformBeforeSwitchButton = await imageElement.getAttribute('style');
+    console.log(transformBeforeSwitchButton);
+    const matchResult4 = transformBeforeSwitchButton.match(/scale\((\d+)\)/);
+    console.log(matchResult4);
+    const scaleValueBeforeSwitchButton = matchResult4 ? matchResult4[1] : null;
+    expect(scaleValueBeforeSwitchButton).not.toBeNull();
+    expect(scaleValueBeforeSwitchButton).toBe('1');
+    await imageElement.dispatchEvent('mouseleave');
+
+    // click on the zoom button to switch it on
+    const buttonSwitchOn = await this.page.$('button[id="switch"]');
+    await buttonSwitchOn.click();
+
+    //check if image is zoomable when zoom button is switched on but mouse is not on the image
     const transform = await imageElement.getAttribute('style');
     //recuperer la valeur dans le scale de transform avec un regex
     const matchResult = transform.match(/scale\((\d+)\)/);
@@ -51,6 +65,8 @@ export class QuestionFixture {
     const scaleValueBeforeEnter = matchResult ? matchResult[1] : null;
     expect(scaleValueBeforeEnter).not.toBeNull();
     expect(scaleValueBeforeEnter).toBe('1');
+
+    //check if image is zoomable when zoom button is switched on and mouse is on the image
     await imageElement.dispatchEvent('mouseenter');
     const transformAfterEnter = await imageElement.getAttribute('style');
     const matchResult2 = transformAfterEnter.match(/scale\((\d+)\)/);
@@ -58,16 +74,20 @@ export class QuestionFixture {
     const scaleValueAfterEnter = matchResult2 ? matchResult2[1] : null;
     expect(scaleValueAfterEnter).not.toBeNull();
     expect(scaleValueAfterEnter).toBe('2');
+
     //wait 1500ms to add 1 to zoomCount
     await this.page.waitForTimeout(1500);
     await imageElement.dispatchEvent('mouseleave');
+
+    //check if image is zoomable when zoom button is switched on but mouse is not on the image
     const transformAfterLeave = await imageElement.getAttribute('style');
     const matchResult3 = transformAfterLeave.match(/scale\((\d+)\)/);
     console.log(matchResult3[1]);
     const scaleValueAfterLeave = matchResult3 ? matchResult3[1] : null;
     expect(scaleValueAfterLeave).not.toBeNull();
     expect(scaleValueAfterLeave).toBe('1');
-    // click on the zoom button
+
+    // click on the zoom button to switch it off
     const buttonSwitchOff = await this.page.$('button[id="switch"]');
     await buttonSwitchOff.click();
   }
