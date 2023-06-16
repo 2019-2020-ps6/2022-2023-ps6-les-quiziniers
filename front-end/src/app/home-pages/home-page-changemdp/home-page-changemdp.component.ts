@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import {FormGroup, FormBuilder, FormArray, Validators, FormControl} from '@angular/forms';
 import {Question} from "../../../models/question.model";
 import {Router} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
@@ -11,22 +11,32 @@ import {Quiz} from "../../../models/quiz.model";
   styleUrls: ['./home-page-changemdp.component.scss']
 })
 export class HomePageChangemdpComponent implements OnInit {
-  mdp: any;
+  mdpForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder,private Router: Router) {
-    this.mdp = this.formBuilder.group({
-      label: ['', Validators.required],
-      confirm:['', Validators.required]
-    });
+    this.mdpForm = new FormGroup({
+      label: new FormControl(''),
+      confirm:new FormControl('')
+
+    })
+
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.mdpForm = new FormGroup({
+      label: new FormControl(''),
+      confirm:new FormControl('')
+
+    })
+    this.mdpForm.setValue({
+      label:"",
+      confirm:""
+    })
   }
   confirmMdp(): void {
-    if (this.mdp.valid) {
-      const motdepasse = this.mdp.getRawValue().label as string;
-      const confirm = this.mdp.getRawValue().confirm as string;
+    if (this.mdpForm.valid) {
+      const motdepasse = this.mdpForm.getRawValue().label as string;
+      const confirm = this.mdpForm.getRawValue().confirm as string;
       if(motdepasse===confirm){
         const data = motdepasse
         sessionStorage.setItem('mdp',data);
