@@ -20,7 +20,8 @@
 ### Si le front-end ne répond pas, le container sera relancé.
 ### Il vérifie toutes les 30 secondes en se connectant à l'adresse http://localhost:8080.
 ### Ce qui lui permet de notifier de l'état du front-end.
-
+#### Exemple de réponse du healthcheck :
+#### ops-frontend-1  | 127.0.0.1 - - [16/Jun/2023:13:31:57 +0000] "GET / HTTP/1.1" 200 772 "-" "curl/7.74.0" "-"
 ## Healthcheck back-end :
 
 ```docker
@@ -35,6 +36,8 @@
 ### Si le back-end ne répond pas, le container sera relancé.
 ### Il vérifie toutes les 30 secondes en se connectant à l'adresse http://localhost:9428.
 ### Ce qui lui permet de notifier de l'état du back-end.
+#### Exemple de réponse du healthcheck :
+#### ops-backend-1   | [2023-06-16T13:31:56.304Z] GET /api/status 200 0.479 ms - 4
 
 # Explications du dossier ops : 
 
