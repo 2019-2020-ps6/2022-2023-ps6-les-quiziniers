@@ -184,7 +184,7 @@ volumes:
 ## Statut du livrable :
 
 ### Le livrable est fonctionnel et répond aux exigences du projet.
-
+### Le mot de passe administrateur est : soi213
 ## Proxy (pas réalisé) :
 
 ### Nous avons essayé de mettre en place un proxy avec nginx mais nous n'avons pas réussi à le faire fonctionner.

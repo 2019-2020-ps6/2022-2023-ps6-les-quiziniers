@@ -1,12 +1,12 @@
 <form [formGroup]="recherche">
   <div class="search-bar" id="searchDiv">
-    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrivez le nom du patient"[formControlName]="'motrecherche'" >
+    <input for="motrecherche" type="text" id="inputText" placeholder="Ecrire le nom d'un patient"[formControlName]="'motrecherche'" >
     <div></div>
     <button type="submit" id="search" (click)="getUsers()">Lancer la recherche</button>
   </div>
 </form>
 <div class="card" data-testid="userlist">
-  <h2>Qui êtes-vous ?</h2>
+  <h2>Quel patient utilise le PolyQuizz ?</h2>
   <div class="user-list" *ngFor="let user of userList">
     <div class="card">
       <app-user [user]="user"></app-user>
